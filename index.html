@@ -4,17 +4,17 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>joindiscord.me - Fun Discord Communities</title>
-  <meta name="description" content="Join fun Discord communities on joindiscord.me for 24/7 live, variety streams, and vibrant vibes. Connect now!">
-  <meta name="keywords" content="joindiscord.me, Discord, live, variety streams, community, xwlasxd, HeavySamLifts, ShadyPeterLive, ramkrishanghoil, zxckjsdv, brbcompiling, ogvkorg, TrevorMarksman, ValentineCoolio, LegacyMartian, MovieByMacaffe, BizaroPeter, GynaWENS, ggqporg, xvbrznem">
+  <meta name="description" content="Join fun Discord communities on joindiscord.me for 24/7 gaming, variety streams, and vibrant vibes. Connect now!">
+  <meta name="keywords" content="joindiscord.me, Discord, gaming, variety streams, community, xwlasxd, HeavySamLifts, ShadyPeterLive, ramkrishanghoil, zxckjsdv, brbcompiling, ogvkorg, TrevorMarksman, ValentineCoolio, LegacyMartian, MovieByMacaffe, BizaroPeter, GynaWENS, ggqporg, xvbrznem">
   <meta name="author" content="joindiscord.me">
   <meta property="og:title" content="joindiscord.me - Fun Discord Communities">
-  <meta property="og:description" content="Dive into fun Discord communities on joindiscord.me for non-stop live, variety streams, and vibrant fun. Join today!">
+  <meta property="og:description" content="Dive into fun Discord communities on joindiscord.me for non-stop gaming, variety streams, and vibrant fun. Join today!">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://joindiscord.me">
   <meta property="og:image" content="https://i.postimg.cc/m2KQ0GDv/OGVK-ORG-LOGO-FINAL.png">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="joindiscord.me - Fun Discord Communities">
-  <meta name="twitter:description" content="Join fun Discord communities on joindiscord.me for live and community vibes. Connect now!">
+  <meta name="twitter:description" content="Join fun Discord communities on joindiscord.me for gaming and community vibes. Connect now!">
   <meta name="twitter:image" content="https://i.postimg.cc/m2KQ0GDv/OGVK-ORG-LOGO-FINAL.png">
   <link rel="canonical" href="https://joindiscord.me">
   <link rel="icon" type="image/png" href="https://i.postimg.cc/m2KQ0GDv/OGVK-ORG-LOGO-FINAL.png">
@@ -30,12 +30,16 @@
       --button-hover: #4752c4;
       --streamer-button: #ff007b;
       --streamer-button-hover: #cc0062;
-      --live-badge: #9146ff;
-      --live-badge-hover: #7a3ed6;
+      --live-badge: #ff0000;
+      --live-badge-hover: #cc0000;
+      --calendar-button: #4caf50;
+      --calendar-button-hover: #388e3c;
       --x-color: #000000;
       --reddit-color: #ff4500;
       --telegram-color: #0088cc;
-      --glass-bg: rgba(30, 30, 46, 0.85); /* Less transparent for better readability */
+      --discord-color: #5865f2;
+      --twitch-color: #9146ff;
+      --glass-bg: rgba(30, 30, 46, 0.85);
       --glass-border: rgba(255, 255, 255, 0.2);
       --shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
       --glow: 0 0 12px rgba(88, 101, 242, 0.6);
@@ -60,9 +64,9 @@
       overflow-x: hidden;
     }
 
-    a { color: var(--button); text-decoration: none; }
+    a { color: var(--text); text-decoration: none; }
     a:hover { text-decoration: none; }
-    h1, h2 { font-weight: 700; text-align: center; }
+    h1, h2, h3 { font-weight: 700; text-align: center; }
 
     .container {
       max-width: 900px;
@@ -100,7 +104,7 @@
     .streamer-select {
       margin-bottom: 24px;
       width: 100%;
-      max-width: 450px; /* Wider dropdown */
+      max-width: 450px;
     }
 
     .dropdown {
@@ -110,12 +114,12 @@
 
     .dropdown__face {
       background: var(--glass-bg);
-      padding: 1.2rem 1.8rem; /* More padding */
+      padding: 1.2rem 1.8rem;
       border-radius: 16px;
       border: 1px solid var(--glass-border);
       color: var(--text);
-      font-size: clamp(1.1rem, 3vw, 1.3rem); /* Larger font */
-      font-weight: 700; /* Bolder text */
+      font-size: clamp(1.1rem, 3vw, 1.3rem);
+      font-weight: 700;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -123,7 +127,7 @@
       transition: all 0.3s ease;
       backdrop-filter: blur(12px);
       box-shadow: var(--shadow);
-      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3); /* Subtle text shadow for readability */
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
     }
 
     .dropdown__face:hover, .dropdown__face:focus {
@@ -149,7 +153,7 @@
       z-index: 150;
       background: var(--glass-bg);
       backdrop-filter: blur(15px);
-      padding: 1rem; /* More padding */
+      padding: 1rem;
       border-radius: 16px;
       border: 1px solid var(--glass-border);
       animation: slideDown 0.3s ease-in-out;
@@ -186,27 +190,56 @@
     }
 
     .dropdown__items li {
-      padding: 0.9rem 1.2rem; /* More padding */
+      padding: 0.9rem 1.2rem;
       cursor: pointer;
       transition: all 0.3s ease;
       border-radius: 12px;
-      font-size: clamp(1rem, 2.5vw, 1.1rem); /* Larger font */
-      font-weight: 600; /* Bolder text */
+      font-size: clamp(1rem, 2.5vw, 1.1rem);
+      font-weight: 600;
       color: var(--text);
-      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3); /* Subtle text shadow */
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
     }
 
     .dropdown__items li:hover, .dropdown__items li:focus {
       background: var(--button-hover);
       color: var(--text);
       box-shadow: var(--glow);
-      transform: translateX(4px); /* Subtle shift on hover */
+      transform: translateX(4px);
+    }
+
+    .dropdown__items li.live-now {
+      background: var(--live-badge);
+      color: var(--text);
+      font-weight: 700;
+      position: relative;
+    }
+
+    .dropdown__items li.live-now:hover, .dropdown__items li.live-now:focus {
+      background: var(--live-badge-hover);
+    }
+
+    .dropdown__items li.live-now::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 8px;
+      transform: translateY(-50%);
+      width: 8px;
+      height: 8px;
+      background: var(--text);
+      border-radius: 50%;
+      animation: flash 1.5s infinite ease-in-out;
+    }
+
+    @keyframes flash {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
     }
 
     .dropdown__arrow {
       border-bottom: 2px solid var(--text);
       border-right: 2px solid var(--text);
-      width: 0.8rem; /* Slightly larger arrow */
+      width: 0.8rem;
       height: 0.8rem;
       transform: rotate(45deg);
       transition: transform 0.3s ease;
@@ -214,6 +247,65 @@
 
     .dropdown__face.active .dropdown__arrow {
       transform: rotate(-135deg);
+    }
+
+    .status-container {
+      margin-bottom: 16px;
+      text-align: center;
+      width: 100%;
+      max-width: 600px;
+    }
+
+    .live-badge {
+      background: var(--live-badge);
+      color: var(--text);
+      padding: 8px 16px;
+      border-radius: 10px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      display: none;
+      transition: all 0.3s ease;
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .live-badge.active {
+      display: inline-block;
+    }
+
+    .live-badge:hover {
+      background: var(--live-badge-hover);
+      transform: translateY(-2px);
+    }
+
+    .live-badge::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 8px;
+      transform: translateY(-50%);
+      width: 8px;
+      height: 8px;
+      background: var(--text);
+      border-radius: 50%;
+      animation: flash 1.5s infinite ease-in-out;
+    }
+
+    .schedule-info {
+      background: var(--glass-bg);
+      color: var(--text-muted);
+      padding: 8px 16px;
+      border-radius: 10px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      display: none;
+      transition: all 0.3s ease;
+      box-shadow: var(--shadow);
+    }
+
+    .schedule-info.active {
+      display: inline-block;
     }
 
     .profile {
@@ -228,7 +320,6 @@
       width: 100%;
       transition: transform 0.4s ease;
       border: 1px solid var(--glass-border);
-      position: relative;
     }
 
     .profile:hover {
@@ -261,30 +352,6 @@
       text-align: center;
       margin-bottom: 20px;
       max-width: 500px;
-    }
-
-    .live-badge {
-      position: absolute;
-      top: 16px;
-      right: 16px;
-      background: var(--live-badge);
-      color: var(--text);
-      padding: 8px 16px;
-      border-radius: 10px;
-      font-size: 0.9rem;
-      font-weight: 600;
-      display: none;
-      transition: all 0.3s ease;
-      box-shadow: var(--shadow);
-    }
-
-    .live-badge.active {
-      display: block;
-    }
-
-    .live-badge:hover {
-      background: var(--live-badge-hover);
-      transform: translateY(-2px);
     }
 
     .join-button {
@@ -343,6 +410,55 @@
     .social-button.reddit:hover { background: #e03d00; }
     .social-button.telegram { background: var(--telegram-color); }
     .social-button.telegram:hover { background: #006699; }
+    .social-button.twitch { background: var(--twitch-color); }
+    .social-button.twitch:hover { background: #7a3ed6; }
+
+    .next-streamer-container {
+      margin-top: 24px;
+      text-align: center;
+      background: var(--glass-bg);
+      backdrop-filter: blur(12px);
+      padding: 20px;
+      border-radius: 16px;
+      border: 1px solid var(--glass-border);
+      width: 100%;
+      max-width: 600px;
+    }
+
+    .next-streamer-container h3 {
+      font-size: 1.5rem;
+      color: var(--text);
+      margin-bottom: 12px;
+      text-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+    }
+
+    .next-streamer-container p {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+    }
+
+    .calendar-button {
+      background: var(--calendar-button);
+      border-radius: 12px;
+      padding: 12px 24px;
+      color: var(--text);
+      font-size: 1rem;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(10px);
+      border: 1px solid var(--glass-border);
+      box-shadow: var(--shadow);
+    }
+
+    .calendar-button:hover {
+      background: var(--calendar-button-hover);
+      transform: translateY(-4px);
+      box-shadow: var(--glow);
+    }
 
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(20px); }
@@ -368,6 +484,11 @@
       .profile p { font-size: 1.05rem; }
       .join-button { padding: 12px 32px; font-size: 1rem; }
       .social-button { padding: 10px; font-size: 1.2rem; }
+      .live-badge, .schedule-info { font-size: 0.85rem; padding: 6px 12px; }
+      .next-streamer-container { padding: 16px; }
+      .next-streamer-container h3 { font-size: 1.3rem; }
+      .next-streamer-container p { font-size: 1rem; }
+      .calendar-button { padding: 10px 20px; font-size: 0.9rem; }
     }
 
     @media (max-width: 480px) {
@@ -378,9 +499,14 @@
       .profile { padding: 20px; }
       .profile img { width: 160px; height: 160px; }
       .profile h2 { font-size: 1.7rem; }
+      .profile p { font-size: 0.95rem; }
       .join-button { padding: 10px 28px; font-size: 0.95rem; }
       .social-container { gap: 10px; }
-      .live-badge { font-size: 0.8rem; padding: 6px 12px; }
+      .live-badge, .schedule-info { font-size: 0.8rem; padding: 6px 10px; }
+      .next-streamer-container { padding: 12px; }
+      .next-streamer-container h3 { font-size: 1.2rem; }
+      .next-streamer-container p { font-size: 0.9rem; }
+      .calendar-button { padding: 8px 16px; font-size: 0.85rem; }
     }
   </style>
 </head>
@@ -388,7 +514,7 @@
   <div class="container">
     <div class="intro">
       <h1>joindiscord.me</h1>
-      <p>Explore fun Discord communities for live and vibes!</p>
+      <p>Explore fun Discord communities for gaming and vibes!</p>
     </div>
     <div class="streamer-select">
       <div class="dropdown" role="combobox" aria-expanded="false">
@@ -401,17 +527,26 @@
         </ul>
       </div>
     </div>
+    <div class="status-container">
+      <a class="live-badge" id="live-badge" href="#" target="_blank">Live on Twitch!</a>
+      <div class="schedule-info" id="schedule-info">Next stream in: TBD</div>
+    </div>
     <div class="profile" id="profile">
-      <div class="live-badge" id="live-badge">Live on Twitch!</div>
       <img src="https://i.postimg.cc/m2KQ0GDv/OGVK-ORG-LOGO-FINAL.png" alt="ogvkorg logo" loading="lazy">
       <h2>ogvkorg</h2>
-      <p>Join ogvkorg for epic live sessions, variety streams, and a vibrant community!</p>
+      <p>Join ogvkorg for epic gaming sessions, variety streams, and a vibrant community!</p>
       <a class="join-button" href="https://joindiscord.me"><i class="fab fa-discord"></i> Join ogvkorg Discord</a>
       <div class="social-container">
         <a href="https://x.com/ogvkorg" class="social-button x" aria-label="Follow ogvkorg on X"><i class="fab fa-x-twitter"></i></a>
         <a href="https://reddit.com/r/ogvkorg" class="social-button reddit" aria-label="Follow ogvkorg on Reddit"><i class="fab fa-reddit"></i></a>
         <a href="https://t.me/ogvkorg" class="social-button telegram" aria-label="Follow ogvkorg on Telegram"><i class="fab fa-telegram"></i></a>
+        <a href="https://twitch.tv/ogvkorg/videos" class="social-button twitch" aria-label="Watch ogvkorg VODs"><i class="fab fa-twitch"></i></a>
       </div>
+    </div>
+    <div class="next-streamer-container" id="next-streamer">
+      <h3>Upcoming Stream</h3>
+      <p id="next-streamer-text">The next stream will be live with TBD on TBD at TBD NZST</p>
+      <a class="calendar-button" id="calendar-button" href="#" download><i class="fas fa-calendar-plus"></i> Add to Calendar</a>
     </div>
   </div>
   <script>
@@ -421,6 +556,8 @@
         name: 'xwlasxd',
         avatar: 'https://i.postimg.cc/F1k6Lykq/xwlasxd-logo.png',
         discord: 'https://joindiscord.me',
+        twitch: 'https://twitch.tv/xwlasxd',
+        vods: 'https://twitch.tv/xwlasxd/videos',
         social: {
           x: 'https://x.com/xwlasxd',
           reddit: 'https://reddit.com/r/xwlasxd',
@@ -435,6 +572,8 @@
         name: 'HeavySamLifts',
         avatar: 'https://i.postimg.cc/MMNrLTNd/HSL-logo.png',
         discord: 'https://joindiscord.me',
+        twitch: 'https://twitch.tv/HeavySamLifts',
+        vods: 'https://twitch.tv/HeavySamLifts/videos',
         social: {
           x: 'https://x.com/HeavySamLifts',
           reddit: 'https://reddit.com/r/HeavySamLifts',
@@ -449,6 +588,8 @@
         name: 'ShadyPeterLive',
         avatar: 'https://i.postimg.cc/2V4XHCw7/shady-peter-live-profile-3k.png',
         discord: 'https://joindiscord.me',
+        twitch: 'https://twitch.tv/ShadyPeterLive',
+        vods: 'https://twitch.tv/ShadyPeterLive/videos',
         social: {
           x: 'https://x.com/ShadyPeterLive',
           reddit: 'https://reddit.com/r/ShadyPeterLive',
@@ -463,6 +604,8 @@
         name: 'ramkrishanghoil',
         avatar: 'https://i.postimg.cc/3kTz7kRq/rkg-logo.png',
         discord: 'https://joindiscord.me',
+        twitch: 'https://twitch.tv/ramkrishanghoil',
+        vods: 'https://twitch.tv/ramkrishanghoil/videos',
         social: {
           x: 'https://x.com/ramkrishanghoil',
           reddit: 'https://reddit.com/r/ramkrishanghoil',
@@ -477,6 +620,8 @@
         name: 'zxckjsdv',
         avatar: 'https://i.postimg.cc/0QqJjT1F/zxckjsdv-profile.png',
         discord: 'https://joindiscord.me',
+        twitch: 'https://twitch.tv/zxckjsdv',
+        vods: 'https://twitch.tv/zxckjsdv/videos',
         social: {
           x: 'https://x.com/zxckjsdv',
           reddit: 'https://reddit.com/r/zxckjsdv',
@@ -491,6 +636,8 @@
         name: 'brbcompiling',
         avatar: 'https://i.postimg.cc/LXhwKQ7N/brbcompiling-profile.png',
         discord: 'https://joindiscord.me',
+        twitch: 'https://twitch.tv/brbcompiling',
+        vods: 'https://twitch.tv/brbcompiling/videos',
         social: {
           x: 'https://x.com/brbcompiling',
           reddit: 'https://reddit.com/r/brbcompiling',
@@ -505,6 +652,8 @@
         name: 'ogvkorg',
         avatar: 'https://i.postimg.cc/m2KQ0GDv/OGVK-ORG-LOGO-FINAL.png',
         discord: 'https://joindiscord.me',
+        twitch: 'https://twitch.tv/ogvkorg',
+        vods: 'https://twitch.tv/ogvkorg/videos',
         social: {
           x: 'https://x.com/ogvkorg',
           reddit: 'https://reddit.com/r/ogvkorg',
@@ -519,6 +668,8 @@
         name: 'TrevorMarksman',
         avatar: 'https://i.postimg.cc/ZRpYD5yd/random-easy-logo.png',
         discord: 'https://joindiscord.me',
+        twitch: 'https://twitch.tv/TrevorMarksman',
+        vods: 'https://twitch.tv/TrevorMarksman/videos',
         social: {
           x: 'https://x.com/TrevorMarksman',
           reddit: 'https://reddit.com/r/TrevorMarksman',
@@ -533,6 +684,8 @@
         name: 'ValentineCoolio',
         avatar: 'https://i.postimg.cc/P57tXwWD/coolio-kick.png',
         discord: 'https://joindiscord.me',
+        twitch: 'https://twitch.tv/ValentineCoolio',
+        vods: 'https://twitch.tv/ValentineCoolio/videos',
         social: {
           x: 'https://x.com/ValentineCoolio',
           reddit: 'https://reddit.com/r/ValentineCoolio',
@@ -547,6 +700,8 @@
         name: 'LegacyMartian',
         avatar: 'https://i.postimg.cc/PLfcp01z/legacy-martian-logo.png',
         discord: 'https://joindiscord.me',
+        twitch: 'https://twitch.tv/LegacyMartian',
+        vods: 'https://twitch.tv/LegacyMartian/videos',
         social: {
           x: 'https://x.com/LegacyMartian',
           reddit: 'https://reddit.com/r/LegacyMartian',
@@ -561,6 +716,8 @@
         name: 'MovieByMacaffe',
         avatar: 'https://i.postimg.cc/hjLg1ZH8/macaffe-best-logo.png',
         discord: 'https://joindiscord.me',
+        twitch: 'https://twitch.tv/MovieByMacaffe',
+        vods: 'https://twitch.tv/MovieByMacaffe/videos',
         social: {
           x: 'https://x.com/MovieByMacaffe',
           reddit: 'https://reddit.com/r/MovieByMacaffe',
@@ -575,6 +732,8 @@
         name: 'BizaroPeter',
         avatar: 'https://i.postimg.cc/9XsKQYKC/bizaropeter-profile.png',
         discord: 'https://joindiscord.me',
+        twitch: 'https://twitch.tv/BizaroPeter',
+        vods: 'https://twitch.tv/BizaroPeter/videos',
         social: {
           x: 'https://x.com/BizaroPeter',
           reddit: 'https://reddit.com/r/BizaroPeter',
@@ -589,6 +748,8 @@
         name: 'GynaWENS',
         avatar: 'https://i.postimg.cc/k5jh3QWr/wens-logo.png',
         discord: 'https://joindiscord.me',
+        twitch: 'https://twitch.tv/GynaWENS',
+        vods: 'https://twitch.tv/GynaWENS/videos',
         social: {
           x: 'https://x.com/GynaWENS',
           reddit: 'https://reddit.com/r/GynaWENS',
@@ -603,6 +764,8 @@
         name: 'ggqporg',
         avatar: 'https://i.postimg.cc/pVzjDw2v/GGQP-ORG-LOGO-png.png',
         discord: 'https://joindiscord.me',
+        twitch: 'https://twitch.tv/ggqporg',
+        vods: 'https://twitch.tv/ggqporg/videos',
         social: {
           x: 'https://x.com/ggqporg',
           reddit: 'https://reddit.com/r/ggqporg',
@@ -617,6 +780,8 @@
         name: 'xvbrznem',
         avatar: 'https://i.postimg.cc/HcVh35Zr/xvbrznem-logo.jpg',
         discord: 'https://joindiscord.me',
+        twitch: 'https://twitch.tv/xvbrznem',
+        vods: 'https://twitch.tv/xvbrznem/videos',
         social: {
           x: 'https://x.com/xvbrznem',
           reddit: 'https://reddit.com/r/xvbrznem',
@@ -639,21 +804,88 @@
       const joinButton = profile.querySelector('.join-button');
       const socialContainer = profile.querySelector('.social-container');
       const liveBadge = document.getElementById('live-badge');
+      const scheduleInfo = document.getElementById('schedule-info');
+      const nextStreamerText = document.getElementById('next-streamer-text');
+      const calendarButton = document.getElementById('calendar-button');
       const dropdown = document.querySelector('.dropdown');
 
       function getNzTime(date) {
         return new Date(date.toLocaleString("en-US", { timeZone: "Pacific/Auckland" }));
       }
 
-      function isStreamingDay(streamer) {
-        const nzTime = getNzTime(new Date());
-        return streamer.streamingDays.includes(nzTime.getDay());
+      function isStreamingDay(streamer, date) {
+        return streamer.streamingDays.includes(date.getDay());
       }
 
       function isStreamerLive(streamer) {
         const nzTime = getNzTime(new Date());
         const currentHour = nzTime.getHours();
-        return isStreamingDay(streamer) && currentHour >= streamer.startHour && currentHour < streamer.endHour;
+        return isStreamingDay(streamer, nzTime) && currentHour >= streamer.startHour && currentHour < streamer.endHour;
+      }
+
+      function getTimeLeft(streamer) {
+        const nzTime = getNzTime(new Date());
+        const currentHour = nzTime.getHours();
+        const currentMinute = nzTime.getMinutes();
+        const endTime = streamer.endHour;
+        const hoursLeft = endTime - currentHour - 1;
+        const minutesLeft = 60 - currentMinute;
+        let timeString = '';
+        if (hoursLeft > 0) timeString += `${hoursLeft}h `;
+        if (minutesLeft > 0) timeString += `${minutesLeft}m`;
+        return timeString.trim() || '<1m';
+      }
+
+      function getNextStreamInfo(streamer) {
+        const nzTime = getNzTime(new Date());
+        const currentDay = nzTime.getDay();
+        const currentHour = nzTime.getHours();
+        let nextDay = currentDay;
+        let daysToAdd = 0;
+
+        for (let i = 0; i <= 7; i++) {
+          nextDay = (currentDay + i) % 7;
+          if (streamer.streamingDays.includes(nextDay)) {
+            daysToAdd = i;
+            break;
+          }
+        }
+
+        const nextStreamDate = new Date(nzTime);
+        nextStreamDate.setDate(nzTime.getDate() + daysToAdd);
+        nextStreamDate.setHours(streamer.startHour, 0, 0, 0);
+
+        if (isStreamingDay(streamer, nzTime) && currentHour < streamer.startHour) {
+          nextStreamDate.setDate(nzTime.getDate());
+          nextStreamDate.setHours(streamer.startHour, 0, 0, 0);
+        }
+
+        const timeDiffMs = nextStreamDate - nzTime;
+        const hoursLeft = Math.floor(timeDiffMs / (1000 * 60 * 60));
+        const minutesLeft = Math.floor((timeDiffMs % (1000 * 60 * 60)) / (1000 * 60));
+        let countdownString = 'Next stream in: ';
+        if (hoursLeft > 0) countdownString += `${hoursLeft}h `;
+        if (minutesLeft > 0 || hoursLeft === 0) countdownString += `${minutesLeft}m`;
+
+        const dateString = nextStreamDate.toLocaleDateString('en-US', {
+          weekday: 'short',
+          month: 'short',
+          day: 'numeric',
+          timeZone: 'Pacific/Auckland'
+        });
+        const timeString = nextStreamDate.toLocaleTimeString('en-US', {
+          hour: 'numeric',
+          minute: '2-digit',
+          hour12: true,
+          timeZone: 'Pacific/Auckland'
+        });
+
+        return {
+          countdown: countdownString.trim(),
+          date: dateString,
+          time: timeString,
+          nextStreamDate
+        };
       }
 
       function getCurrentStreamer() {
@@ -665,31 +897,118 @@
         const currentHour = nzTime.getHours();
         const currentDay = nzTime.getDay();
         let nextStreamer = streamers.find(s => 
-          isStreamingDay(s) && s.startHour > currentHour
+          isStreamingDay(s, nzTime) && s.startHour > currentHour
         );
         if (!nextStreamer) {
           const nextDay = (currentDay + 1) % 7;
-          nextStreamer = streamers.find(s => s.streamingDays.includes(nextDay)) || streamers[0];
+          nextStreamer = streamers.find(s => s.streamingDays.includes(nextDay));
+        }
+        if (!nextStreamer) {
+          // Find the earliest streamer on any day
+          let earliestStreamer = streamers[0];
+          let earliestTime = 24 * 7 + 24; // Max possible time in hours
+          streamers.forEach(s => {
+            s.streamingDays.forEach(day => {
+              const dayDiff = (day - currentDay + 7) % 7 || 7;
+              const timeValue = dayDiff * 24 + s.startHour;
+              if (timeValue < earliestTime) {
+                earliestTime = timeValue;
+                earliestStreamer = s;
+              }
+            });
+          });
+          nextStreamer = earliestStreamer;
         }
         return nextStreamer;
+      }
+
+      function formatIcsDate(date) {
+        return date.toISOString().replace(/[-:]/g, '').split('.')[0] + 'Z';
+      }
+
+      function generateIcsFile(streamer, streamDate) {
+        const startDate = new Date(streamDate);
+        const endDate = new Date(streamDate);
+        endDate.setHours(streamer.endHour, 0, 0, 0);
+        if (endDate < startDate) endDate.setDate(endDate.getDate() + 1);
+
+        const icsContent = [
+          'BEGIN:VCALENDAR',
+          'VERSION:2.0',
+          'PRODID:-//joindiscord.me//Stream Reminder//EN',
+          'BEGIN:VEVENT',
+          `UID:${streamer.id}-${streamDate.getTime()}@joindiscord.me`,
+          `DTSTAMP:${formatIcsDate(new Date())}`,
+          `DTSTART:${formatIcsDate(startDate)}`,
+          `DTEND:${formatIcsDate(endDate)}`,
+          `SUMMARY:${streamer.name}'s Live Stream`,
+          `DESCRIPTION:Join ${streamer.name} for an epic live stream on Twitch at ${streamer.twitch}!`,
+          `URL:${streamer.twitch}`,
+          'BEGIN:VALARM',
+          'TRIGGER:-PT15M',
+          'ACTION:DISPLAY',
+          `DESCRIPTION:Reminder: ${streamer.name}'s stream is starting soon!`,
+          'END:VALARM',
+          'END:VEVENT',
+          'END:VCALENDAR'
+        ].join('\r\n');
+
+        const blob = new Blob([icsContent], { type: 'text/calendar' });
+        return URL.createObjectURL(blob);
+      }
+
+      function updateNextStreamer() {
+        const currentStreamer = getCurrentStreamer();
+        let nextStreamer = getNextStreamer();
+        // Avoid showing current streamer as next if they're live
+        if (currentStreamer && nextStreamer.id === currentStreamer.id) {
+          const nzTime = getNzTime(new Date());
+          const currentDay = nzTime.getDay();
+          const nextDay = (currentDay + 1) % 7;
+          nextStreamer = streamers.find(s => s.streamingDays.includes(nextDay)) || streamers[0];
+        }
+
+        const streamInfo = getNextStreamInfo(nextStreamer);
+        nextStreamerText.textContent = `The next stream will be live with ${nextStreamer.name} on ${streamInfo.date} at ${streamInfo.time} NZST`;
+        calendarButton.href = generateIcsFile(nextStreamer, streamInfo.nextStreamDate);
+        calendarButton.download = `${nextStreamer.name}_stream_${streamInfo.date.replace(/, /g, '')}.ics`;
       }
 
       function updateProfile(streamer) {
         profileImg.src = streamer.avatar;
         profileImg.alt = `${streamer.name} logo`;
         profileTitle.textContent = streamer.name;
-        profileDescription.textContent = `Join ${streamer.name} for epic live sessions, variety streams, and a vibrant community!`;
+        profileDescription.textContent = `Join ${streamer.name} for epic gaming sessions, variety streams, and a vibrant community!`;
         joinButton.href = streamer.discord;
         joinButton.innerHTML = `<i class="fab fa-discord"></i> Join ${streamer.name} Discord`;
         socialContainer.innerHTML = `
           <a href="${streamer.social.x}" class="social-button x" aria-label="Follow ${streamer.name} on X"><i class="fab fa-x-twitter"></i></a>
           <a href="${streamer.social.reddit}" class="social-button reddit" aria-label="Follow ${streamer.name} on Reddit"><i class="fab fa-reddit"></i></a>
           <a href="${streamer.social.telegram}" class="social-button telegram" aria-label="Follow ${streamer.name} on Telegram"><i class="fab fa-telegram"></i></a>
+          <a href="${streamer.vods}" class="social-button twitch" aria-label="Watch ${streamer.name} VODs"><i class="fab fa-twitch"></i></a>
         `;
-        liveBadge.classList.toggle('active', isStreamerLive(streamer));
+        const streamInfo = getNextStreamInfo(streamer);
+        if (isStreamerLive(streamer)) {
+          liveBadge.classList.add('active');
+          liveBadge.href = streamer.twitch;
+          liveBadge.textContent = `Live on Twitch! (${getTimeLeft(streamer)} left)`;
+          scheduleInfo.classList.remove('active');
+        } else {
+          liveBadge.classList.remove('active');
+          scheduleInfo.classList.add('active');
+          scheduleInfo.textContent = streamInfo.countdown;
+        }
+        updateNextStreamer();
       }
 
-      // Populate dropdown with all streamers
+      // Populate dropdown with "Live Now" and all streamers
+      const liveNowLi = document.createElement('li');
+      liveNowLi.dataset.streamerId = 'live-now';
+      liveNowLi.textContent = 'Live Now';
+      liveNowLi.classList.add('live-now');
+      liveNowLi.tabIndex = 0;
+      dropdownItems.appendChild(liveNowLi);
+
       streamers.forEach(streamer => {
         const li = document.createElement('li');
         li.dataset.streamerId = streamer.id;
@@ -718,10 +1037,15 @@
       // Dropdown item click
       dropdownItems.querySelectorAll('li').forEach(item => {
         item.addEventListener('click', () => {
-          const streamerId = item.dataset.streamerId;
-          const selectedStreamer = streamers.find(s => s.id === streamerId);
+          let selectedStreamer;
+          if (item.dataset.streamerId === 'live-now') {
+            selectedStreamer = getCurrentStreamer() || getNextStreamer();
+            dropdownText.textContent = 'Live Now';
+          } else {
+            selectedStreamer = streamers.find(s => s.id === item.dataset.streamerId);
+            dropdownText.textContent = item.textContent;
+          }
           updateProfile(selectedStreamer);
-          dropdownText.textContent = item.textContent;
           dropdownItems.classList.remove('active');
           dropdownFace.classList.remove('active');
           dropdown.setAttribute('aria-expanded', 'false');
@@ -730,10 +1054,15 @@
         item.addEventListener('keydown', e => {
           if (e.key === 'Enter' || e.key === ' ') {
             e.preventDefault();
-            const streamerId = item.dataset.streamerId;
-            const selectedStreamer = streamers.find(s => s.id === streamerId);
+            let selectedStreamer;
+            if (item.dataset.streamerId === 'live-now') {
+              selectedStreamer = getCurrentStreamer() || getNextStreamer();
+              dropdownText.textContent = 'Live Now';
+            } else {
+              selectedStreamer = streamers.find(s => s.id === item.dataset.streamerId);
+              dropdownText.textContent = item.textContent;
+            }
             updateProfile(selectedStreamer);
-            dropdownText.textContent = item.textContent;
             dropdownItems.classList.remove('active');
             dropdownFace.classList.remove('active');
             dropdown.setAttribute('aria-expanded', 'false');
