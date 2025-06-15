@@ -843,7 +843,9 @@
         let nextDay = currentDay;
         let daysToAdd = 0;
 
-        for (let i = 0; i <= 7; i++) {
+        // If streamer is live, find the next stream after current one
+        let startOffset = isStreamerLive(streamer) ? 1 : 0;
+        for (let i = startOffset; i <= 7 + startOffset; i++) {
           nextDay = (currentDay + i) % 7;
           if (streamer.streamingDays.includes(nextDay)) {
             daysToAdd = i;
@@ -855,7 +857,8 @@
         nextStreamDate.setDate(nzTime.getDate() + daysToAdd);
         nextStreamDate.setHours(streamer.startHour, 0, 0, 0);
 
-        if (isStreamingDay(streamer, nzTime) && currentHour < streamer.startHour) {
+        // If today is a streaming day, not live, and before startHour, use today
+        if (isStreamingDay(streamer, nzTime) && !isStreamerLive(streamer) && currentHour < streamer.startHour && !startOffset) {
           nextStreamDate.setDate(nzTime.getDate());
           nextStreamDate.setHours(streamer.startHour, 0, 0, 0);
         }
@@ -904,9 +907,8 @@
           nextStreamer = streamers.find(s => s.streamingDays.includes(nextDay));
         }
         if (!nextStreamer) {
-          // Find the earliest streamer on any day
           let earliestStreamer = streamers[0];
-          let earliestTime = 24 * 7 + 24; // Max possible time in hours
+          let earliestTime = 24 * 7 + 24;
           streamers.forEach(s => {
             s.streamingDays.forEach(day => {
               const dayDiff = (day - currentDay + 7) % 7 || 7;
@@ -932,6 +934,7 @@
         endDate.setHours(streamer.endHour, 0, 0, 0);
         if (endDate < startDate) endDate.setDate(endDate.getDate() + 1);
 
+        const profileUrl = `https://joindiscord.me/#${encodeURIComponent(streamer.id)}`;
         const icsContent = [
           'BEGIN:VCALENDAR',
           'VERSION:2.0',
@@ -942,8 +945,8 @@
           `DTSTART:${formatIcsDate(startDate)}`,
           `DTEND:${formatIcsDate(endDate)}`,
           `SUMMARY:${streamer.name}'s Live Stream`,
-          `DESCRIPTION:Join ${streamer.name} for an epic live stream on Twitch at ${streamer.twitch}!`,
-          `URL:${streamer.twitch}`,
+          `DESCRIPTION:Join ${streamer.name} for an epic live stream on Twitch at ${streamer.twitch}! View profile at ${profileUrl}`,
+          `URL:${profileUrl}`,
           'BEGIN:VALARM',
           'TRIGGER:-PT15M',
           'ACTION:DISPLAY',
@@ -955,23 +958,6 @@
 
         const blob = new Blob([icsContent], { type: 'text/calendar' });
         return URL.createObjectURL(blob);
-      }
-
-      function updateNextStreamer() {
-        const currentStreamer = getCurrentStreamer();
-        let nextStreamer = getNextStreamer();
-        // Avoid showing current streamer as next if they're live
-        if (currentStreamer && nextStreamer.id === currentStreamer.id) {
-          const nzTime = getNzTime(new Date());
-          const currentDay = nzTime.getDay();
-          const nextDay = (currentDay + 1) % 7;
-          nextStreamer = streamers.find(s => s.streamingDays.includes(nextDay)) || streamers[0];
-        }
-
-        const streamInfo = getNextStreamInfo(nextStreamer);
-        nextStreamerText.textContent = `The next stream will be live with ${nextStreamer.name} on ${streamInfo.date} at ${streamInfo.time} NZST`;
-        calendarButton.href = generateIcsFile(nextStreamer, streamInfo.nextStreamDate);
-        calendarButton.download = `${nextStreamer.name}_stream_${streamInfo.date.replace(/, /g, '')}.ics`;
       }
 
       function updateProfile(streamer) {
@@ -998,7 +984,10 @@
           scheduleInfo.classList.add('active');
           scheduleInfo.textContent = streamInfo.countdown;
         }
-        updateNextStreamer();
+        // Update next stream info for the current streamer
+        nextStreamerText.textContent = `The next stream will be live with ${streamer.name} on ${streamInfo.date} at ${streamInfo.time} NZST`;
+        calendarButton.href = generateIcsFile(streamer, streamInfo.nextStreamDate);
+        calendarButton.download = `${streamer.name}_stream_${streamInfo.date.replace(/, /g, '')}.ics`;
       }
 
       // Populate dropdown with "Live Now" and all streamers
@@ -1017,11 +1006,21 @@
         dropdownItems.appendChild(li);
       });
 
-      // Initialize with current or next streamer
+      // Initialize with current or next streamer, or from URL hash
       function init() {
-        const currentStreamer = getCurrentStreamer() || getNextStreamer();
-        updateProfile(currentStreamer);
-        dropdownText.textContent = 'Select Streamer';
+        let selectedStreamer;
+        const hash = window.location.hash.substring(1);
+        if (hash) {
+          selectedStreamer = streamers.find(s => s.id === decodeURIComponent(hash));
+          if (selectedStreamer) {
+            dropdownText.textContent = selectedStreamer.name;
+          }
+        }
+        if (!selectedStreamer) {
+          selectedStreamer = getCurrentStreamer() || getNextStreamer();
+          dropdownText.textContent = 'Select Streamer';
+        }
+        updateProfile(selectedStreamer);
       }
 
       init();
