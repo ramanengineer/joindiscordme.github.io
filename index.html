@@ -809,6 +809,10 @@
       const calendarButton = document.getElementById('calendar-button');
       const dropdown = document.querySelector('.dropdown');
 
+      // Track the currently selected streamer ID and whether "Live Now" is active
+      let selectedStreamerId = null;
+      let isLiveNowSelected = false;
+
       function getNzTime(date) {
         return new Date(date.toLocaleString("en-US", { timeZone: "Pacific/Auckland" }));
       }
@@ -961,6 +965,7 @@
       }
 
       function updateProfile(streamer) {
+        selectedStreamerId = streamer.id;
         profileImg.src = streamer.avatar;
         profileImg.alt = `${streamer.name} logo`;
         profileTitle.textContent = streamer.name;
@@ -984,7 +989,6 @@
           scheduleInfo.classList.add('active');
           scheduleInfo.textContent = streamInfo.countdown;
         }
-        // Update next stream info for the current streamer
         nextStreamerText.textContent = `The next stream will be live with ${streamer.name} on ${streamInfo.date} at ${streamInfo.time} NZST`;
         calendarButton.href = generateIcsFile(streamer, streamInfo.nextStreamDate);
         calendarButton.download = `${streamer.name}_stream_${streamInfo.date.replace(/, /g, '')}.ics`;
@@ -1006,24 +1010,39 @@
         dropdownItems.appendChild(li);
       });
 
-      // Initialize with current or next streamer, or from URL hash
+      // Initialize with URL hash or default to current/next streamer
       function init() {
         let selectedStreamer;
         const hash = window.location.hash.substring(1);
         if (hash) {
-          selectedStreamer = streamers.find(s => s.id === decodeURIComponent(hash));
+          selectedStreamer = streamers.find(s => s.id.toLowerCase() === decodeURIComponent(hash).toLowerCase());
           if (selectedStreamer) {
             dropdownText.textContent = selectedStreamer.name;
+            selectedStreamerId = selectedStreamer.id;
           }
         }
         if (!selectedStreamer) {
           selectedStreamer = getCurrentStreamer() || getNextStreamer();
           dropdownText.textContent = 'Select Streamer';
+          isLiveNowSelected = false;
         }
         updateProfile(selectedStreamer);
       }
 
       init();
+
+      // Handle hash changes (e.g., user navigates via browser back/forward)
+      window.addEventListener('hashchange', () => {
+        const hash = window.location.hash.substring(1);
+        if (hash) {
+          const selectedStreamer = streamers.find(s => s.id.toLowerCase() === decodeURIComponent(hash).toLowerCase());
+          if (selectedStreamer) {
+            dropdownText.textContent = selectedStreamer.name;
+            isLiveNowSelected = false;
+            updateProfile(selectedStreamer);
+          }
+        }
+      });
 
       // Dropdown face click
       dropdownFace.addEventListener('click', () => {
@@ -1040,9 +1059,11 @@
           if (item.dataset.streamerId === 'live-now') {
             selectedStreamer = getCurrentStreamer() || getNextStreamer();
             dropdownText.textContent = 'Live Now';
+            isLiveNowSelected = true;
           } else {
             selectedStreamer = streamers.find(s => s.id === item.dataset.streamerId);
             dropdownText.textContent = item.textContent;
+            isLiveNowSelected = false;
           }
           updateProfile(selectedStreamer);
           dropdownItems.classList.remove('active');
@@ -1057,9 +1078,11 @@
             if (item.dataset.streamerId === 'live-now') {
               selectedStreamer = getCurrentStreamer() || getNextStreamer();
               dropdownText.textContent = 'Live Now';
+              isLiveNowSelected = true;
             } else {
               selectedStreamer = streamers.find(s => s.id === item.dataset.streamerId);
               dropdownText.textContent = item.textContent;
+              isLiveNowSelected = false;
             }
             updateProfile(selectedStreamer);
             dropdownItems.classList.remove('active');
@@ -1069,10 +1092,12 @@
         });
       });
 
-      // Update profile periodically
+      // Update profile periodically only if "Live Now" is selected
       setInterval(() => {
-        const currentStreamer = getCurrentStreamer() || getNextStreamer();
-        updateProfile(currentStreamer);
+        if (isLiveNowSelected) {
+          const currentStreamer = getCurrentStreamer() || getNextStreamer();
+          updateProfile(currentStreamer);
+        }
       }, 60000); // Update every minute
     });
   </script>
