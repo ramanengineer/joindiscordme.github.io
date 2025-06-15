@@ -3,31 +3,35 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>JoinDiscord.me - Connect with Epic Communities</title>
-  <meta name="description" content="Join vibrant Discord communities like Ogvk org and GGQPorg for gaming, random content, and community engagement.">
-  <meta name="keywords" content="JoinDiscord, Ogvk org, GGQPorg, Discord, community, gaming, random">
-  <meta name="author" content="JoinDiscord.me">
-  <meta property="og:title" content="JoinDiscord.me - Connect with Epic Communities">
-  <meta property="og:description" content="Explore Ogvk org and GGQPorg on Discord for gaming, random content, and community fun. Join now!">
+  <title>OGVK/GGQP - Epic Discord Community</title>
+  <meta name="description" content="Join OGVK/GGQP on Discord for 24/7 gaming, variety streams, and an electrifying community vibe. Connect now!">
+  <meta name="keywords" content="OGVK/GGQP, Discord, gaming, variety streams, community">
+  <meta name="author" content="OGVK/GGQP">
+  <meta property="og:title" content="OGVK/GGQP - Epic Discord Community">
+  <meta property="og:description" content="Dive into OGVK/GGQP on Discord for non-stop gaming, variety streams, and vibrant community fun. Join today!">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://joindiscord.me">
-  <meta property="og:image" content="https://i.postimg.cc/m2KQ0GDv/OGVK-ORG-LOGO-FINAL.png">
+  <meta property="og:image" content="https://i.postimg.cc/d0mBGtF2/OGVK-GGQP.png">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="JoinDiscord.me - Connect with Epic Communities">
-  <meta name="twitter:description" content="Join Ogvk org and GGQPorg on Discord for gaming and community vibes. Connect today!">
-  <meta name="twitter:image" content="https://i.postimg.cc/m2KQ0GDv/OGVK-ORG-LOGO-FINAL.png">
+  <meta name="twitter:title" content="OGVK/GGQP - Epic Discord Community">
+  <meta name="twitter:description" content="Join OGVK/GGQP on Discord for gaming and community vibes. Connect now!">
+  <meta name="twitter:image" content="https://i.postimg.cc/d0mBGtF2/OGVK-GGQP.png">
   <link rel="canonical" href="https://joindiscord.me">
-  <link rel="icon" type="image/png" href="https://i.postimg.cc/m2KQ0GDv/OGVK-ORG-LOGO-FINAL.png">
+  <link rel="icon" type="image/png" href="https://i.postimg.cc/d0mBGtF2/OGVK-GGQP.png">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --primary-bg: #3a2a24;
-      --secondary-bg: #16213e;
-      --accent: #ff007b;
-      --text: #ffffff;
-      --rules-bg: rgba(30, 30, 40, 0.9);
-      --color-discord: rgba(88, 101, 242, 0.9);
+      --bg-dark: #1a1a1a;
+      --bg-accent: #2a2a2a;
+      --text: #f0f0f0;
+      --text-muted: #a0a0a0;
+      --button: #5865f2;
+      --button-hover: #4752c4;
+      --shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+      --x-color: #000000; /* X's official black */
+      --reddit-color: #ff4500; /* Reddit's official orange-red */
+      --telegram-color: #0088cc; /* Telegram's official blue */
     }
 
     * {
@@ -37,203 +41,258 @@
     }
 
     body {
-      background: linear-gradient(135deg, var(--primary-bg), var(--secondary-bg));
+      background: linear-gradient(135deg, var(--bg-dark), var(--bg-accent));
       color: var(--text);
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
       min-height: 100vh;
-      overflow-x: hidden;
-      line-height: 1.5;
+      overflow: hidden;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      padding: 2rem 1rem;
+      padding: 20px;
+      font-size: 16px;
     }
 
-    a { color: inherit; text-decoration: none; }
-    h1, h2, h3 { font-weight: 600; text-align: center; }
+    a { color: var(--button); text-decoration: none; }
+    a:hover { text-decoration: none; }
+    h1, h2 { font-weight: 700; text-align: center; }
 
-    .main {
+    .container {
+      max-width: 900px;
+      width: 100%;
       display: flex;
       flex-direction: column;
       align-items: center;
-      width: 100%;
-      max-width: 800px;
+      animation: fadeIn 1.2s ease-out;
     }
 
     .intro {
       text-align: center;
-      margin-bottom: 2rem;
-      animation: fadeIn 1s ease-out;
+      margin-bottom: 40px;
     }
 
     .intro h1 {
-      font-size: clamp(1.5rem, 5vw, 2.5rem);
-      margin-bottom: 0.5rem;
+      font-size: clamp(2.8rem, 7vw, 3.5rem);
+      color: var(--text);
+      text-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      margin-bottom: 16px;
+      animation: pulse 3s infinite ease-in-out;
     }
 
     .intro p {
-      max-width: 600px;
-      margin: 0.5rem auto;
-      font-size: clamp(0.9rem, 2.5vw, 1rem);
-      color: rgba(255, 255, 255, 0.8);
+      font-size: clamp(1.2rem, 2.5vw, 1.3rem);
+      color: var(--text-muted);
+      max-width: 700px;
     }
 
-    .communities {
-      display: flex;
-      flex-direction: column;
-      gap: 1.5rem;
-      width: 100%;
-    }
-
-    .community-card {
-      background: var(--rules-bg);
-      backdrop-filter: blur(15px);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: 0.75rem;
-      padding: 1.5rem;
+    .profile {
       display: flex;
       flex-direction: column;
       align-items: center;
-      text-align: center;
-      transition: all 0.3s ease;
-      box-shadow: 0 0.25rem 0.9375rem rgba(0, 0, 0, 0.1);
-      animation: slideUp 0.5s ease-out;
-      animation-fill-mode: backwards;
+      background: var(--bg-accent);
+      border-radius: 20px;
+      padding: 40px;
+      box-shadow: var(--shadow);
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+      max-width: 600px;
+      width: 100%;
     }
 
-    .community-card:nth-child(1) { animation-delay: 0.2s; }
-    .community-card:nth-child(2) { animation-delay: 0.4s; }
-
-    .community-card:hover {
-      transform: translateY(-0.15rem) scale(1.02);
-      box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.2);
+    .profile:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
     }
 
-    .community-card img {
-      width: 80px;
-      height: 80px;
-      border-radius: 12px;
+    .profile img {
+      width: 240px;
+      height: 240px;
+      border-radius: 20px;
       object-fit: cover;
-      margin-bottom: 1rem;
+      margin-bottom: 24px;
+      border: 4px solid #ffffff;
+      transition: transform 0.4s ease;
     }
 
-    .community-card h3 {
-      font-size: clamp(1.2rem, 2.5vw, 1.3rem);
-      margin-bottom: 0.5rem;
+    .profile img:hover {
+      transform: scale(1.1);
     }
 
-    .community-card p {
-      font-size: clamp(0.85rem, 2vw, 0.95rem);
-      color: rgba(255, 255, 255, 0.7);
-      margin-bottom: 1rem;
-      max-width: 300px;
-    }
-
-    .discord-button {
-      background: var(--color-discord);
-      border-radius: 0.75rem;
-      padding: 0.6rem 1.2rem;
+    .profile h2 {
+      font-size: 2.2rem;
       color: var(--text);
-      font-size: clamp(0.85rem, 2vw, 0.95rem);
+      margin-bottom: 16px;
+      text-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
+    }
+
+    .profile p {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      text-align: center;
+      margin-bottom: 24px;
+      max-width: 500px;
+    }
+
+    .join-button {
+      background: var(--button);
+      border-radius: 10px;
+      padding: 16px 40px;
+      color: #ffffff;
+      font-size: 1.2rem;
       font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      box-shadow: var(--shadow);
+      transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .join-button:hover {
+      background: var(--button-hover);
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+    }
+
+    .social-container {
+      margin-top: 24px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      justify-content: center;
+    }
+
+    .social-button {
+      border-radius: 10px;
+      padding: 12px;
+      color: #ffffff;
+      font-size: 1.5rem;
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 0.5rem;
       transition: all 0.3s ease;
-      box-shadow: 0 0.25rem 0.9375rem rgba(0, 0, 0, 0.1);
-      width: 100%;
-      max-width: 220px;
+      box-shadow: var(--shadow);
     }
 
-    .discord-button:hover, .discord-button:focus {
-      background: rgba(68, 81, 222, 0.9);
-      transform: translateY(-0.15rem) scale(1.05);
-      outline: none;
-      box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.2);
+    .social-button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+    }
+
+    .social-button.x {
+      background: var(--x-color);
+    }
+
+    .social-button.x:hover {
+      background: #333333; /* Slightly lighter black for hover */
+    }
+
+    .social-button.reddit {
+      background: var(--reddit-color);
+    }
+
+    .social-button.reddit:hover {
+      background: #e03d00; /* Slightly darker orange-red for hover */
+    }
+
+    .social-button.telegram {
+      background: var(--telegram-color);
+    }
+
+    .social-button.telegram:hover {
+      background: #006699; /* Slightly darker blue for hover */
     }
 
     @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(10px); }
+      from { opacity: 0; transform: translateY(30px); }
       to { opacity: 1; transform: translateY(0); }
     }
 
-    @keyframes slideUp {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.02); }
     }
 
     @media (max-width: 768px) {
-      body {
-        padding: 1.5rem 0.75rem;
-      }
+      body { padding: 16px; }
 
       .intro h1 {
-        font-size: clamp(1.3rem, 4vw, 2rem);
+        font-size: clamp(2.2rem, 6vw, 2.8rem);
       }
 
       .intro p {
-        font-size: clamp(0.8rem, 2vw, 0.9rem);
+        font-size: clamp(1rem, 2vw, 1.1rem);
       }
 
-      .community-card {
-        padding: 1.25rem;
+      .profile {
+        padding: 24px;
       }
 
-      .community-card img {
-        width: 60px;
-        height: 60px;
+      .profile img {
+        width: 180px;
+        height: 180px;
       }
 
-      .community-card h3 {
-        font-size: clamp(1.1rem, 2.5vw, 1.2rem);
+      .profile h2 {
+        font-size: 1.8rem;
       }
 
-      .community-card p {
-        font-size: clamp(0.8rem, 2vw, 0.9rem);
+      .profile p {
+        font-size: 1rem;
       }
 
-      .discord-button {
-        padding: 0.5rem 1rem;
-        font-size: clamp(0.8rem, 2vw, 0.9rem);
-        max-width: 200px;
+      .join-button {
+        padding: 12px 32px;
+        font-size: 1rem;
+      }
+
+      .social-button {
+        padding: 10px;
+        font-size: 1.2rem;
       }
     }
 
     @media (max-width: 480px) {
-      .community-card {
-        padding: 1rem;
+      .profile {
+        padding: 16px;
       }
 
-      .discord-button {
-        padding: 0.5rem 0.8rem;
-        max-width: 180px;
+      .profile img {
+        width: 140px;
+        height: 140px;
+      }
+
+      .profile h2 {
+        font-size: 1.5rem;
+      }
+
+      .join-button {
+        padding: 10px 24px;
+        font-size: 0.9rem;
+      }
+
+      .social-container {
+        gap: 12px;
       }
     }
   </style>
 </head>
 <body>
-  <main class="main">
+  <div class="container">
     <div class="intro">
-      <h1>JoinDiscord.me</h1>
-      <p>Connect with vibrant communities on Discord. Join Ogvk org and GGQPorg for gaming, random content, and epic vibes!</p>
+      <h1>OGVK/GGQP Community</h1>
+      <p>Join the ultimate Discord hub for 24/7 LIVE!, variety streams, and electrifying community vibes!</p>
     </div>
-
-    <div class="communities">
-      <div class="community-card">
-        <img src="https://i.postimg.cc/m2KQ0GDv/OGVK-ORG-LOGO-FINAL.png" alt="Ogvk org logo" loading="lazy">
-        <h3>Ogvk org</h3>
-        <p>Join the Ogvk community for variety streams, gaming, and a welcoming vibe.</p>
-        <a class="discord-button" href="https://discord.gg/Amadwb4x"><i class="fab fa-discord"></i> Join Ogvk org</a>
-      </div>
-      <div class="community-card">
-        <img src="https://i.postimg.cc/XvkdGG8W/GGQP-ORG-LOGO.png" alt="GGQPorg logo" loading="lazy">
-        <h3>GGQPorg</h3>
-        <p>Dive into GGQPorg for daily Twitch streams, random content, and community fun.</p>
-        <a class="discord-button" href="https://discord.gg/AczfEGPY"><i class="fab fa-discord"></i> Join GGQPorg</a>
+    <div class="profile">
+      <img src="https://i.postimg.cc/d0mBGtF2/OGVK-GGQP.png" alt="OGVK/GGQP logo" loading="lazy">
+      <h2>OGVK/GGQP</h2>
+      <p>Dive into OGVK/GGQP for epic sessions, variety streams, and a vibrant, welcoming community. Connect now!</p>
+      <a class="join-button" href="https://discord.gg/Amadwb4x"><i class="fab fa-discord"></i> Join OGVK/GGQP</a>
+      <div class="social-container">
+        <a class="social-button x" href="https://x.com/ogvkorg" aria-label="Follow OGVK/GGQP on X Community"><i class="fab fa-x-twitter"></i></a>
+        <a class="social-button reddit" href="https://reddit.com/r/ogvkorg" aria-label="Follow OGVK/GGQP on Reddit"><i class="fab fa-reddit"></i></a>
+        <a class="social-button telegram" href="https://t.me/ogvkorg" aria-label="Follow OGVK/GGQP on Telegram"><i class="fab fa-telegram"></i></a>
       </div>
     </div>
-  </main>
+  </div>
 </body>
 </html>
