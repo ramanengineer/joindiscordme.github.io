@@ -22,27 +22,27 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg-dark: #1e1e2e;
-      --bg-accent: #2a2a3a;
-      --text: #f5f5fa;
-      --text-muted: #c5c5d5;
-      --button: #5865f2;
-      --button-hover: #4752c4;
-      --streamer-button: #ff007b;
-      --streamer-button-hover: #cc0062;
-      --live-badge: #ff0000;
-      --live-badge-hover: #cc0000;
-      --calendar-button: #4caf50;
-      --calendar-button-hover: #388e3c;
-      --x-color: #000000;
-      --reddit-color: #ff4500;
-      --telegram-color: #0088cc;
-      --discord-color: #5865f2;
-      --twitch-color: #9146ff;
-      --glass-bg: rgba(30, 30, 46, 0.85);
-      --glass-border: rgba(255, 255, 255, 0.2);
-      --shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-      --glow: 0 0 12px rgba(88, 101, 242, 0.6);
+      --bg-dark: #12121c;
+      --bg-accent: #1a1a28;
+      --text: #d8d8f0;
+      --text-muted: #8e8ea8;
+      --button: #4a55c1;
+      --button-hover: #3b44a0;
+      --streamer-button: #d81b60;
+      --streamer-button-hover: #b01550;
+      --live-badge: #e91e63;
+      --live-badge-hover: #c2185b;
+      --calendar-button: #388e3c;
+      --calendar-button-hover: #2e7d32;
+      --x-color: #1c2526;
+      --reddit-color: #d84315;
+      --telegram-color: #0277bd;
+      --discord-color: #4a55c1;
+      --twitch-color: #7b1fa2;
+      --glass-bg: rgba(18, 18, 28, 0.85);
+      --glass-border: rgba(255, 255, 255, 0.1);
+      --shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+      --glow: 0 0 10px rgba(74, 85, 193, 0.5);
     }
 
     * {
@@ -59,7 +59,7 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      padding: 16px;
+      padding: 20px;
       font-size: 16px;
       overflow-x: hidden;
     }
@@ -75,6 +75,53 @@
       flex-direction: column;
       align-items: center;
       animation: fadeIn 1.2s ease-out;
+    }
+
+    .community-section {
+      text-align: center;
+      margin-bottom: 24px;
+      background: var(--glass-bg);
+      backdrop-filter: blur(12px);
+      padding: 20px;
+      border-radius: 16px;
+      border: 1px solid var(--glass-border);
+      width: 100%;
+      max-width: 600px;
+      box-shadow: var(--shadow);
+    }
+
+    .community-section h2 {
+      font-size: clamp(1.8rem, 4vw, 2rem);
+      color: var(--text);
+      margin-bottom: 12px;
+      text-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+    }
+
+    .community-section p {
+      font-size: clamp(1rem, 2vw, 1.1rem);
+      color: var(--text-muted);
+      margin-bottom: 16px;
+    }
+
+    .streamer-profiles {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+
+    .streamer-profile-img {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid var(--glass-border);
+      transition: transform 0.3s ease;
+    }
+
+    .streamer-profile-img:hover {
+      transform: scale(1.1);
     }
 
     .intro {
@@ -405,13 +452,13 @@
     }
 
     .social-button.x { background: var(--x-color); }
-    .social-button.x:hover { background: #333333; }
+    .social-button.x:hover { background: #2e3738; }
     .social-button.reddit { background: var(--reddit-color); }
-    .social-button.reddit:hover { background: #e03d00; }
+    .social-button.reddit:hover { background: #bf360c; }
     .social-button.telegram { background: var(--telegram-color); }
-    .social-button.telegram:hover { background: #006699; }
+    .social-button.telegram:hover { background: #01579b; }
     .social-button.twitch { background: var(--twitch-color); }
-    .social-button.twitch:hover { background: #7a3ed6; }
+    .social-button.twitch:hover { background: #6a1b9a; }
 
     .next-streamer-container {
       margin-top: 24px;
@@ -471,7 +518,10 @@
     }
 
     @media (max-width: 768px) {
-      body { padding: 12px; }
+      body { padding: 16px; }
+      .community-section h2 { font-size: clamp(1.5rem, 3.5vw, 1.8rem); }
+      .community-section p { font-size: clamp(0.9rem, 2vw, 1rem); }
+      .streamer-profile-img { width: 36px; height: 36px; }
       .intro h1 { font-size: clamp(2rem, 5vw, 2.5rem); }
       .intro p { font-size: clamp(1rem, 2vw, 1.1rem); }
       .streamer-select { max-width: 400px; }
@@ -492,6 +542,7 @@
     }
 
     @media (max-width: 480px) {
+      body { padding: 12px; }
       .streamer-select { max-width: 320px; }
       .dropdown__face { padding: 0.8rem 1.2rem; font-size: clamp(0.9rem, 2vw, 1rem); }
       .dropdown__items { padding: 0.7rem; }
@@ -507,11 +558,22 @@
       .next-streamer-container h3 { font-size: 1.2rem; }
       .next-streamer-container p { font-size: 0.9rem; }
       .calendar-button { padding: 8px 16px; font-size: 0.85rem; }
+      .community-section h2 { font-size: clamp(1.3rem, 3vw, 1.5rem); }
+      .community-section p { font-size: clamp(0.85rem, 1.8vw, 0.95rem); }
+      .streamer-profile-img { width: 32px; height: 32px; }
     }
   </style>
 </head>
 <body>
   <div class="container">
+    <div class="community-section">
+      <h2>Join Our Community Discord</h2>
+      <p>Connect with all your favorite streamers in one vibrant community! Or choose a solo streamer's Discord below.</p>
+      <div class="streamer-profiles" id="streamer-profiles">
+        <!-- Streamer profile images will be populated by JavaScript -->
+      </div>
+      <a class="join-button" href="https://discord.gg/ymwPhfz2"><i class="fab fa-discord"></i> Join All-Streamer Discord</a>
+    </div>
     <div class="intro">
       <h1>joindiscord.me</h1>
       <p>Explore fun Discord communities for gaming and vibes!</p>
@@ -535,7 +597,7 @@
       <img src="https://i.postimg.cc/zfSxRGYF/Binge-Watchers-prfile-png-1.png" alt="ogvkorg logo" loading="lazy">
       <h2>ogvkorg</h2>
       <p>Join ogvkorg for epic gaming sessions, variety streams, and a vibrant community!</p>
-      <a class="join-button" href="https://discord.gg/ymwPhfz2"><i class="fab fa-discord"></i> Join ogvkorg Discord</a>
+      <a class="join-button" href="https://discord.gg/ymwPhfz2"><i class="fab fa-discord"></i> Join the Solo Community of ogvkorg</a>
       <div class="social-container">
         <a href="https://x.com/ogvkorg" class="social-button x" aria-label="Follow ogvkorg on X"><i class="fab fa-x-twitter"></i></a>
         <a href="https://reddit.com/r/ogvkorg" class="social-button reddit" aria-label="Follow ogvkorg on Reddit"><i class="fab fa-reddit"></i></a>
@@ -808,10 +870,26 @@
       const nextStreamerText = document.getElementById('next-streamer-text');
       const calendarButton = document.getElementById('calendar-button');
       const dropdown = document.querySelector('.dropdown');
+      const streamerProfilesContainer = document.getElementById('streamer-profiles');
 
       // Track the currently selected streamer ID and whether "Live Now" is active
       let selectedStreamerId = null;
       let isLiveNowSelected = false;
+
+      // Populate streamer profile images in community section
+      function populateStreamerProfiles() {
+        streamerProfilesContainer.innerHTML = '';
+        streamers.forEach(streamer => {
+          const img = document.createElement('img');
+          img.src = streamer.avatar;
+          img.alt = `${streamer.name} profile`;
+          img.classList.add('streamer-profile-img');
+          img.title = streamer.name;
+          streamerProfilesContainer.appendChild(img);
+        });
+      }
+
+      populateStreamerProfiles();
 
       function getNzTime(date) {
         return new Date(date.toLocaleString("en-US", { timeZone: "Pacific/Auckland" }));
@@ -971,7 +1049,7 @@
         profileTitle.textContent = streamer.name;
         profileDescription.textContent = `Join ${streamer.name} for epic gaming sessions, variety streams, and a vibrant community!`;
         joinButton.href = streamer.discord;
-        joinButton.innerHTML = `<i class="fab fa-discord"></i> Join ${streamer.name} Discord`;
+        joinButton.innerHTML = `<i class="fab fa-discord"></i> Join the Solo Community of ${streamer.name}`;
         socialContainer.innerHTML = `
           <a href="${streamer.social.x}" class="social-button x" aria-label="Follow ${streamer.name} on X"><i class="fab fa-x-twitter"></i></a>
           <a href="${streamer.social.reddit}" class="social-button reddit" aria-label="Follow ${streamer.name} on Reddit"><i class="fab fa-reddit"></i></a>
