@@ -44,6 +44,7 @@
       --shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
       --glow: 0 0 12px rgba(88, 101, 242, 0.6);
       --discord-glow: 0 0 12px rgba(88, 101, 242, 0.8), 0 0 20px rgba(88, 101, 242, 0.4);
+      --gradient-border: linear-gradient(90deg, #ff007b, #5865f2, #4caf50);
     }
 
     * {
@@ -462,46 +463,98 @@
       box-shadow: var(--glow);
     }
 
-    .all-streamers-container {
+    .community-discord-container {
       margin-top: 24px;
       text-align: center;
       background: var(--glass-bg);
-      backdrop-filter: blur(12px);
-      padding: 20px;
-      border-radius: 16px;
-      border: 1px solid var(--glass-border);
+      backdrop-filter: blur(15px);
+      padding: 32px;
+      border-radius: 20px;
       width: 100%;
       max-width: 600px;
+      position: relative;
+      overflow: hidden;
+      border: 2px solid transparent;
+      background-clip: padding-box;
+      box-shadow: var(--shadow), 0 0 20px rgba(255, 255, 255, 0.1);
+      animation: glowBorder 4s linear infinite;
     }
 
-    .all-streamers-container h3 {
-      font-size: 1.5rem;
-      color: var(--text);
-      margin-bottom: 12px;
-      text-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+    @keyframes glowBorder {
+      0% { border-color: #ff007b; box-shadow: 0 0 15px #ff007b; }
+      33% { border-color: #5865f2; box-shadow: 0 0 15px #5865f2; }
+      66% { border-color: #4caf50; box-shadow: 0 0 15px #4caf50; }
+      100% { border-color: #ff007b; box-shadow: 0 0 15px #ff007b; }
     }
 
-    .all-streamers-container p {
-      font-size: 1.1rem;
-      color: var(--text-muted);
+    .community-discord-container::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      border-radius: 18px;
+      padding: 2px;
+      background: var(--gradient-border);
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      z-index: -1;
+    }
+
+    .community-discord-container h3 {
+      font-size: clamp(1.8rem, 4vw, 2.2rem);
+      background: linear-gradient(90deg, #ff007b, #5865f2);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
       margin-bottom: 16px;
+      text-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+      animation: textGlow 2s ease-in-out infinite;
     }
 
-    .all-streamers-container .join-button {
-      box-shadow: var(--discord-glow);
+    @keyframes textGlow {
+      0%, 100% { text-shadow: 0 0 8px rgba(255, 0, 123, 0.8); }
+      50% { text-shadow: 0 0 12px rgba(88, 101, 242, 0.8); }
     }
 
-    .all-streamers-container .join-button:hover {
-      background: var(--button-hover);
-      transform: translateY(-4px);
-      box-shadow: var(--discord-glow);
+    .community-discord-container p {
+      font-size: clamp(1rem, 2.5vw, 1.15rem);
+      color: var(--text-muted);
+      margin-bottom: 24px;
+      line-height: 1.6;
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .org-logos {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      margin-bottom: 24px;
+    }
+
+    .org-logos img {
+      width: 120px;
+      height: 120px;
+      border-radius: 16px;
+      object-fit: cover;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border: 2px solid var(--glass-border);
+    }
+
+    .org-logos img:hover {
+      transform: scale(1.15);
+      box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
     }
 
     .streamer-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
-      gap: 10px;
-      margin-bottom: 20px;
+      gap: 12px;
+      margin-bottom: 24px;
     }
 
     .streamer-grid img {
@@ -509,12 +562,32 @@
       height: 80px;
       border-radius: 12px;
       object-fit: cover;
-      transition: transform 0.3s ease;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
       border: none;
     }
 
     .streamer-grid img:hover {
       transform: scale(1.1);
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+    }
+
+    .community-discord-container .join-button {
+      background: var(--button);
+      padding: 16px 40px;
+      font-size: clamp(1.1rem, 2.5vw, 1.2rem);
+      box-shadow: var(--discord-glow);
+      animation: buttonPulse 2s ease-in-out infinite;
+    }
+
+    .community-discord-container .join-button:hover {
+      background: var(--button-hover);
+      transform: translateY(-4px);
+      box-shadow: var(--discord-glow), 0 0 20px rgba(88, 101, 242, 0.8);
+    }
+
+    @keyframes buttonPulse {
+      0%, 100% { box-shadow: var(--discord-glow); }
+      50% { box-shadow: 0 0 20px rgba(88, 101, 242, 1), 0 0 30px rgba(88, 101, 242, 0.6); }
     }
 
     @keyframes fadeIn {
@@ -546,10 +619,12 @@
       .next-streamer-container h3 { font-size: 1.3rem; }
       .next-streamer-container p { font-size: 1rem; }
       .calendar-button { padding: 10px 20px; font-size: 0.9rem; }
-      .all-streamers-container { padding: 16px; }
-      .all-streamers-container h3 { font-size: 1.3rem; }
-      .all-streamers-container p { font-size: 1rem; }
+      .community-discord-container { padding: 24px; }
+      .community-discord-container h3 { font-size: clamp(1.5rem, 3vw, 1.8rem); }
+      .community-discord-container p { font-size: clamp(0.95rem, 2vw, 1rem); }
+      .org-logos img { width: 100px; height: 100px; }
       .streamer-grid img { width: 60px; height: 60px; }
+      .community-discord-container .join-button { padding: 12px 32px; font-size: 1rem; }
     }
 
     @media (max-width: 480px) {
@@ -568,10 +643,13 @@
       .next-streamer-container h3 { font-size: 1.2rem; }
       .next-streamer-container p { font-size: 0.9rem; }
       .calendar-button { padding: 8px 16px; font-size: 0.85rem; }
-      .all-streamers-container { padding: 12px; }
-      .all-streamers-container h3 { font-size: 1.2rem; }
-      .all-streamers-container p { font-size: 0.9rem; }
+      .community-discord-container { padding: 16px; }
+      .community-discord-container h3 { font-size: clamp(1.3rem, 3vw, 1.5rem); }
+      .community-discord-container p { font-size: clamp(0.85rem, 2vw, 0.95rem); }
+      .org-logos { gap: 16px; }
+      .org-logos img { width: 80px; height: 80px; }
       .streamer-grid img { width: 50px; height: 50px; }
+      .community-discord-container .join-button { padding: 10px 24px; font-size: 0.95rem; }
     }
   </style>
 </head>
@@ -613,9 +691,13 @@
       <p id="next-streamer-text">The next stream will be live with TBD on TBD at TBD NZST</p>
       <a class="calendar-button" id="calendar-button" href="#" download><i class="fas fa-calendar-plus"></i> Add to Calendar</a>
     </div>
-    <div class="all-streamers-container">
-      <h3>Join Our Community</h3>
-      <p>Connect with our vibrant community of all streamers in one place!</p>
+    <div class="community-discord-container">
+      <h3>Join Our Epic Discord Community</h3>
+      <p>OGVK, the Twitch Live org, and GGQP, the YouTube Live org, have joined forces in this vibrant Discord community, uniting all their friends for epic gaming and variety streams!</p>
+      <div class="org-logos">
+        <img src="https://i.postimg.cc/zfSxRGYF/Binge-Watchers-prfile-png-1.png" alt="OGVK logo" loading="lazy">
+        <img src="https://i.postimg.cc/pVzjDw2v/GGQP-ORG-LOGO-png.png" alt="GGQP logo" loading="lazy">
+      </div>
       <div class="streamer-grid">
         <img src="https://i.postimg.cc/F1k6Lykq/xwlasxd-logo.png" alt="xwlasxd logo" loading="lazy">
         <img src="https://i.postimg.cc/MMNrLTNd/HSL-logo.png" alt="HeavySamLifts logo" loading="lazy">
@@ -861,7 +943,6 @@
       const nextStreamerText = document.getElementById('next-streamer-text');
       const calendarButton = document.getElementById('calendar-button');
       const dropdown = document.querySelector('.dropdown');
-      const streamerGrid = document.querySelector('.streamer-grid');
 
       // Track the currently selected streamer ID and whether "Live Now" is active
       let selectedStreamerId = null;
