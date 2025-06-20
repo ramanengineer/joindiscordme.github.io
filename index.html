@@ -22,27 +22,28 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg-dark: #12121c;
-      --bg-accent: #1a1a28;
-      --text: #d8d8f0;
-      --text-muted: #8e8ea8;
-      --button: #4a55c1;
-      --button-hover: #3b44a0;
-      --streamer-button: #d81b60;
-      --streamer-button-hover: #b01550;
-      --live-badge: #e91e63;
-      --live-badge-hover: #c2185b;
-      --calendar-button: #388e3c;
-      --calendar-button-hover: #2e7d32;
-      --x-color: #1c2526;
-      --reddit-color: #d84315;
-      --telegram-color: #0277bd;
-      --discord-color: #4a55c1;
-      --twitch-color: #7b1fa2;
-      --glass-bg: rgba(18, 18, 28, 0.85);
-      --glass-border: rgba(255, 255, 255, 0.1);
-      --shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
-      --glow: 0 0 10px rgba(74, 85, 193, 0.5);
+      --bg-dark: #1e1e2e;
+      --bg-accent: #2a2a3a;
+      --text: #f5f5fa;
+      --text-muted: #c5c5d5;
+      --button: #5865f2;
+      --button-hover: #4752c4;
+      --streamer-button: #ff007b;
+      --streamer-button-hover: #cc0062;
+      --live-badge: #ff0000;
+      --live-badge-hover: #cc0000;
+      --calendar-button: #4caf50;
+      --calendar-button-hover: #388e3c;
+      --x-color: #000000;
+      --reddit-color: #ff4500;
+      --telegram-color: #0088cc;
+      --discord-color: #5865f2;
+      --twitch-color: #9146ff;
+      --glass-bg: rgba(30, 30, 46, 0.85);
+      --glass-border: rgba(255, 255, 255, 0.2);
+      --shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+      --glow: 0 0 12px rgba(88, 101, 242, 0.6);
+      --discord-glow: 0 0 12px rgba(88, 101, 242, 0.8), 0 0 20px rgba(88, 101, 242, 0.4);
     }
 
     * {
@@ -59,7 +60,7 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      padding: 20px;
+      padding: 16px;
       font-size: 16px;
       overflow-x: hidden;
     }
@@ -75,53 +76,6 @@
       flex-direction: column;
       align-items: center;
       animation: fadeIn 1.2s ease-out;
-    }
-
-    .community-section {
-      text-align: center;
-      margin-bottom: 24px;
-      background: var(--glass-bg);
-      backdrop-filter: blur(12px);
-      padding: 20px;
-      border-radius: 16px;
-      border: 1px solid var(--glass-border);
-      width: 100%;
-      max-width: 600px;
-      box-shadow: var(--shadow);
-    }
-
-    .community-section h2 {
-      font-size: clamp(1.8rem, 4vw, 2rem);
-      color: var(--text);
-      margin-bottom: 12px;
-      text-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
-    }
-
-    .community-section p {
-      font-size: clamp(1rem, 2vw, 1.1rem);
-      color: var(--text-muted);
-      margin-bottom: 16px;
-    }
-
-    .streamer-profiles {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 10px;
-      margin-bottom: 16px;
-    }
-
-    .streamer-profile-img {
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 2px solid var(--glass-border);
-      transition: transform 0.3s ease;
-    }
-
-    .streamer-profile-img:hover {
-      transform: scale(1.1);
     }
 
     .intro {
@@ -380,6 +334,7 @@
       object-fit: cover;
       margin-bottom: 20px;
       transition: transform 0.4s ease;
+      border: none;
     }
 
     .profile img:hover {
@@ -452,13 +407,13 @@
     }
 
     .social-button.x { background: var(--x-color); }
-    .social-button.x:hover { background: #2e3738; }
+    .social-button.x:hover { background: #333333; }
     .social-button.reddit { background: var(--reddit-color); }
-    .social-button.reddit:hover { background: #bf360c; }
+    .social-button.reddit:hover { background: #e03d00; }
     .social-button.telegram { background: var(--telegram-color); }
-    .social-button.telegram:hover { background: #01579b; }
+    .social-button.telegram:hover { background: #006699; }
     .social-button.twitch { background: var(--twitch-color); }
-    .social-button.twitch:hover { background: #6a1b9a; }
+    .social-button.twitch:hover { background: #7a3ed6; }
 
     .next-streamer-container {
       margin-top: 24px;
@@ -507,6 +462,61 @@
       box-shadow: var(--glow);
     }
 
+    .all-streamers-container {
+      margin-top: 24px;
+      text-align: center;
+      background: var(--glass-bg);
+      backdrop-filter: blur(12px);
+      padding: 20px;
+      border-radius: 16px;
+      border: 1px solid var(--glass-border);
+      width: 100%;
+      max-width: 600px;
+    }
+
+    .all-streamers-container h3 {
+      font-size: 1.5rem;
+      color: var(--text);
+      margin-bottom: 12px;
+      text-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+    }
+
+    .all-streamers-container p {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+    }
+
+    .all-streamers-container .join-button {
+      box-shadow: var(--discord-glow);
+    }
+
+    .all-streamers-container .join-button:hover {
+      background: var(--button-hover);
+      transform: translateY(-4px);
+      box-shadow: var(--discord-glow);
+    }
+
+    .streamer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .streamer-grid img {
+      width: 80px;
+      height: 80px;
+      border-radius: 12px;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+      border: none;
+    }
+
+    .streamer-grid img:hover {
+      transform: scale(1.1);
+    }
+
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(20px); }
       to { opacity: 1; transform: translateY(0); }
@@ -518,10 +528,7 @@
     }
 
     @media (max-width: 768px) {
-      body { padding: 16px; }
-      .community-section h2 { font-size: clamp(1.5rem, 3.5vw, 1.8rem); }
-      .community-section p { font-size: clamp(0.9rem, 2vw, 1rem); }
-      .streamer-profile-img { width: 36px; height: 36px; }
+      body { padding: 12px; }
       .intro h1 { font-size: clamp(2rem, 5vw, 2.5rem); }
       .intro p { font-size: clamp(1rem, 2vw, 1.1rem); }
       .streamer-select { max-width: 400px; }
@@ -539,10 +546,13 @@
       .next-streamer-container h3 { font-size: 1.3rem; }
       .next-streamer-container p { font-size: 1rem; }
       .calendar-button { padding: 10px 20px; font-size: 0.9rem; }
+      .all-streamers-container { padding: 16px; }
+      .all-streamers-container h3 { font-size: 1.3rem; }
+      .all-streamers-container p { font-size: 1rem; }
+      .streamer-grid img { width: 60px; height: 60px; }
     }
 
     @media (max-width: 480px) {
-      body { padding: 12px; }
       .streamer-select { max-width: 320px; }
       .dropdown__face { padding: 0.8rem 1.2rem; font-size: clamp(0.9rem, 2vw, 1rem); }
       .dropdown__items { padding: 0.7rem; }
@@ -558,22 +568,15 @@
       .next-streamer-container h3 { font-size: 1.2rem; }
       .next-streamer-container p { font-size: 0.9rem; }
       .calendar-button { padding: 8px 16px; font-size: 0.85rem; }
-      .community-section h2 { font-size: clamp(1.3rem, 3vw, 1.5rem); }
-      .community-section p { font-size: clamp(0.85rem, 1.8vw, 0.95rem); }
-      .streamer-profile-img { width: 32px; height: 32px; }
+      .all-streamers-container { padding: 12px; }
+      .all-streamers-container h3 { font-size: 1.2rem; }
+      .all-streamers-container p { font-size: 0.9rem; }
+      .streamer-grid img { width: 50px; height: 50px; }
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <div class="community-section">
-      <h2>Join Our Community Discord</h2>
-      <p>Connect with all your favorite streamers in one vibrant community! Or choose a solo streamer's Discord below.</p>
-      <div class="streamer-profiles" id="streamer-profiles">
-        <!-- Streamer profile images will be populated by JavaScript -->
-      </div>
-      <a class="join-button" href="https://discord.gg/ymwPhfz2"><i class="fab fa-discord"></i> Join All-Streamer Discord</a>
-    </div>
     <div class="intro">
       <h1>joindiscord.me</h1>
       <p>Explore fun Discord communities for gaming and vibes!</p>
@@ -597,7 +600,7 @@
       <img src="https://i.postimg.cc/zfSxRGYF/Binge-Watchers-prfile-png-1.png" alt="ogvkorg logo" loading="lazy">
       <h2>ogvkorg</h2>
       <p>Join ogvkorg for epic gaming sessions, variety streams, and a vibrant community!</p>
-      <a class="join-button" href="https://discord.gg/ymwPhfz2"><i class="fab fa-discord"></i> Join the Solo Community of ogvkorg</a>
+      <a class="join-button" href="https://discord.gg/ymwPhfz2"><i class="fab fa-discord"></i> Join ogvkorg Discord</a>
       <div class="social-container">
         <a href="https://x.com/ogvkorg" class="social-button x" aria-label="Follow ogvkorg on X"><i class="fab fa-x-twitter"></i></a>
         <a href="https://reddit.com/r/ogvkorg" class="social-button reddit" aria-label="Follow ogvkorg on Reddit"><i class="fab fa-reddit"></i></a>
@@ -610,6 +613,28 @@
       <p id="next-streamer-text">The next stream will be live with TBD on TBD at TBD NZST</p>
       <a class="calendar-button" id="calendar-button" href="#" download><i class="fas fa-calendar-plus"></i> Add to Calendar</a>
     </div>
+    <div class="all-streamers-container">
+      <h3>OGVK//GGQP Join Discord</h3>
+      <p>Connect with our vibrant community of all streamers in one place!</p>
+      <div class="streamer-grid">
+        <img src="https://i.postimg.cc/F1k6Lykq/xwlasxd-logo.png" alt="xwlasxd logo" loading="lazy">
+        <img src="https://i.postimg.cc/MMNrLTNd/HSL-logo.png" alt="HeavySamLifts logo" loading="lazy">
+        <img src="https://i.postimg.cc/2V4XHCw7/shady-peter-live-profile-3k.png" alt="ShadyPeterLive logo" loading="lazy">
+        <img src="https://i.postimg.cc/3kTz7kRq/rkg-logo.png" alt="ramkrishanghoil logo" loading="lazy">
+        <img src="https://i.postimg.cc/0QqJjT1F/zxckjsdv-profile.png" alt="zxckjsdv logo" loading="lazy">
+        <img src="https://i.postimg.cc/LXhwKQ7N/brbcompiling-profile.png" alt="brbcompiling logo" loading="lazy">
+        <img src="https://i.postimg.cc/zfSxRGYF/Binge-Watchers-prfile-png-1.png" alt="ogvkorg logo" loading="lazy">
+        <img src="https://i.postimg.cc/ZRpYD5yd/random-easy-logo.png" alt="TrevorMarksman logo" loading="lazy">
+        <img src="https://i.postimg.cc/P57tXwWD/coolio-kick.png" alt="ValentineCoolio logo" loading="lazy">
+        <img src="https://i.postimg.cc/PLfcp01z/legacy-martian-logo.png" alt="LegacyMartian logo" loading="lazy">
+        <img src="https://i.postimg.cc/hjLg1ZH8/macaffe-best-logo.png" alt="MovieByMacaffe logo" loading="lazy">
+        <img src="https://i.postimg.cc/9XsKQYKC/bizaropeter-profile.png" alt="BizaroPeter logo" loading="lazy">
+        <img src="https://i.postimg.cc/k5jh3QWr/wens-logo.png" alt="GynaWENS logo" loading="lazy">
+        <img src="https://i.postimg.cc/pVzjDw2v/GGQP-ORG-LOGO-png.png" alt="ggqporg logo" loading="lazy">
+        <img src="https://i.postimg.cc/HcVh35Zr/xvbrznem-logo.jpg" alt="xvbrznem logo" loading="lazy">
+      </div>
+      <a class="join-button" href="https://discord.gg/ymwPhfz2"><i class="fab fa-discord"></i> Join OGVK//GGQP Discord</a>
+    </div>
   </div>
   <script>
     const streamers = [
@@ -617,7 +642,7 @@
         id: 'xwlasxd',
         name: 'xwlasxd',
         avatar: 'https://i.postimg.cc/F1k6Lykq/xwlasxd-logo.png',
-        discord: 'https://discord.gg/ymwPhfz2',
+        discord: 'https://discord.gg/abrtMaCsyu',
         twitch: 'https://twitch.tv/xwlasxd',
         vods: 'https://twitch.tv/xwlasxd/videos',
         social: {
@@ -633,7 +658,7 @@
         id: 'HeavySamLifts',
         name: 'HeavySamLifts',
         avatar: 'https://i.postimg.cc/MMNrLTNd/HSL-logo.png',
-        discord: 'https://discord.gg/ymwPhfz2',
+        discord: 'https://discord.gg/36U3wCXXfe',
         twitch: 'https://twitch.tv/HeavySamLifts',
         vods: 'https://twitch.tv/HeavySamLifts/videos',
         social: {
@@ -649,7 +674,7 @@
         id: 'ShadyPeterLive',
         name: 'ShadyPeterLive',
         avatar: 'https://i.postimg.cc/2V4XHCw7/shady-peter-live-profile-3k.png',
-        discord: 'https://discord.gg/ymwPhfz2',
+        discord: 'https://discord.gg/QkTWZrT6',
         twitch: 'https://twitch.tv/ShadyPeterLive',
         vods: 'https://twitch.tv/ShadyPeterLive/videos',
         social: {
@@ -665,7 +690,7 @@
         id: 'ramkrishanghoil',
         name: 'ramkrishanghoil',
         avatar: 'https://i.postimg.cc/3kTz7kRq/rkg-logo.png',
-        discord: 'https://discord.gg/ymwPhfz2',
+        discord: 'https://discord.gg/vTd4bxJX',
         twitch: 'https://twitch.tv/ramkrishanghoil',
         vods: 'https://twitch.tv/ramkrishanghoil/videos',
         social: {
@@ -681,7 +706,7 @@
         id: 'zxckjsdv',
         name: 'zxckjsdv',
         avatar: 'https://i.postimg.cc/0QqJjT1F/zxckjsdv-profile.png',
-        discord: 'https://discord.gg/ymwPhfz2',
+        discord: 'https://discord.gg/mTT2SBmq',
         twitch: 'https://twitch.tv/zxckjsdv',
         vods: 'https://twitch.tv/zxckjsdv/videos',
         social: {
@@ -697,7 +722,7 @@
         id: 'brbcompiling',
         name: 'brbcompiling',
         avatar: 'https://i.postimg.cc/LXhwKQ7N/brbcompiling-profile.png',
-        discord: 'https://discord.gg/ymwPhfz2',
+        discord: 'https://discord.gg/gUdRv6AU',
         twitch: 'https://twitch.tv/brbcompiling',
         vods: 'https://twitch.tv/brbcompiling/videos',
         social: {
@@ -729,7 +754,7 @@
         id: 'TrevorMarksman',
         name: 'TrevorMarksman',
         avatar: 'https://i.postimg.cc/ZRpYD5yd/random-easy-logo.png',
-        discord: 'https://discord.gg/ymwPhfz2',
+        discord: 'https://discord.gg/ZSKWZK2U',
         twitch: 'https://twitch.tv/TrevorMarksman',
         vods: 'https://twitch.tv/TrevorMarksman/videos',
         social: {
@@ -745,7 +770,7 @@
         id: 'ValentineCoolio',
         name: 'ValentineCoolio',
         avatar: 'https://i.postimg.cc/P57tXwWD/coolio-kick.png',
-        discord: 'https://discord.gg/ymwPhfz2',
+        discord: 'https://discord.gg/apgxTaBj',
         twitch: 'https://twitch.tv/ValentineCoolio',
         vods: 'https://twitch.tv/ValentineCoolio/videos',
         social: {
@@ -761,7 +786,7 @@
         id: 'LegacyMartian',
         name: 'LegacyMartian',
         avatar: 'https://i.postimg.cc/PLfcp01z/legacy-martian-logo.png',
-        discord: 'https://discord.gg/ymwPhfz2',
+        discord: 'https://discord.gg/4MxYRbyZ',
         twitch: 'https://twitch.tv/LegacyMartian',
         vods: 'https://twitch.tv/LegacyMartian/videos',
         social: {
@@ -777,7 +802,7 @@
         id: 'MovieByMacaffe',
         name: 'MovieByMacaffe',
         avatar: 'https://i.postimg.cc/hjLg1ZH8/macaffe-best-logo.png',
-        discord: 'https://discord.gg/ymwPhfz2',
+        discord: 'https://discord.gg/mDddbJ8J',
         twitch: 'https://twitch.tv/MovieByMacaffe',
         vods: 'https://twitch.tv/MovieByMacaffe/videos',
         social: {
@@ -793,7 +818,7 @@
         id: 'BizaroPeter',
         name: 'BizaroPeter',
         avatar: 'https://i.postimg.cc/9XsKQYKC/bizaropeter-profile.png',
-        discord: 'https://discord.gg/ymwPhfz2',
+        discord: 'https://discord.gg/tPWpx28U',
         twitch: 'https://twitch.tv/BizaroPeter',
         vods: 'https://twitch.tv/BizaroPeter/videos',
         social: {
@@ -809,7 +834,7 @@
         id: 'GynaWENS',
         name: 'GynaWENS',
         avatar: 'https://i.postimg.cc/k5jh3QWr/wens-logo.png',
-        discord: 'https://discord.gg/ymwPhfz2',
+        discord: 'https://discord.gg/cF9aRQ8B',
         twitch: 'https://twitch.tv/GynaWENS',
         vods: 'https://twitch.tv/GynaWENS/videos',
         social: {
@@ -841,7 +866,7 @@
         id: 'xvbrznem',
         name: 'xvbrznem',
         avatar: 'https://i.postimg.cc/HcVh35Zr/xvbrznem-logo.jpg',
-        discord: 'https://discord.gg/ymwPhfz2',
+        discord: 'https://discord.gg/vV623V4F',
         twitch: 'https://twitch.tv/xvbrznem',
         vods: 'https://twitch.tv/xvbrznem/videos',
         social: {
@@ -870,26 +895,10 @@
       const nextStreamerText = document.getElementById('next-streamer-text');
       const calendarButton = document.getElementById('calendar-button');
       const dropdown = document.querySelector('.dropdown');
-      const streamerProfilesContainer = document.getElementById('streamer-profiles');
 
       // Track the currently selected streamer ID and whether "Live Now" is active
       let selectedStreamerId = null;
       let isLiveNowSelected = false;
-
-      // Populate streamer profile images in community section
-      function populateStreamerProfiles() {
-        streamerProfilesContainer.innerHTML = '';
-        streamers.forEach(streamer => {
-          const img = document.createElement('img');
-          img.src = streamer.avatar;
-          img.alt = `${streamer.name} profile`;
-          img.classList.add('streamer-profile-img');
-          img.title = streamer.name;
-          streamerProfilesContainer.appendChild(img);
-        });
-      }
-
-      populateStreamerProfiles();
 
       function getNzTime(date) {
         return new Date(date.toLocaleString("en-US", { timeZone: "Pacific/Auckland" }));
@@ -1049,7 +1058,7 @@
         profileTitle.textContent = streamer.name;
         profileDescription.textContent = `Join ${streamer.name} for epic gaming sessions, variety streams, and a vibrant community!`;
         joinButton.href = streamer.discord;
-        joinButton.innerHTML = `<i class="fab fa-discord"></i> Join the Solo Community of ${streamer.name}`;
+        joinButton.innerHTML = `<i class="fab fa-discord"></i> Join ${streamer.name} Discord`;
         socialContainer.innerHTML = `
           <a href="${streamer.social.x}" class="social-button x" aria-label="Follow ${streamer.name} on X"><i class="fab fa-x-twitter"></i></a>
           <a href="${streamer.social.reddit}" class="social-button reddit" aria-label="Follow ${streamer.name} on Reddit"><i class="fab fa-reddit"></i></a>
