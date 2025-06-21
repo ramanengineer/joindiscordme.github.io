@@ -1080,7 +1080,7 @@
         endDate.setHours(streamer.endHour, 0, 0, 0);
         if (endDate < startDate) endDate.setDate(endDate.getDate() + 1);
 
-        const profileUrl = `https://joindiscord.me/#${encodeURIComponent(streamer.id)}`;
+        const profileUrl = `https://joindiscord.me/#${streamer.id}`;
         const icsContent = [
           'BEGIN:VCALENDAR',
           'VERSION:2.0',
@@ -1136,7 +1136,11 @@
         calendarButton.download = `${streamer.name}_stream_${streamInfo.date.replace(/, /g, '')}.ics`;
         // Update URL hash
         if (!isLiveNowSelected) {
-          window.history.replaceState(null, null, `#${encodeURIComponent(streamer.id)}`);
+          try {
+            window.history.replaceState(null, null, `#${streamer.id}`);
+          } catch (e) {
+            console.warn('Unable to update URL hash:', e.message);
+          }
         }
       }
 
@@ -1164,7 +1168,7 @@
         let selectedStreamer;
         const hash = window.location.hash.substring(1);
         if (hash) {
-          selectedStreamer = streamers.find(s => s.id.toLowerCase() === decodeURIComponent(hash).toLowerCase());
+          selectedStreamer = streamers.find(s => s.id.toLowerCase() === hash.toLowerCase());
         }
         if (!selectedStreamer) {
           selectedStreamer = getCurrentStreamer() || getNextStreamer();
@@ -1181,7 +1185,7 @@
       window.addEventListener('hashchange', () => {
         const hash = window.location.hash.substring(1);
         if (hash) {
-          const selectedStreamer = streamers.find(s => s.id.toLowerCase() === decodeURIComponent(hash).toLowerCase());
+          const selectedStreamer = streamers.find(s => s.id.toLowerCase() === hash.toLowerCase());
           if (selectedStreamer) {
             dropdownText.textContent = selectedStreamer.name;
             isLiveNowSelected = false;
@@ -1212,7 +1216,11 @@
             selectedStreamer = getCurrentStreamer() || getNextStreamer();
             dropdownText.textContent = 'Live Now';
             isLiveNowSelected = true;
-            window.history.replaceState(null, null, '#');
+            try {
+              window.history.replaceState(null, null, '#');
+            } catch (e) {
+              console.warn('Unable to update URL hash:', e.message);
+            }
           } else {
             selectedStreamer = streamers.find(s => s.id === item.dataset.streamerId);
             dropdownText.textContent = item.textContent;
@@ -1235,7 +1243,11 @@
               selectedStreamer = getCurrentStreamer() || getNextStreamer();
               dropdownText.textContent = 'Live Now';
               isLiveNowSelected = true;
-              window.history.replaceState(null, null, '#');
+              try {
+                window.history.replaceState(null, null, '#');
+              } catch (e) {
+                console.warn('Unable to update URL hash:', e.message);
+              }
             } else {
               selectedStreamer = streamers.find(s => s.id === item.dataset.streamerId);
               dropdownText.textContent = item.textContent;
