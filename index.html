@@ -1080,7 +1080,7 @@
         endDate.setHours(streamer.endHour, 0, 0, 0);
         if (endDate < startDate) endDate.setDate(endDate.getDate() + 1);
 
-        const profileUrl = `https://joindiscord.me/#${streamer.id}`;
+        const profileUrl = `https://joindiscord.me/@${streamer.id}`;
         const icsContent = [
           'BEGIN:VCALENDAR',
           'VERSION:2.0',
@@ -1137,7 +1137,7 @@
         // Update URL hash
         if (!isLiveNowSelected) {
           try {
-            window.history.replaceState(null, null, `#${streamer.id}`);
+            window.history.replaceState(null, null, `@${streamer.id}`);
           } catch (e) {
             console.warn('Unable to update URL hash:', e.message);
           }
@@ -1167,8 +1167,9 @@
       function init() {
         let selectedStreamer;
         const hash = window.location.hash.substring(1);
-        if (hash) {
-          selectedStreamer = streamers.find(s => s.id.toLowerCase() === hash.toLowerCase());
+        const streamerId = hash.startsWith('@') ? hash.substring(1) : hash;
+        if (streamerId) {
+          selectedStreamer = streamers.find(s => s.id.toLowerCase() === streamerId.toLowerCase());
         }
         if (!selectedStreamer) {
           selectedStreamer = getCurrentStreamer() || getNextStreamer();
@@ -1184,8 +1185,9 @@
       // Handle hash changes (e.g., user navigates via browser back/forward)
       window.addEventListener('hashchange', () => {
         const hash = window.location.hash.substring(1);
-        if (hash) {
-          const selectedStreamer = streamers.find(s => s.id.toLowerCase() === hash.toLowerCase());
+        const streamerId = hash.startsWith('@') ? hash.substring(1) : hash;
+        if (streamerId) {
+          const selectedStreamer = streamers.find(s => s.id.toLowerCase() === streamerId.toLowerCase());
           if (selectedStreamer) {
             dropdownText.textContent = selectedStreamer.name;
             isLiveNowSelected = false;
