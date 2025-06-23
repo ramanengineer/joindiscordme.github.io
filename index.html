@@ -556,7 +556,7 @@
 
     @keyframes buttonPulse {
       0%, 100% { box-shadow: var(--discord-glow); }
-      50% { box-shadow: 0 0 20px rgba(88, 101, 242, 1), 0 0 30px rgba(88, 101, 242, 0.6); }
+      50% { box-shadow: 0 0 20px rgba(255, 0, 123, 1), 0 0 30px rgba(255, 0, 123, 0.6); }
     }
 
     @keyframes fadeIn {
@@ -577,8 +577,8 @@
       .intro p { font-size: clamp(1rem, 2vw, 1.2rem); }
       .streamer-select { max-width: 500px; }
       .dropdown__face { padding: 1.1rem 1.6rem; font-size: clamp(1rem, 2.5vw, 1.2rem); }
-      .dropdown__items { padding: 0.8rem; }
-      .dropdown__items li { font-size: clamp(0.95rem, 2vw, 1rem); }
+      .dropdown-items { padding: 0.8rem; }
+      .dropdown-items li { font-size: clamp(0.95rem, 2vw, 1rem); }
       .profile { padding: 32px; }
       .profile h2 { font-size: clamp(2rem, 4vw, 2.4rem); }
       .profile p { font-size: clamp(1rem, 2vw, 1.2rem); }
@@ -678,7 +678,7 @@
         <li>MovieByMacaffe</li>
         <li>BizaroPeter</li>
         <li>GynaWENS</li>
-        <li>xvbrznem</li>
+        <li>xivbrznem</li>
       </ul>
       <a class="join-button" href="https://discord.gg/ymwPhfz2"><i class="fab fa-discord"></i> Join Community Discord</a>
     </div>
@@ -688,7 +688,7 @@
       {
         id: 'xwlasxd',
         name: 'xwlasxd',
-        discord: 'https://discord.gg/abrtMaCsyu',
+        discord: 'https://discord.gg/abrtMaesyu',
         twitch: 'https://twitch.tv/xwlasxd',
         vods: 'https://twitch.tv/xwlasxd/videos',
         social: {
@@ -720,7 +720,7 @@
       {
         id: 'ShadyPeterLive',
         name: 'ShadyPeterLive',
-        discord: 'https://discord.gg/QkTWZrT6',
+        discord: 'https://discord.gg/QSPWZrT6',
         twitch: 'https://twitch.tv/ShadyPeterLive',
         vods: 'https://twitch.tv/ShadyPeterLive/videos',
         social: {
@@ -1065,6 +1065,7 @@
 
       function updateProfile(streamer, updateUrl = true) {
         selectedStreamerId = streamer.id;
+        dropdownText.textContent = streamer.name;
         profileTitle.textContent = streamer.name;
         profileDescription.textContent = streamer.description;
         joinButton.href = streamer.discord;
@@ -1119,19 +1120,24 @@
       }
 
       function selectStreamerFromHash() {
-        const hash = window.location.hash.substring(1);
-        const streamerId = hash.startsWith('@') ? hash.substring(1) : hash;
-        let selectedStreamer = null;
-        if (streamerId) {
-          selectedStreamer = streamers.find(s => s.id.toLowerCase() === streamerId.toLowerCase());
+        let hash = window.location.hash.substring(1);
+        if (hash.startsWith('@')) {
+          hash = hash.substring(1);
         }
-        if (!selectedStreamer) {
-          selectedStreamer = getCurrentStreamer() || getNextStreamer();
+        const selectedStreamer = streamers.find(s => s.id.toLowerCase() === hash.toLowerCase());
+        if (selectedStreamer) {
+          isLiveNowSelected = false;
+          updateProfile(selectedStreamer, false);
+        } else {
+          const defaultStreamer = getCurrentStreamer() || getNextStreamer();
+          isLiveNowSelected = false;
+          updateProfile(defaultStreamer, false);
+          try {
+            window.history.replaceState(null, null, `/@${defaultStreamer.id}`);
+          } catch (e) {
+            console.warn('Unable to update URL hash:', e.message);
+          }
         }
-        dropdownText.textContent = selectedStreamer.name;
-        selectedStreamerId = selectedStreamer.id;
-        isLiveNowSelected = false;
-        updateProfile(selectedStreamer, false);
       }
 
       // Initialize
@@ -1165,12 +1171,14 @@
             } catch (e) {
               console.warn('Unable to update URL hash:', e.message);
             }
+            updateProfile(selectedStreamer, false);
           } else {
             selectedStreamer = streamers.find(s => s.id === item.dataset.streamerId);
-            dropdownText.textContent = item.textContent;
-            isLiveNowSelected = false;
+            if (selectedStreamer) {
+              isLiveNowSelected = false;
+              updateProfile(selectedStreamer);
+            }
           }
-          updateProfile(selectedStreamer);
           dropdownItems.classList.remove('active');
           dropdownFace.classList.remove('active');
           dropdown.setAttribute('aria-expanded', 'false');
@@ -1193,12 +1201,14 @@
               } catch (e) {
                 console.warn('Unable to update URL hash:', e.message);
               }
+              updateProfile(selectedStreamer, false);
             } else {
               selectedStreamer = streamers.find(s => s.id === item.dataset.streamerId);
-              dropdownText.textContent = item.textContent;
-              isLiveNowSelected = false;
+              if (selectedStreamer) {
+                isLiveNowSelected = false;
+                updateProfile(selectedStreamer);
+              }
             }
-            updateProfile(selectedStreamer);
             dropdownItems.classList.remove('active');
             dropdownFace.classList.remove('active');
             dropdown.setAttribute('aria-expanded', 'false');
@@ -1210,7 +1220,7 @@
       setInterval(() => {
         if (isLiveNowSelected) {
           const currentStreamer = getCurrentStreamer() || getNextStreamer();
-          updateProfile(currentStreamer);
+          updateProfile(currentStreamer, false);
         }
         dropdownItems.querySelectorAll('li').forEach(item => {
           if (item.dataset.streamerId === 'live-now') return;
