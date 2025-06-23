@@ -995,7 +995,7 @@
       }
 
       function getCurrentStreamer() {
-        return streamers.find(s => isStreamerLive(s)) || streamers.find(s => s.id === 'BizaroPeter') || streamers[0];
+        return streamers.find(s => isStreamerLive(s));
       }
 
       function getNextStreamer() {
@@ -1063,7 +1063,7 @@
         return URL.createObjectURL(blob);
       }
 
-      function updateProfile(streamer) {
+      function updateProfile(streamer, updateUrl = true) {
         selectedStreamerId = streamer.id;
         profileTitle.textContent = streamer.name;
         profileDescription.textContent = streamer.description;
@@ -1089,37 +1089,39 @@
         nextStreamerText.textContent = `The next stream will be live with ${streamer.name} on ${streamInfo.date} at ${streamInfo.time} NZST`;
         calendarButton.href = generateIcsFile(streamer, streamInfo.nextStreamDate);
         calendarButton.download = `${streamer.name}_stream_${streamInfo.date.replace(/, /g, '')}.ics`;
-        if (!isLiveNowSelected) {
+        if (updateUrl && !isLiveNowSelected) {
           try {
-            window.history.replaceState(null, null, `@${streamer.id}`);
+            window.history.replaceState(null, null, `/@${streamer.id}`);
           } catch (e) {
             console.warn('Unable to update URL hash:', e.message);
           }
         }
       }
 
-      const liveNowLi = document.createElement('li');
-      liveNowLi.dataset.streamerId = 'live-now';
-      liveNowLi.textContent = 'Live Now';
-      liveNowLi.classList.add('live-now');
-      liveNowLi.tabIndex = 0;
-      dropdownItems.appendChild(liveNowLi);
+      function populateDropdown() {
+        const liveNowLi = document.createElement('li');
+        liveNowLi.dataset.streamerId = 'live-now';
+        liveNowLi.textContent = 'Live Now';
+        liveNowLi.classList.add('live-now');
+        liveNowLi.tabIndex = 0;
+        dropdownItems.appendChild(liveNowLi);
 
-      streamers.forEach(streamer => {
-        const li = document.createElement('li');
-        li.dataset.streamerId = streamer.id;
-        li.textContent = streamer.name;
-        li.tabIndex = 0;
-        if (isStreamerLive(streamer)) {
-          li.classList.add('live-now');
-        }
-        dropdownItems.appendChild(li);
-      });
+        streamers.forEach(streamer => {
+          const li = document.createElement('li');
+          li.dataset.streamerId = streamer.id;
+          li.textContent = streamer.name;
+          li.tabIndex = 0;
+          if (isStreamerLive(streamer)) {
+            li.classList.add('live-now');
+          }
+          dropdownItems.appendChild(li);
+        });
+      }
 
-      function init() {
-        let selectedStreamer;
+      function selectStreamerFromHash() {
         const hash = window.location.hash.substring(1);
         const streamerId = hash.startsWith('@') ? hash.substring(1) : hash;
+        let selectedStreamer = null;
         if (streamerId) {
           selectedStreamer = streamers.find(s => s.id.toLowerCase() === streamerId.toLowerCase());
         }
@@ -1129,29 +1131,19 @@
         dropdownText.textContent = selectedStreamer.name;
         selectedStreamerId = selectedStreamer.id;
         isLiveNowSelected = false;
-        updateProfile(selectedStreamer);
+        updateProfile(selectedStreamer, false);
       }
 
-      init();
+      // Initialize
+      populateDropdown();
+      selectStreamerFromHash();
 
+      // Handle hash changes
       window.addEventListener('hashchange', () => {
-        const hash = window.location.hash.substring(1);
-        const streamerId = hash.startsWith('@') ? hash.substring(1) : hash;
-        if (streamerId) {
-          const selectedStreamer = streamers.find(s => s.id.toLowerCase() === streamerId.toLowerCase());
-          if (selectedStreamer) {
-            dropdownText.textContent = selectedStreamer.name;
-            isLiveNowSelected = false;
-            updateProfile(selectedStreamer);
-          }
-        } else {
-          const defaultStreamer = getCurrentStreamer() || getNextStreamer();
-          dropdownText.textContent = defaultStreamer.name;
-          isLiveNowSelected = false;
-          updateProfile(defaultStreamer);
-        }
+        selectStreamerFromHash();
       });
 
+      // Dropdown face click
       dropdownFace.addEventListener('click', () => {
         const isOpen = dropdownItems.classList.contains('active');
         dropdownItems.classList.toggle('active');
@@ -1159,6 +1151,7 @@
         dropdown.setAttribute('aria-expanded', !isOpen);
       });
 
+      // Dropdown item click
       dropdownItems.addEventListener('click', (e) => {
         const item = e.target.closest('li');
         if (item) {
@@ -1168,7 +1161,7 @@
             dropdownText.textContent = 'Live Now';
             isLiveNowSelected = true;
             try {
-              window.history.replaceState(null, null, '#');
+              window.history.replaceState(null, null, '/');
             } catch (e) {
               console.warn('Unable to update URL hash:', e.message);
             }
@@ -1184,6 +1177,7 @@
         }
       });
 
+      // Dropdown item keyboard navigation
       dropdownItems.addEventListener('keydown', (e) => {
         if (e.key === 'Enter' || e.key === ' ') {
           e.preventDefault();
@@ -1195,7 +1189,7 @@
               dropdownText.textContent = 'Live Now';
               isLiveNowSelected = true;
               try {
-                window.history.replaceState(null, null, '#');
+                window.history.replaceState(null, null, '/');
               } catch (e) {
                 console.warn('Unable to update URL hash:', e.message);
               }
@@ -1212,6 +1206,7 @@
         }
       });
 
+      // Periodic update for live status
       setInterval(() => {
         if (isLiveNowSelected) {
           const currentStreamer = getCurrentStreamer() || getNextStreamer();
