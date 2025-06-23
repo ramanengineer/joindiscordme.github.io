@@ -482,7 +482,7 @@
   <div class="container">
     <div class="intro">
       <h1>joindiscord.me</h1>
-      <p>Explore vibrant Discord communities filled with fun, variety streams, and epic vibes!</p>
+      <p>Explore vibrant Discord communities filled with fun, variety streams, and epic vibes! Select a streamer or visit joindiscord.me/@username to join their Discord!</p>
     </div>
     <div class="streamer-select">
       <div class="dropdown" role="combobox" aria-expanded="false">
@@ -710,9 +710,9 @@
         `;
         profile.classList.add('active');
         try {
-          window.history.pushState(null, null, `/@${streamer.id}`);
+          window.history.pushState(null, null, `/@${encodeURIComponent(streamer.id)}`);
         } catch (e) {
-          console.warn('Unable to update URL hash:', e.message);
+          console.warn('Unable to update URL:', e.message);
         }
       }
 
@@ -728,11 +728,12 @@
         try {
           window.history.pushState(null, null, '/');
         } catch (e) {
-          console.warn('Unable to update URL hash:', e.message);
+          console.warn('Unable to update URL:', e.message);
         }
       }
 
       function populateDropdown() {
+        dropdownItems.innerHTML = '';
         streamers.forEach(streamer => {
           const li = document.createElement('li');
           li.dataset.streamerId = streamer.id;
@@ -742,31 +743,33 @@
         });
       }
 
-      function selectStreamerFromHash() {
-        const hash = window.location.hash || '';
-        const streamerId = hash.startsWith('#/@') ? hash.substring(3).toLowerCase() : hash.startsWith('#/') ? hash.substring(2).toLowerCase() : hash.substring(1).toLowerCase();
-        if (!streamerId) {
-          clearProfile();
-          return;
+      function loadStreamerFromPath() {
+        const path = window.location.pathname;
+        const match = path.match(/^\/@([^/]+)/);
+        if (match) {
+          const username = decodeURIComponent(match[1]).toLowerCase();
+          const selectedStreamer = streamers.find(s => s.id.toLowerCase() === username);
+          if (selectedStreamer) {
+            dropdownText.textContent = selectedStreamer.name;
+            updateProfile(selectedStreamer);
+            return selectedStreamer;
+          }
         }
-        const selectedStreamer = streamers.find(s => s.id.toLowerCase() === streamerId);
-        if (selectedStreamer) {
-          updateProfile(selectedStreamer);
-        } else {
-          clearProfile();
-        }
+        clearProfile();
+        return null;
       }
 
-      // Initialize
-      populateDropdown();
-      selectStreamerFromHash();
+      function init() {
+        populateDropdown();
+        loadStreamerFromPath();
+      }
 
-      // Handle hash changes
-      window.addEventListener('hashchange', () => {
-        selectStreamerFromHash();
+      init();
+
+      window.addEventListener('popstate', () => {
+        loadStreamerFromPath();
       });
 
-      // Dropdown face click
       dropdownFace.addEventListener('click', () => {
         const isOpen = dropdownItems.classList.contains('active');
         dropdownItems.classList.toggle('active');
@@ -774,10 +777,18 @@
         dropdown.setAttribute('aria-expanded', !isOpen);
       });
 
-      // Dropdown item click
+      document.addEventListener('click', (e) => {
+        if (!dropdown.contains(e.target)) {
+          dropdownItems.classList.remove('active');
+          dropdownFace.classList.remove('active');
+          dropdown.setAttribute('aria-expanded', 'false');
+        }
+      });
+
       dropdownItems.addEventListener('click', (e) => {
         const item = e.target.closest('li');
         if (item) {
+          e.stopPropagation();
           const selectedStreamer = streamers.find(s => s.id === item.dataset.streamerId);
           if (selectedStreamer) {
             updateProfile(selectedStreamer);
@@ -788,7 +799,6 @@
         }
       });
 
-      // Dropdown item keyboard navigation
       dropdownItems.addEventListener('keydown', (e) => {
         if (e.key === 'Enter' || e.key === ' ') {
           e.preventDefault();
