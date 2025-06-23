@@ -721,6 +721,11 @@
       function clearProfile() {
         profile.classList.remove('active');
         dropdownText.textContent = 'Select Streamer';
+        profileTitle.textContent = '';
+        profileDescription.textContent = '';
+        joinButton.href = '#';
+        joinButton.innerHTML = `<i class="fab fa-discord"></i> Join Discord`;
+        socialContainer.innerHTML = '';
         selectedStreamerId = null;
         try {
           window.history.replaceState(null, null, '/');
@@ -740,11 +745,13 @@
       }
 
       function selectStreamerFromHash() {
-        let hash = window.location.hash.substring(1);
-        if (hash.startsWith('@')) {
-          hash = hash.substring(1);
+        const hash = window.location.hash.substring(1);
+        const streamerId = hash.startsWith('@') ? hash.substring(1).toLowerCase() : hash.toLowerCase();
+        if (!streamerId) {
+          clearProfile();
+          return;
         }
-        const selectedStreamer = streamers.find(s => s.id.toLowerCase() === hash.toLowerCase());
+        const selectedStreamer = streamers.find(s => s.id.toLowerCase() === streamerId);
         if (selectedStreamer) {
           updateProfile(selectedStreamer, false);
         } else {
