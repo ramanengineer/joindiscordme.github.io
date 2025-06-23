@@ -217,7 +217,7 @@
     }
 
     .profile {
-      display: flex;
+      display: none;
       flex-direction: column;
       align-items: center;
       background: var(--glass-bg);
@@ -228,6 +228,10 @@
       width: 100%;
       transition: transform 0.4s ease;
       border: 1px solid var(--glass-border);
+    }
+
+    .profile.active {
+      display: flex;
     }
 
     .profile:hover {
@@ -492,15 +496,10 @@
       </div>
     </div>
     <div class="profile" id="profile">
-      <h2>BizaroPeter</h2>
-      <p>Join BizaroPeter for epic gaming sessions, variety streams, and a welcoming community full of vibrant energy!</p>
-      <a class="join-button" href="https://discord.gg/tPWpx28U"><i class="fab fa-discord"></i> Join BizaroPeter Discord</a>
-      <div class="social-container">
-        <a href="https://x.com/BizaroPeter" class="social-button x" aria-label="Follow BizaroPeter on X"><i class="fab fa-x-twitter"></i></a>
-        <a href="https://reddit.com/r/BizaroPeter" class="social-button reddit" aria-label="Follow BizaroPeter on Reddit"><i class="fab fa-reddit"></i></a>
-        <a href="https://t.me/BizaroPeter" class="social-button telegram" aria-label="Follow BizaroPeter on Telegram"><i class="fab fa-telegram"></i></a>
-        <a href="https://twitch.tv/BizaroPeter/videos" class="social-button twitch" aria-label="Watch BizaroPeter VODs"><i class="fab fa-twitch"></i></a>
-      </div>
+      <h2></h2>
+      <p></p>
+      <a class="join-button" href="#"><i class="fab fa-discord"></i> Join Discord</a>
+      <div class="social-container"></div>
     </div>
     <div class="community-discord-container">
       <h3>Join Our Epic Discord Community</h3>
@@ -568,7 +567,7 @@
         vods: 'https://twitch.tv/ramkrishanghoil/videos',
         social: {
           x: 'https://x.com/ramkrishanghoil',
-          reddit: 'https://reddit.com/r/ramkrishanghoil.com',
+          reddit: 'https://reddit.com/r/ramkrishanghoil',
           telegram: 'https://t.me/ramkrishanghoil'
         },
         description: 'Join ramkrishanghoil for chill streams, variety content, and a welcoming community!'
@@ -709,12 +708,24 @@
           <a href="${streamer.social.telegram}" class="social-button telegram" aria-label="Follow ${streamer.name} on Telegram"><i class="fab fa-telegram"></i></a>
           <a href="${streamer.vods}" class="social-button twitch" aria-label="Watch ${streamer.name} VODs"><i class="fab fa-twitch"></i></a>
         `;
+        profile.classList.add('active');
         if (updateUrl) {
           try {
             window.history.replaceState(null, null, `/@${streamer.id}`);
           } catch (e) {
             console.warn('Unable to update URL hash:', e.message);
           }
+        }
+      }
+
+      function clearProfile() {
+        profile.classList.remove('active');
+        dropdownText.textContent = 'Select Streamer';
+        selectedStreamerId = null;
+        try {
+          window.history.replaceState(null, null, '/');
+        } catch (e) {
+          console.warn('Unable to update URL hash:', e.message);
         }
       }
 
@@ -737,13 +748,7 @@
         if (selectedStreamer) {
           updateProfile(selectedStreamer, false);
         } else {
-          const defaultStreamer = streamers.find(s => s.id === 'BizaroPeter') || streamers[0];
-          updateProfile(defaultStreamer, false);
-          try {
-            window.history.replaceState(null, null, `/@${defaultStreamer.id}`);
-          } catch (e) {
-            console.warn('Unable to update URL hash:', e.message);
-          }
+          clearProfile();
         }
       }
 
