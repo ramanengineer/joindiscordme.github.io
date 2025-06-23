@@ -11,13 +11,10 @@
   <meta property="og:description" content="Dive into fun Discord communities on joindiscord.me for non-stop fun, variety streams, and vibrant fun. Join today!">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://joindiscord.me">
-  <meta property="og:image" content="https://i.postimg.cc/yYwkZbtY/join-discord-me-logo.png">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="joindiscord.me - Fun Discord Communities">
   <meta name="twitter:description" content="Join fun Discord communities on joindiscord.me for fun and community vibes. Connect now!">
-  <meta name="twitter:image" content="https://i.postimg.cc/yYwkZbtY/join-discord-me-logo.png">
   <link rel="canonical" href="https://joindiscord.me">
-  <link rel="icon" type="image/png" href="https://i.postimg.cc/yYwkZbtY/join-discord-me-logo.png">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
@@ -63,7 +60,7 @@
       align-items: center;
       justify-content: center;
       padding: 24px;
-      font-size: 16px;
+      font-size: 18px;
       overflow-x: hidden;
     }
 
@@ -72,44 +69,45 @@
     h1, h2, h3 { font-weight: 700; text-align: center; }
 
     .container {
-      max-width: 900px;
+      max-width: 1000px;
       width: 100%;
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 24px;
+      gap: 32px;
       animation: fadeIn 1.2s ease-out;
     }
 
     .intro {
       text-align: center;
-      margin-bottom: 16px;
+      margin-bottom: 20px;
       background: var(--glass-bg);
       backdrop-filter: blur(12px);
-      padding: 20px;
+      padding: 24px;
       border-radius: 16px;
       border: 1px solid var(--glass-border);
       width: 100%;
     }
 
     .intro h1 {
-      font-size: clamp(2.2rem, 5vw, 2.8rem);
+      font-size: clamp(2.8rem, 6vw, 3.2rem);
       color: var(--text);
       text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
-      margin-bottom: 10px;
+      margin-bottom: 12px;
       animation: pulse 3s infinite ease-in-out;
     }
 
     .intro p {
-      font-size: clamp(1rem, 2vw, 1.1rem);
+      font-size: clamp(1.2rem, 2.5vw, 1.4rem);
       color: var(--text-muted);
-      max-width: 600px;
+      max-width: 700px;
       margin: 0 auto;
+      line-height: 1.6;
     }
 
     .streamer-select {
       width: 100%;
-      max-width: 500px;
+      max-width: 600px;
     }
 
     .dropdown {
@@ -119,11 +117,11 @@
 
     .dropdown__face {
       background: var(--glass-bg);
-      padding: 1.1rem 1.6rem;
+      padding: 1.3rem 1.8rem;
       border-radius: 12px;
       border: 1px solid var(--glass-border);
       color: var(--text);
-      font-size: clamp(1rem, 2.5vw, 1.2rem);
+      font-size: clamp(1.2rem, 3vw, 1.4rem);
       font-weight: 600;
       display: flex;
       align-items: center;
@@ -154,11 +152,11 @@
       list-style: none;
       display: none;
       flex-direction: column;
-      gap: 0.5rem;
+      gap: 0.6rem;
       z-index: 150;
       background: var(--glass-bg);
       backdrop-filter: blur(15px);
-      padding: 0.8rem;
+      padding: 1rem;
       border-radius: 12px;
       border: 1px solid var(--glass-border);
       animation: slideDown 0.3s ease-in-out;
@@ -195,11 +193,11 @@
     }
 
     .dropdown__items li {
-      padding: 0.8rem 1rem;
+      padding: 1rem 1.2rem;
       cursor: pointer;
       transition: all 0.3s ease;
       border-radius: 8px;
-      font-size: clamp(0.95rem, 2vw, 1rem);
+      font-size: clamp(1.1rem, 2.5vw, 1.2rem);
       font-weight: 600;
       color: var(--text);
       text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
@@ -227,10 +225,10 @@
       content: '';
       position: absolute;
       top: 50%;
-      left: 6px;
+      left: 8px;
       transform: translateY(-50%);
-      width: 6px;
-      height: 6px;
+      width: 8px;
+      height: 8px;
       background: var(--text);
       border-radius: 50%;
       animation: flash 1.5s infinite ease-in-out;
@@ -244,8 +242,8 @@
     .dropdown__arrow {
       border-bottom: 2px solid var(--text);
       border-right: 2px solid var(--text);
-      width: 0.7rem;
-      height: 0.7rem;
+      width: 0.8rem;
+      height: 0.8rem;
       transform: rotate(45deg);
       transition: transform 0.3s ease;
     }
@@ -257,15 +255,15 @@
     .status-container {
       text-align: center;
       width: 100%;
-      max-width: 600px;
+      max-width: 700px;
     }
 
     .live-badge {
       background: var(--live-badge);
       color: var(--text);
-      padding: 8px 16px;
+      padding: 10px 20px;
       border-radius: 8px;
-      font-size: 0.9rem;
+      font-size: 1.1rem;
       font-weight: 600;
       display: none;
       transition: all 0.3s ease;
@@ -287,10 +285,10 @@
       content: '';
       position: absolute;
       top: 50%;
-      left: 8px;
+      left: 10px;
       transform: translateY(-50%);
-      width: 6px;
-      height: 6px;
+      width: 8px;
+      height: 8px;
       background: var(--text);
       border-radius: 50%;
       animation: flash 1.5s infinite ease-in-out;
@@ -299,9 +297,9 @@
     .schedule-info {
       background: var(--glass-bg);
       color: var(--text-muted);
-      padding: 8px 16px;
+      padding: 10px 20px;
       border-radius: 8px;
-      font-size: 0.9rem;
+      font-size: 1.1rem;
       font-weight: 600;
       display: none;
       transition: all 0.3s ease;
@@ -319,8 +317,8 @@
       background: var(--glass-bg);
       backdrop-filter: blur(15px);
       border-radius: 16px;
-      padding: 32px;
-      max-width: 600px;
+      padding: 40px;
+      max-width: 700px;
       width: 100%;
       transition: transform 0.4s ease;
       border: 1px solid var(--glass-border);
@@ -330,45 +328,32 @@
       transform: translateY(-6px);
     }
 
-    .profile img {
-      width: 220px;
-      height: 220px;
-      border-radius: 16px;
-      object-fit: cover;
-      margin-bottom: 16px;
-      transition: transform 0.4s ease;
-      border: none;
-    }
-
-    .profile img:hover {
-      transform: scale(1.08);
-    }
-
     .profile h2 {
-      font-size: 2.1rem;
+      font-size: clamp(2.4rem, 5vw, 2.8rem);
       color: var(--text);
-      margin-bottom: 10px;
+      margin-bottom: 12px;
       text-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
     }
 
     .profile p {
-      font-size: 1.1rem;
+      font-size: clamp(1.2rem, 2.5vw, 1.4rem);
       color: var(--text-muted);
       text-align: center;
-      margin-bottom: 16px;
-      max-width: 500px;
+      margin-bottom: 20px;
+      max-width: 600px;
+      line-height: 1.6;
     }
 
     .join-button {
       background: var(--button);
       border-radius: 10px;
-      padding: 12px 32px;
+      padding: 14px 36px;
       color: var(--text);
-      font-size: 1.1rem;
+      font-size: 1.2rem;
       font-weight: 600;
       display: inline-flex;
       align-items: center;
-      gap: 8px;
+      gap: 10px;
       transition: all 0.3s ease;
       backdrop-filter: blur(10px);
       border: 1px solid var(--glass-border);
@@ -382,19 +367,19 @@
     }
 
     .social-container {
-      margin-top: 16px;
+      margin-top: 20px;
       display: flex;
       flex-wrap: wrap;
-      gap: 12px;
+      gap: 16px;
       justify-content: center;
     }
 
     .social-button {
       background: var(--glass-bg);
       border-radius: 10px;
-      padding: 10px;
+      padding: 12px;
       color: var(--text);
-      font-size: 1.3rem;
+      font-size: 1.5rem;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -422,36 +407,37 @@
       text-align: center;
       background: var(--glass-bg);
       backdrop-filter: blur(12px);
-      padding: 16px;
+      padding: 20px;
       border-radius: 16px;
       border: 1px solid var(--glass-border);
       width: 100%;
-      max-width: 600px;
+      max-width: 700px;
     }
 
     .next-streamer-container h3 {
-      font-size: 1.4rem;
+      font-size: clamp(1.6rem, 3.5vw, 1.8rem);
       color: var(--text);
-      margin-bottom: 10px;
+      margin-bottom: 12px;
       text-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
     }
 
     .next-streamer-container p {
-      font-size: 1rem;
+      font-size: clamp(1.1rem, 2.5vw, 1.2rem);
       color: var(--text-muted);
-      margin-bottom: 12px;
+      margin-bottom: 16px;
+      line-height: 1.6;
     }
 
     .calendar-button {
       background: var(--calendar-button);
       border-radius: 10px;
-      padding: 10px 20px;
+      padding: 12px 24px;
       color: var(--text);
-      font-size: 0.95rem;
+      font-size: 1.1rem;
       font-weight: 600;
       display: inline-flex;
       align-items: center;
-      gap: 6px;
+      gap: 8px;
       transition: all 0.3s ease;
       backdrop-filter: blur(10px);
       border: 1px solid var(--glass-border);
@@ -468,10 +454,10 @@
       text-align: center;
       background: var(--glass-bg);
       backdrop-filter: blur(15px);
-      padding: 28px;
+      padding: 32px;
       border-radius: 16px;
       width: 100%;
-      max-width: 600px;
+      max-width: 700px;
       position: relative;
       overflow: hidden;
       border: 2px solid transparent;
@@ -504,12 +490,12 @@
     }
 
     .community-discord-container h3 {
-      font-size: clamp(1.6rem, 3.5vw, 2rem);
+      font-size: clamp(2rem, 4vw, 2.4rem);
       background: linear-gradient(90deg, #ff007b, #5865f2);
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
-      margin-bottom: 12px;
+      margin-bottom: 16px;
       text-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
       animation: textGlow 2s ease-in-out infinite;
     }
@@ -520,61 +506,44 @@
     }
 
     .community-discord-container p {
-      font-size: clamp(0.95rem, 2vw, 1.1rem);
+      font-size: clamp(1.2rem, 2.5vw, 1.4rem);
       color: var(--text-muted);
-      margin-bottom: 20px;
-      line-height: 1.5;
-      max-width: 500px;
+      margin-bottom: 24px;
+      line-height: 1.6;
+      max-width: 600px;
       margin-left: auto;
       margin-right: auto;
     }
 
-    .org-logos {
+    .streamer-list {
+      margin-bottom: 24px;
+      list-style: none;
       display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
       justify-content: center;
-      gap: 20px;
-      margin-bottom: 20px;
     }
 
-    .org-logos img {
-      width: 100px;
-      height: 100px;
-      border-radius: 12px;
-      object-fit: cover;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      border: 2px solid var(--glass-border);
+    .streamer-list li {
+      font-size: clamp(1.1rem, 2.5vw, 1.2rem);
+      color: var(--text);
+      padding: 8px 16px;
+      background: var(--glass-bg);
+      border-radius: 8px;
+      border: 1px solid var(--glass-border);
+      transition: all 0.3s ease;
     }
 
-    .org-logos img:hover {
-      transform: scale(1.1);
-      box-shadow: 0 0 12px rgba(255, 255, 255, 0.5);
-    }
-
-    .streamer-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(70px, 1fr));
-      gap: 10px;
-      margin-bottom: 20px;
-    }
-
-    .streamer-grid img {
-      width: 70px;
-      height: 70px;
-      border-radius: 10px;
-      object-fit: cover;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      border: none;
-    }
-
-    .streamer-grid img:hover {
-      transform: scale(1.1);
-      box-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
+    .streamer-list li:hover {
+      background: var(--button-hover);
+      transform: translateY(-2px);
+      box-shadow: var(--glow);
     }
 
     .community-discord-container .join-button {
       background: var(--button);
-      padding: 14px 36px;
-      font-size: clamp(1rem, 2vw, 1.1rem);
+      padding: 16px 40px;
+      font-size: clamp(1.2rem, 2.5vw, 1.3rem);
       box-shadow: var(--discord-glow);
       animation: buttonPulse 2s ease-in-out infinite;
     }
@@ -601,63 +570,58 @@
     }
 
     @media (max-width: 768px) {
-      body { padding: 16px; }
+      body { padding: 20px; font-size: 16px; }
+      .container { gap: 24px; }
+      .intro { padding: 20px; }
+      .intro h1 { font-size: clamp(2.2rem, 5vw, 2.6rem); }
+      .intro p { font-size: clamp(1rem, 2vw, 1.2rem); }
+      .streamer-select { max-width: 500px; }
+      .dropdown__face { padding: 1.1rem 1.6rem; font-size: clamp(1rem, 2.5vw, 1.2rem); }
+      .dropdown__items { padding: 0.8rem; }
+      .dropdown__items li { font-size: clamp(0.95rem, 2vw, 1rem); }
+      .profile { padding: 32px; }
+      .profile h2 { font-size: clamp(2rem, 4vw, 2.4rem); }
+      .profile p { font-size: clamp(1rem, 2vw, 1.2rem); }
+      .join-button { padding: 12px 32px; font-size: 1rem; }
+      .social-button { padding: 10px; font-size: 1.3rem; }
+      .live-badge, .schedule-info { font-size: 0.95rem; padding: 8px 16px; }
+      .next-streamer-container { padding: 16px; }
+      .next-streamer-container h3 { font-size: clamp(1.4rem, 3vw, 1.6rem); }
+      .next-streamer-container p { font-size: clamp(0.95rem, 2vw, 1rem); }
+      .calendar-button { padding: 10px 20px; font-size: 0.95rem; }
+      .community-discord-container { padding: 24px; }
+      .community-discord-container h3 { font-size: clamp(1.6rem, 3.5vw, 2rem); }
+      .community-discord-container p { font-size: clamp(1rem, 2vw, 1.2rem); }
+      .streamer-list li { font-size: clamp(0.95rem, 2vw, 1rem); }
+      .community-discord-container .join-button { padding: 14px 36px; font-size: 1rem; }
+    }
+
+    @media (max-width: 480px) {
+      body { padding: 16px; font-size: 14px; }
       .container { gap: 20px; }
       .intro { padding: 16px; }
       .intro h1 { font-size: clamp(1.8rem, 4.5vw, 2.2rem); }
       .intro p { font-size: clamp(0.95rem, 1.8vw, 1rem); }
-      .streamer-select { max-width: 400px; }
+      .streamer-select { max-width: 100%; }
       .dropdown__face { padding: 0.9rem 1.4rem; font-size: clamp(0.95rem, 2vw, 1rem); }
       .dropdown__items { padding: 0.7rem; }
       .dropdown__items li { font-size: clamp(0.9rem, 1.8vw, 0.95rem); }
       .profile { padding: 24px; }
-      .profile img { width: 180px; height: 180px; }
-      .profile h2 { font-size: 1.8rem; }
-      .profile p { font-size: 1rem; }
+      .profile h2 { font-size: clamp(1.8rem, 3.5vw, 2rem); }
+      .profile p { font-size: clamp(0.95rem, 1.8vw, 1rem); }
       .join-button { padding: 10px 28px; font-size: 0.95rem; }
+      .social-container { gap: 12px; }
       .social-button { padding: 8px; font-size: 1.1rem; }
-      .live-badge, .schedule-info { font-size: 0.85rem; padding: 6px 12px; }
+      .live-badge, .schedule-info { font-size: 0.9rem; padding: 6px 12px; }
       .next-streamer-container { padding: 12px; }
-      .next-streamer-container h3 { font-size: 1.2rem; }
-      .next-streamer-container p { font-size: 0.95rem; }
+      .next-streamer-container h3 { font-size: clamp(1.2rem, 2.5vw, 1.4rem); }
+      .next-streamer-container p { font-size: clamp(0.9rem, 1.8vw, 0.95rem); }
       .calendar-button { padding: 8px 16px; font-size: 0.9rem; }
       .community-discord-container { padding: 20px; }
-      .community-discord-container h3 { font-size: clamp(1.4rem, 2.5vw, 1.6rem); }
-      .community-discord-container p { font-size: clamp(0.9rem, 1.8vw, 0.95rem); }
-      .org-logos img { width: 90px; height: 90px; }
-      .streamer-grid img { width: 60px; height: 60px; }
-      .community-discord-container .join-button { padding: 12px 30px; font-size: 0.95rem; }
-    }
-
-    @media (max-width: 480px) {
-      body { padding: 12px; }
-      .container { gap: 16px; }
-      .intro { padding: 12px; }
-      .intro h1 { font-size: clamp(1.6rem, 4vw, 2rem); }
-      .intro p { font-size: clamp(0.9rem, 1.5vw, 0.95rem); }
-      .streamer-select { max-width: 100%; }
-      .dropdown__face { padding: 0.8rem 1.2rem; font-size: clamp(0.9rem, 1.8vw, 0.95rem); }
-      .dropdown__items { padding: 0.6rem; }
-      .dropdown__items li { font-size: clamp(0.85rem, 1.5vw, 0.9rem); }
-      .profile { padding: 20px; }
-      .profile img { width: 160px; height: 160px; }
-      .profile h2 { font-size: 1.6rem; }
-      .profile p { font-size: 0.95rem; }
-      .join-button { padding: 8px 24px; font-size: 0.9rem; }
-      .social-container { gap: 8px; }
-      .social-button { padding: 6px; font-size: 1rem; }
-      .live-badge, .schedule-info { font-size: 0.8rem; padding: 5px 10px; }
-      .next-streamer-container { padding: 10px; }
-      .next-streamer-container h3 { font-size: 1.1rem; }
-      .next-streamer-container p { font-size: 0.9rem; }
-      .calendar-button { padding: 7px 14px; font-size: 0.85rem; }
-      .community-discord-container { padding: 16px; }
-      .community-discord-container h3 { font-size: clamp(1.2rem, 2.5vw, 1.4rem); }
-      .community-discord-container p { font-size: clamp(0.85rem, 1.5vw, 0.9rem); }
-      .org-logos { gap: 12px; }
-      .org-logos img { width: 80px; height: 80px; }
-      .streamer-grid img { width: 50px; height: 50px; }
-      .community-discord-container .join-button { padding: 10px 28px; font-size: 0.9rem; }
+      .community-discord-container h3 { font-size: clamp(1.4rem, 3vw, 1.6rem); }
+      .community-discord-container p { font-size: clamp(0.95rem, 1.8vw, 1rem); }
+      .streamer-list li { font-size: clamp(0.9rem, 1.8vw, 0.95rem); }
+      .community-discord-container .join-button { padding: 12px 32px; font-size: 0.95rem; }
     }
   </style>
 </head>
@@ -665,7 +629,7 @@
   <div class="container">
     <div class="intro">
       <h1>joindiscord.me</h1>
-      <p>Explore fun Discord communities for fun and vibes!</p>
+      <p>Explore vibrant Discord communities filled with fun, variety streams, and epic vibes!</p>
     </div>
     <div class="streamer-select">
       <div class="dropdown" role="combobox" aria-expanded="false">
@@ -683,9 +647,8 @@
       <div class="schedule-info" id="schedule-info">Next stream in: TBD</div>
     </div>
     <div class="profile" id="profile">
-      <img src="https://i.postimg.cc/9XsKQYKC/bizaropeter-profile.png" alt="BizaroPeter logo" loading="lazy">
       <h2>BizaroPeter</h2>
-      <p>Join BizaroPeter for epic fun sessions, variety streams, and a vibrant community!</p>
+      <p>Join BizaroPeter for epic gaming sessions, variety streams, and a welcoming community full of vibrant energy!</p>
       <a class="join-button" href="https://discord.gg/tPWpx28U"><i class="fab fa-discord"></i> Join BizaroPeter Discord</a>
       <div class="social-container">
         <a href="https://x.com/BizaroPeter" class="social-button x" aria-label="Follow BizaroPeter on X"><i class="fab fa-x-twitter"></i></a>
@@ -701,26 +664,22 @@
     </div>
     <div class="community-discord-container">
       <h3>Join Our Epic Discord Community</h3>
-      <p>OGVK, the Twitch Live org, and GGQP, the YouTube Live org, have joined forces in this vibrant Discord community, uniting all their friends for epic fun and variety streams!</p>
-      <div class="org-logos">
-        <img src="https://i.postimg.cc/zfSxRGYF/Binge-Watchers-prfile-png-1.png" alt="OGVK logo" loading="lazy">
-        <img src="https://i.postimg.cc/pVzjDw2v/GGQP-ORG-LOGO-png.png" alt="GGQP logo" loading="lazy">
-      </div>
-      <div class="streamer-grid">
-        <img src="https://i.postimg.cc/F1k6Lykq/xwlasxd-logo.png" alt="xwlasxd logo" loading="lazy">
-        <img src="https://i.postimg.cc/MMNrLTNd/HSL-logo.png" alt="HeavySamLifts logo" loading="lazy">
-        <img src="https://i.postimg.cc/2V4XHCw7/shady-peter-live-profile-3k.png" alt="ShadyPeterLive logo" loading="lazy">
-        <img src="https://i.postimg.cc/3kTz7kRq/rkg-logo.png" alt="ramkrishanghoil logo" loading="lazy">
-        <img src="https://i.postimg.cc/0QqJjT1F/zxckjsdv-profile.png" alt="zxckjsdv logo" loading="lazy">
-        <img src="https://i.postimg.cc/LXhwKQ7N/brbcompiling-profile.png" alt="brbcompiling logo" loading="lazy">
-        <img src="https://i.postimg.cc/ZRpYD5yd/random-easy-logo.png" alt="TrevorMarksman logo" loading="lazy">
-        <img src="https://i.postimg.cc/P57tXwWD/coolio-kick.png" alt="ValentineCoolio logo" loading="lazy">
-        <img src="https://i.postimg.cc/PLfcp01z/legacy-martian-logo.png" alt="LegacyMartian logo" loading="lazy">
-        <img src="https://i.postimg.cc/hjLg1ZH8/macaffe-best-logo.png" alt="MovieByMacaffe logo" loading="lazy">
-        <img src="https://i.postimg.cc/9XsKQYKC/bizaropeter-profile.png" alt="BizaroPeter logo" loading="lazy">
-        <img src="https://i.postimg.cc/k5jh3QWr/wens-logo.png" alt="GynaWENS logo" loading="lazy">
-        <img src="https://i.postimg.cc/HcVh35Zr/xvbrznem-logo.jpg" alt="xvbrznem logo" loading="lazy">
-      </div>
+      <p>OGVK, the Twitch Live org, and GGQP, the YouTube Live org, have united in this vibrant Discord community, bringing together streamers and fans for epic fun and variety streams!</p>
+      <ul class="streamer-list">
+        <li>xwlasxd</li>
+        <li>HeavySamLifts</li>
+        <li>ShadyPeterLive</li>
+        <li>ramkrishanghoil</li>
+        <li>zxckjsdv</li>
+        <li>brbcompiling</li>
+        <li>TrevorMarksman</li>
+        <li>ValentineCoolio</li>
+        <li>LegacyMartian</li>
+        <li>MovieByMacaffe</li>
+        <li>BizaroPeter</li>
+        <li>GynaWENS</li>
+        <li>xvbrznem</li>
+      </ul>
       <a class="join-button" href="https://discord.gg/ymwPhfz2"><i class="fab fa-discord"></i> Join Community Discord</a>
     </div>
   </div>
@@ -729,7 +688,6 @@
       {
         id: 'xwlasxd',
         name: 'xwlasxd',
-        avatar: 'https://i.postimg.cc/F1k6Lykq/xwlasxd-logo.png',
         discord: 'https://discord.gg/abrtMaCsyu',
         twitch: 'https://twitch.tv/xwlasxd',
         vods: 'https://twitch.tv/xwlasxd/videos',
@@ -738,6 +696,7 @@
           reddit: 'https://reddit.com/r/xwlasxd',
           telegram: 'https://t.me/xwlasxd'
         },
+        description: 'Join xwlasxd for high-energy variety streams, chaotic fun, and a tight-knit community!',
         startHour: 0,
         endHour: 3,
         streamingDays: [1, 3, 5, 0]
@@ -745,7 +704,6 @@
       {
         id: 'HeavySamLifts',
         name: 'HeavySamLifts',
-        avatar: 'https://i.postimg.cc/MMNrLTNd/HSL-logo.png',
         discord: 'https://discord.gg/36U3wCXXfe',
         twitch: 'https://twitch.tv/HeavySamLifts',
         vods: 'https://twitch.tv/HeavySamLifts/videos',
@@ -754,6 +712,7 @@
           reddit: 'https://reddit.com/r/HeavySamLifts',
           telegram: 'https://t.me/HeavySamLifts'
         },
+        description: 'HeavySamLifts brings fitness, gaming, and epic vibes to the stream with a supportive community!',
         startHour: 3,
         endHour: 6,
         streamingDays: [1, 3, 5, 0]
@@ -761,7 +720,6 @@
       {
         id: 'ShadyPeterLive',
         name: 'ShadyPeterLive',
-        avatar: 'https://i.postimg.cc/2V4XHCw7/shady-peter-live-profile-3k.png',
         discord: 'https://discord.gg/QkTWZrT6',
         twitch: 'https://twitch.tv/ShadyPeterLive',
         vods: 'https://twitch.tv/ShadyPeterLive/videos',
@@ -770,6 +728,7 @@
           reddit: 'https://reddit.com/r/ShadyPeterLive',
           telegram: 'https://t.me/ShadyPeterLive'
         },
+        description: 'ShadyPeterLive delivers wild gaming sessions and a fun, engaging community atmosphere!',
         startHour: 6,
         endHour: 9,
         streamingDays: [1, 3, 5, 0]
@@ -777,7 +736,6 @@
       {
         id: 'ramkrishanghoil',
         name: 'ramkrishanghoil',
-        avatar: 'https://i.postimg.cc/3kTz7kRq/rkg-logo.png',
         discord: 'https://discord.gg/vTd4bxJX',
         twitch: 'https://twitch.tv/ramkrishanghoil',
         vods: 'https://twitch.tv/ramkrishanghoil/videos',
@@ -786,6 +744,7 @@
           reddit: 'https://reddit.com/r/ramkrishanghoil',
           telegram: 'https://t.me/ramkrishanghoil'
         },
+        description: 'Join ramkrishanghoil for chill streams, variety content, and a welcoming community!',
         startHour: 9,
         endHour: 12,
         streamingDays: [1, 3, 5, 0]
@@ -793,7 +752,6 @@
       {
         id: 'zxckjsdv',
         name: 'zxckjsdv',
-        avatar: 'https://i.postimg.cc/0QqJjT1F/zxckjsdv-profile.png',
         discord: 'https://discord.gg/mTT2SBmq',
         twitch: 'https://twitch.tv/zxckjsdv',
         vods: 'https://twitch.tv/zxckjsdv/videos',
@@ -802,6 +760,7 @@
           reddit: 'https://reddit.com/r/zxckjsdv',
           telegram: 'https://t.me/zxckjsdv'
         },
+        description: 'zxckjsdv offers quirky streams, unique content, and a community that’s always down for fun!',
         startHour: 12,
         endHour: 15,
         streamingDays: [1, 3, 5, 0]
@@ -809,7 +768,6 @@
       {
         id: 'brbcompiling',
         name: 'brbcompiling',
-        avatar: 'https://i.postimg.cc/LXhwKQ7N/brbcompiling-profile.png',
         discord: 'https://discord.gg/gUdRv6AU',
         twitch: 'https://twitch.tv/brbcompiling',
         vods: 'https://twitch.tv/brbcompiling/videos',
@@ -818,6 +776,7 @@
           reddit: 'https://reddit.com/r/brbcompiling',
           telegram: 'https://t.me/brbcompiling'
         },
+        description: 'brbcompiling mixes coding, gaming, and chaos in streams with a vibrant community!',
         startHour: 15,
         endHour: 18,
         streamingDays: [1, 3, 5, 0]
@@ -825,7 +784,6 @@
       {
         id: 'TrevorMarksman',
         name: 'TrevorMarksman',
-        avatar: 'https://i.postimg.cc/ZRpYD5yd/random-easy-logo.png',
         discord: 'https://discord.gg/ZSKWZK2U',
         twitch: 'https://twitch.tv/TrevorMarksman',
         vods: 'https://twitch.tv/TrevorMarksman/videos',
@@ -834,6 +792,7 @@
           reddit: 'https://reddit.com/r/TrevorMarksman',
           telegram: 'https://t.me/TrevorMarksman'
         },
+        description: 'TrevorMarksman brings sharp aim and sharper wit to streams with a lively community!',
         startHour: 0,
         endHour: 3,
         streamingDays: [2, 4, 6]
@@ -841,7 +800,6 @@
       {
         id: 'ValentineCoolio',
         name: 'ValentineCoolio',
-        avatar: 'https://i.postimg.cc/P57tXwWD/coolio-kick.png',
         discord: 'https://discord.gg/apgxTaBj',
         twitch: 'https://twitch.tv/ValentineCoolio',
         vods: 'https://twitch.tv/ValentineCoolio/videos',
@@ -850,6 +808,7 @@
           reddit: 'https://reddit.com/r/ValentineCoolio',
           telegram: 'https://t.me/ValentineCoolio'
         },
+        description: 'ValentineCoolio streams with charm, variety, and a community that’s all about good vibes!',
         startHour: 3,
         endHour: 6,
         streamingDays: [2, 4, 6]
@@ -857,7 +816,6 @@
       {
         id: 'LegacyMartian',
         name: 'LegacyMartian',
-        avatar: 'https://i.postimg.cc/PLfcp01z/legacy-martian-logo.png',
         discord: 'https://discord.gg/4MxYRbyZ',
         twitch: 'https://twitch.tv/LegacyMartian',
         vods: 'https://twitch.tv/LegacyMartian/videos',
@@ -866,6 +824,7 @@
           reddit: 'https://reddit.com/r/LegacyMartian',
           telegram: 'https://t.me/LegacyMartian'
         },
+        description: 'LegacyMartian takes you to new worlds with epic streams and a stellar community!',
         startHour: 6,
         endHour: 9,
         streamingDays: [2, 4, 6]
@@ -873,7 +832,6 @@
       {
         id: 'MovieByMacaffe',
         name: 'MovieByMacaffe',
-        avatar: 'https://i.postimg.cc/hjLg1ZH8/macaffe-best-logo.png',
         discord: 'https://discord.gg/mDddbJ8J',
         twitch: 'https://twitch.tv/MovieByMacaffe',
         vods: 'https://twitch.tv/MovieByMacaffe/videos',
@@ -882,6 +840,7 @@
           reddit: 'https://reddit.com/r/MovieByMacaffe',
           telegram: 'https://t.me/MovieByMacaffe'
         },
+        description: 'MovieByMacaffe streams cinematic gaming and cozy vibes with a passionate community!',
         startHour: 15,
         endHour: 18,
         streamingDays: [2, 4, 6]
@@ -889,7 +848,6 @@
       {
         id: 'BizaroPeter',
         name: 'BizaroPeter',
-        avatar: 'https://i.postimg.cc/9XsKQYKC/bizaropeter-profile.png',
         discord: 'https://discord.gg/tPWpx28U',
         twitch: 'https://twitch.tv/BizaroPeter',
         vods: 'https://twitch.tv/BizaroPeter/videos',
@@ -898,6 +856,7 @@
           reddit: 'https://reddit.com/r/BizaroPeter',
           telegram: 'https://t.me/BizaroPeter'
         },
+        description: 'Join BizaroPeter for epic gaming sessions, variety streams, and a welcoming community full of vibrant energy!',
         startHour: 9,
         endHour: 12,
         streamingDays: [2, 4, 6]
@@ -905,7 +864,6 @@
       {
         id: 'GynaWENS',
         name: 'GynaWENS',
-        avatar: 'https://i.postimg.cc/k5jh3QWr/wens-logo.png',
         discord: 'https://discord.gg/cF9aRQ8B',
         twitch: 'https://twitch.tv/GynaWENS',
         vods: 'https://twitch.tv/GynaWENS/videos',
@@ -914,6 +872,7 @@
           reddit: 'https://reddit.com/r/GynaWENS',
           telegram: 'https://t.me/GynaWENS'
         },
+        description: 'GynaWENS streams with humor, heart, and a community that’s always ready for fun!',
         startHour: 12,
         endHour: 15,
         streamingDays: [2, 4, 6]
@@ -921,7 +880,6 @@
       {
         id: 'xvbrznem',
         name: 'xvbrznem',
-        avatar: 'https://i.postimg.cc/HcVh35Zr/xvbrznem-logo.jpg',
         discord: 'https://discord.gg/vV623V4F',
         twitch: 'https://twitch.tv/xvbrznem',
         vods: 'https://twitch.tv/xvbrznem/videos',
@@ -930,6 +888,7 @@
           reddit: 'https://reddit.com/r/xvbrznem',
           telegram: 'https://t.me/xvbrznem'
         },
+        description: 'xvbrznem delivers non-stop action, variety streams, and a community that thrives on excitement!',
         startHour: 18,
         endHour: 24,
         streamingDays: [1, 2, 3, 4, 5, 6, 0]
@@ -941,7 +900,6 @@
       const dropdownItems = document.querySelector('.dropdown__items');
       const dropdownText = document.getElementById('dropdown-text');
       const profile = document.getElementById('profile');
-      const profileImg = profile.querySelector('img');
       const profileTitle = profile.querySelector('h2');
       const profileDescription = profile.querySelector('p');
       const joinButton = profile.querySelector('.join-button');
@@ -952,7 +910,6 @@
       const calendarButton = document.getElementById('calendar-button');
       const dropdown = document.querySelector('.dropdown');
 
-      // Track the currently selected streamer ID and whether "Live Now" is active
       let selectedStreamerId = null;
       let isLiveNowSelected = false;
 
@@ -1108,10 +1065,8 @@
 
       function updateProfile(streamer) {
         selectedStreamerId = streamer.id;
-        profileImg.src = streamer.avatar;
-        profileImg.alt = `${streamer.name} logo`;
         profileTitle.textContent = streamer.name;
-        profileDescription.textContent = `Join ${streamer.name} for epic fun sessions, variety streams, and a vibrant community!`;
+        profileDescription.textContent = streamer.description;
         joinButton.href = streamer.discord;
         joinButton.innerHTML = `<i class="fab fa-discord"></i> Join ${streamer.name} Discord`;
         socialContainer.innerHTML = `
@@ -1134,7 +1089,6 @@
         nextStreamerText.textContent = `The next stream will be live with ${streamer.name} on ${streamInfo.date} at ${streamInfo.time} NZST`;
         calendarButton.href = generateIcsFile(streamer, streamInfo.nextStreamDate);
         calendarButton.download = `${streamer.name}_stream_${streamInfo.date.replace(/, /g, '')}.ics`;
-        // Update URL hash
         if (!isLiveNowSelected) {
           try {
             window.history.replaceState(null, null, `@${streamer.id}`);
@@ -1144,7 +1098,6 @@
         }
       }
 
-      // Populate dropdown with "Live Now" and all streamers
       const liveNowLi = document.createElement('li');
       liveNowLi.dataset.streamerId = 'live-now';
       liveNowLi.textContent = 'Live Now';
@@ -1163,7 +1116,6 @@
         dropdownItems.appendChild(li);
       });
 
-      // Initialize with URL hash or default to current/next streamer
       function init() {
         let selectedStreamer;
         const hash = window.location.hash.substring(1);
@@ -1182,7 +1134,6 @@
 
       init();
 
-      // Handle hash changes (e.g., user navigates via browser back/forward)
       window.addEventListener('hashchange', () => {
         const hash = window.location.hash.substring(1);
         const streamerId = hash.startsWith('@') ? hash.substring(1) : hash;
@@ -1201,7 +1152,6 @@
         }
       });
 
-      // Dropdown face click
       dropdownFace.addEventListener('click', () => {
         const isOpen = dropdownItems.classList.contains('active');
         dropdownItems.classList.toggle('active');
@@ -1209,7 +1159,6 @@
         dropdown.setAttribute('aria-expanded', !isOpen);
       });
 
-      // Dropdown item click
       dropdownItems.addEventListener('click', (e) => {
         const item = e.target.closest('li');
         if (item) {
@@ -1263,13 +1212,11 @@
         }
       });
 
-      // Update profile periodically only if "Live Now" is selected
       setInterval(() => {
         if (isLiveNowSelected) {
           const currentStreamer = getCurrentStreamer() || getNextStreamer();
           updateProfile(currentStreamer);
         }
-        // Update dropdown to reflect live status
         dropdownItems.querySelectorAll('li').forEach(item => {
           if (item.dataset.streamerId === 'live-now') return;
           const streamer = streamers.find(s => s.id === item.dataset.streamerId);
@@ -1279,7 +1226,7 @@
             item.classList.remove('live-now');
           }
         });
-      }, 60000); // Update every minute
+      }, 60000);
     });
   </script>
 </body>
