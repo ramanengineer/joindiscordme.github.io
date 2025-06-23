@@ -695,7 +695,7 @@
 
       let selectedStreamerId = null;
 
-      function updateProfile(streamer, updateUrl = true) {
+      function updateProfile(streamer) {
         selectedStreamerId = streamer.id;
         dropdownText.textContent = streamer.name;
         profileTitle.textContent = streamer.name;
@@ -709,12 +709,10 @@
           <a href="${streamer.vods}" class="social-button twitch" aria-label="Watch ${streamer.name} VODs"><i class="fab fa-twitch"></i></a>
         `;
         profile.classList.add('active');
-        if (updateUrl) {
-          try {
-            window.history.replaceState(null, null, `/@${streamer.id}`);
-          } catch (e) {
-            console.warn('Unable to update URL hash:', e.message);
-          }
+        try {
+          window.history.pushState(null, null, `/@${streamer.id}`);
+        } catch (e) {
+          console.warn('Unable to update URL hash:', e.message);
         }
       }
 
@@ -728,7 +726,7 @@
         socialContainer.innerHTML = '';
         selectedStreamerId = null;
         try {
-          window.history.replaceState(null, null, '/');
+          window.history.pushState(null, null, '/');
         } catch (e) {
           console.warn('Unable to update URL hash:', e.message);
         }
@@ -745,15 +743,15 @@
       }
 
       function selectStreamerFromHash() {
-        const hash = window.location.hash.substring(1);
-        const streamerId = hash.startsWith('@') ? hash.substring(1).toLowerCase() : hash.toLowerCase();
+        const hash = window.location.hash || '';
+        const streamerId = hash.startsWith('#/@') ? hash.substring(3).toLowerCase() : hash.startsWith('#/') ? hash.substring(2).toLowerCase() : hash.substring(1).toLowerCase();
         if (!streamerId) {
           clearProfile();
           return;
         }
         const selectedStreamer = streamers.find(s => s.id.toLowerCase() === streamerId);
         if (selectedStreamer) {
-          updateProfile(selectedStreamer, false);
+          updateProfile(selectedStreamer);
         } else {
           clearProfile();
         }
