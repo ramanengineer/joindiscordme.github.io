@@ -3,38 +3,26 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>joindiscord.me - Fun Discord Communities</title>
-  <meta name="description" content="Join fun Discord communities on joindiscord.me for vibrant vibes and variety streams. Connect now!">
-  <meta name="keywords" content="joindiscord.me, Discord, community, fun, xwlasxd, HeavySamLifts, ShadyPeterLive, ramkrishanghoil, zxckjsdv, brbcompiling, TrevorMarksman, ValentineCoolio, LegacyMartian, MovieByMacaffe, BizaroPeter, GynaWENS, xvbrznem">
+  <title>joindiscord.me</title>
+  <meta name="description" content="Join joindiscord.me for 24/7 live Twitch streams and community engagement. Follow streamers like xwlasxd, HeavySamLifts, and more. Access via joindiscord.me/@username">
+  <meta name="keywords" content="GGQP, live streaming, Twitch, community, xwlasxd, HeavySamLifts, ShadyPeterLive, ramkrishanghoil, zxckjsdv, brbcompiling, TrevorMarksman, ValentineCoolio, LegacyMartian, MovieByMacaffe, BizaroPeter, GynaWENS, xvbrznem, Discord">
   <meta name="author" content="joindiscord.me">
-  <meta property="og:title" content="joindiscord.me - Fun Discord Communities">
-  <meta property="og:description" content="Dive into fun Discord communities on joindiscord.me for vibrant fun. Join today!">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="joindiscord.me - Live Twitch Streaming & Community Hub">
+  <meta property="og:description" content="Explore joindiscord.me for daily live Twitch streams and community interaction. Connect with streamers and join Discord! Access via joindiscord.me/@username">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://joindiscord.me">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="joindiscord.me - Fun Discord Communities">
-  <meta name="twitter:description" content="Join fun Discord communities on joindiscord.me for community vibes. Connect now!">
+  <meta property="og:site_name" content="joindiscord.me">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="joindiscord.me - Live Twitch Streaming & Community Hub">
+  <meta name="twitter:description" content="Daily live Twitch streams at joindiscord.me! Join xwlasxd, HeavySamLifts, and more for community fun. Access via joindiscord.me/@username">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="canonical" href="https://joindiscord.me">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
-    :root {
-      --bg-dark: #1e1e2e;
-      --bg-accent: #2a2a3a;
-      --text: #f5f5fa;
-      --text-muted: #c5c5d5;
-      --button: #5865f2;
-      --button-hover: #4752c4;
-      --x-color: #000000;
-      --reddit-color: #ff4500;
-      --telegram-color: #0088cc;
-      --twitch-color: #9146ff;
-      --glass-bg: rgba(30, 30, 46, 0.85);
-      --glass-border: rgba(255, 255, 255, 0.2);
-      --shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-      --glow: 0 0 12px rgba(88, 101, 242, 0.6);
-      --discord-glow: 0 0 12px rgba(88, 101, 242, 0.8), 0 0 20px rgba(88, 101, 242, 0.4);
-      --gradient-border: linear-gradient(90deg, #ff007b, #5865f2, #4caf50);
+    @font-face {
+      font-family: 'PixelFont';
+      src: url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+      font-weight: bold;
     }
 
     * {
@@ -44,776 +32,786 @@
     }
 
     body {
-      background: linear-gradient(135deg, var(--bg-dark), var(--bg-accent));
-      color: var(--text);
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-      min-height: 100vh;
+      background: #2f3136;
+      color: #dcddde;
+      font-family: Arial, sans-serif;
+      line-height: 1.5;
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
-      padding: 24px;
-      font-size: 18px;
-      overflow-x: hidden;
+      padding: 1rem;
+      transition: background-color 0.3s, color 0.3s;
     }
 
-    a { color: var(--text); text-decoration: none; }
-    a:hover { text-decoration: none; }
-    h1, h2, h3 { font-weight: 700; text-align: center; }
+    body.light-mode {
+      background: #f6f6f6;
+      color: #36393f;
+    }
 
-    .container {
-      max-width: 1000px;
+    a {
+      color: #5865f2;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    h1, h2, h3 {
+      font-weight: bold;
+      text-align: center;
+      color: #ffffff;
+    }
+
+    body.light-mode h1,
+    body.light-mode h2,
+    body.light-mode h3 {
+      color: #36393f;
+    }
+
+    .theme-toggle-container {
+      margin: 1rem 0;
+      text-align: center;
       width: 100%;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 32px;
-      animation: fadeIn 1.2s ease-out;
+      max-width: 800px;
+    }
+
+    .theme-toggle {
+      padding: 0.5rem 1rem;
+      font-size: 0.9rem;
+      border: 1px solid #4e5058;
+      border-radius: 4px;
+      background: #40444b;
+      color: #dcddde;
+      cursor: pointer;
+    }
+
+    body.light-mode .theme-toggle {
+      background: #ffffff;
+      border-color: #d7d8da;
+      color: #36393f;
+    }
+
+    .theme-toggle:hover {
+      background: #4e5058;
+    }
+
+    body.light-mode .theme-toggle:hover {
+      background: #ebedef;
+    }
+
+    .main {
+      width: 100%;
+      max-width: 800px;
+      text-align: center;
     }
 
     .intro {
-      text-align: center;
-      margin-bottom: 20px;
-      background: var(--glass-bg);
-      backdrop-filter: blur(12px);
-      padding: 24px;
-      border-radius: 16px;
-      border: 1px solid var(--glass-border);
-      width: 100%;
-    }
-
-    .intro h1 {
-      font-size: clamp(2.8rem, 6vw, 3.2rem);
-      color: var(--text);
-      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
-      margin-bottom: 12px;
-      animation: pulse 3s infinite ease-in-out;
+      margin-bottom: 1rem;
     }
 
     .intro p {
-      font-size: clamp(1.2rem, 2.5vw, 1.4rem);
-      color: var(--text-muted);
-      max-width: 700px;
-      margin: 0 auto;
-      line-height: 1.6;
+      font-size: 1rem;
+      margin: 0.5rem 0;
     }
 
     .streamer-select {
-      width: 100%;
-      max-width: 600px;
-    }
-
-    .dropdown {
+      margin: 1rem 0;
       position: relative;
       width: 100%;
-    }
-
-    .dropdown__face {
-      background: var(--glass-bg);
-      padding: 1.3rem 1.8rem;
-      border-radius: 12px;
-      border: 1px solid var(--glass-border);
-      color: var(--text);
-      font-size: clamp(1.2rem, 3vw, 1.4rem);
-      font-weight: 600;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      backdrop-filter: blur(12px);
-      box-shadow: var(--shadow);
-      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
-    }
-
-    .dropdown__face:hover, .dropdown__face:focus {
-      background: var(--button-hover);
-      transform: translateY(-2px);
-      box-shadow: var(--glow);
-    }
-
-    .dropdown__text {
-      flex-grow: 1;
-      text-align: left;
-    }
-
-    .dropdown__items {
-      position: absolute;
-      left: 0;
-      top: calc(100% + 0.5rem);
-      width: 100%;
-      list-style: none;
-      display: none;
-      flex-direction: column;
-      gap: 0.6rem;
-      z-index: 150;
-      background: var(--glass-bg);
-      backdrop-filter: blur(15px);
-      padding: 1rem;
-      border-radius: 12px;
-      border: 1px solid var(--glass-border);
-      animation: slideDown 0.3s ease-in-out;
-      max-height: 60vh;
-      overflow-y: auto;
-      box-shadow: var(--shadow);
-    }
-
-    .dropdown__items::-webkit-scrollbar {
-      width: 8px;
-    }
-
-    .dropdown__items::-webkit-scrollbar-track {
-      background: var(--bg-dark);
-      border-radius: 4px;
-    }
-
-    .dropdown__items::-webkit-scrollbar-thumb {
-      background: var(--button);
-      border-radius: 4px;
-    }
-
-    .dropdown__items::-webkit-scrollbar-thumb:hover {
-      background: var(--button-hover);
-    }
-
-    .dropdown__items.active {
-      display: flex;
-    }
-
-    @keyframes slideDown {
-      from { opacity: 0; transform: translateY(-0.5rem); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    .dropdown__items li {
-      padding: 1rem 1.2rem;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      border-radius: 8px;
-      font-size: clamp(1.1rem, 2.5vw, 1.2rem);
-      font-weight: 600;
-      color: var(--text);
-      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
-    }
-
-    .dropdown__items li:hover, .dropdown__items li:focus {
-      background: var(--button-hover);
-      color: var(--text);
-      box-shadow: var(--glow);
-      transform: translateX(3px);
-    }
-
-    .dropdown__arrow {
-      border-bottom: 2px solid var(--text);
-      border-right: 2px solid var(--text);
-      width: 0.8rem;
-      height: 0.8rem;
-      transform: rotate(45deg);
-      transition: transform 0.3s ease;
-    }
-
-    .dropdown__face.active .dropdown__arrow {
-      transform: rotate(-135deg);
-    }
-
-    .profile {
-      display: none;
-      flex-direction: column;
-      align-items: center;
-      background: var(--glass-bg);
-      backdrop-filter: blur(15px);
-      border-radius: 16px;
-      padding: 40px;
-      max-width: 700px;
-      width: 100%;
-      transition: transform 0.4s ease;
-      border: 1px solid var(--glass-border);
-    }
-
-    .profile.active {
-      display: flex;
-    }
-
-    .profile:hover {
-      transform: translateY(-6px);
-    }
-
-    .profile h2 {
-      font-size: clamp(2.4rem, 5vw, 2.8rem);
-      color: var(--text);
-      margin-bottom: 12px;
-      text-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
-    }
-
-    .profile p {
-      font-size: clamp(1.2rem, 2.5vw, 1.4rem);
-      color: var(--text-muted);
-      text-align: center;
-      margin-bottom: 20px;
-      max-width: 600px;
-      line-height: 1.6;
-    }
-
-    .join-button {
-      background: var(--button);
-      border-radius: 10px;
-      padding: 14px 36px;
-      color: var(--text);
-      font-size: 1.2rem;
-      font-weight: 600;
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      transition: all 0.3s ease;
-      backdrop-filter: blur(10px);
-      border: 1px solid var(--glass-border);
-      box-shadow: var(--shadow);
-    }
-
-    .join-button:hover {
-      background: var(--button-hover);
-      transform: translateY(-3px);
-      box-shadow: var(--glow);
-    }
-
-    .social-container {
-      margin-top: 20px;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 16px;
-      justify-content: center;
-    }
-
-    .social-button {
-      background: var(--glass-bg);
-      border-radius: 10px;
-      padding: 12px;
-      color: var(--text);
-      font-size: 1.5rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: all 0.3s ease;
-      backdrop-filter: blur(10px);
-      border: 1px solid var(--glass-border);
-      box-shadow: var(--shadow);
-    }
-
-    .social-button:hover {
-      transform: translateY(-2px);
-      box-shadow: var(--glow);
-    }
-
-    .social-button.x { background: var(--x-color); }
-    .social-button.x:hover { background: #333333; }
-    .social-button.reddit { background: var(--reddit-color); }
-    .social-button.reddit:hover { background: #e03d00; }
-    .social-button.telegram { background: var(--telegram-color); }
-    .social-button.telegram:hover { background: #006699; }
-    .social-button.twitch { background: var(--twitch-color); }
-    .social-button.twitch:hover { background: #7a3ed6; }
-
-    .community-discord-container {
-      text-align: center;
-      background: var(--glass-bg);
-      backdrop-filter: blur(15px);
-      padding: 32px;
-      border-radius: 16px;
-      width: 100%;
-      max-width: 700px;
-      position: relative;
-      overflow: hidden;
-      border: 2px solid transparent;
-      background-clip: padding-box;
-      box-shadow: var(--shadow), 0 0 20px rgba(255, 255, 255, 0.1);
-      animation: glowBorder 4s linear infinite;
-    }
-
-    @keyframes glowBorder {
-      0% { border-color: #ff007b; box-shadow: 0 0 15px #ff007b; }
-      33% { border-color: #5865f2; box-shadow: 0 0 15px #5865f2; }
-      66% { border-color: #4caf50; box-shadow: 0 0 15px #4caf50; }
-      100% { border-color: #ff007b; box-shadow: 0 0 15px #ff007b; }
-    }
-
-    .community-discord-container::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      border-radius: 14px;
-      padding: 2px;
-      background: var(--gradient-border);
-      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-      -webkit-mask-composite: xor;
-      mask-composite: exclude;
-      z-index: -1;
-    }
-
-    .community-discord-container h3 {
-      font-size: clamp(2rem, 4vw, 2.4rem);
-      background: linear-gradient(90deg, #ff007b, #5865f2);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-      margin-bottom: 16px;
-      text-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
-      animation: textGlow 2s ease-in-out infinite;
-    }
-
-    @keyframes textGlow {
-      0%, 100% { text-shadow: 0 0 8px rgba(255, 0, 123, 0.8); }
-      50% { text-shadow: 0 0 12px rgba(88, 101, 242, 0.8); }
-    }
-
-    .community-discord-container p {
-      font-size: clamp(1.2rem, 2.5vw, 1.4rem);
-      color: var(--text-muted);
-      margin-bottom: 24px;
-      line-height: 1.6;
-      max-width: 600px;
+      max-width: 300px;
       margin-left: auto;
       margin-right: auto;
     }
 
-    .streamer-list {
-      margin-bottom: 24px;
-      list-style: none;
+    select {
+      width: 100%;
+      padding: 0.5rem;
+      font-size: 1rem;
+      border: 1px solid #4e5058;
+      border-radius: 4px;
+      background: #40444b;
+      color: #dcddde;
+      cursor: pointer;
+      appearance: none;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      height: 2.5rem;
+      max-height: 15rem;
+    }
+
+    body.light-mode select {
+      background: #ffffff;
+      border-color: #d7d8da;
+      color: #36393f;
+    }
+
+    select:focus {
+      outline: none;
+      border-color: #5865f2;
+    }
+
+    select option {
+      background: #40444b;
+      color: #dcddde;
+    }
+
+    body.light-mode select option {
+      background: #ffffff;
+      color: #36393f;
+    }
+
+    .streamer-select::after {
+      content: '\f078';
+      font-family: 'Font Awesome 6 Free';
+      font-weight: 900;
+      position: absolute;
+      right: 0.75rem;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #dcddde;
+      pointer-events: none;
+    }
+
+    body.light-mode .streamer-select::after {
+      color: #36393f;
+    }
+
+    select::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    select::-webkit-scrollbar-track {
+      background: #40444b;
+    }
+
+    body.light-mode select::-webkit-scrollbar-track {
+      background: #f6f6f6;
+    }
+
+    select::-webkit-scrollbar-thumb {
+      background: #5865f2;
+      border-radius: 4px;
+    }
+
+    select::-webkit-scrollbar-thumb:hover {
+      background: #4752c4;
+    }
+
+    .streamer-content {
+      display: none;
+      margin-top: 1rem;
+    }
+
+    .streamer-content.active {
+      display: block;
+    }
+
+    .channel-info {
+      margin-bottom: 1rem;
+    }
+
+    .channel-name {
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .channel-schedule {
+      font-size: 0.9rem;
+      margin-bottom: 0.5rem;
+      color: #b9bbbe;
+    }
+
+    body.light-mode .channel-schedule {
+      color: #72767d;
+    }
+
+    .stream-container {
+      margin-bottom: 1rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .stream-status-button {
+      display: inline-block;
+      padding: 0.5rem 1rem;
+      font-size: 1rem;
+      border-radius: 4px;
+      color: #ffffff;
+      text-align: center;
+      width: 100%;
+      max-width: 200px;
+    }
+
+    .stream-status-button.live {
+      background: #ff0000;
+    }
+
+    .stream-status-button.offline {
+      background: #5865f2;
+    }
+
+    .stream-timer {
+      font-size: 0.9rem;
+      margin-top: 0.5rem;
+      color: #b9bbbe;
+    }
+
+    body.light-mode .stream-timer {
+      color: #72767d;
+    }
+
+    .social-container {
+      margin-top: 1rem;
+    }
+
+    .social-grid {
       display: flex;
       flex-wrap: wrap;
-      gap: 16px;
+      gap: 0.5rem;
       justify-content: center;
     }
 
-    .streamer-list li {
-      font-size: clamp(1.1rem, 2.5vw, 1.2rem);
-      color: var(--text);
-      padding: 8px 16px;
-      background: var(--glass-bg);
+    .social-button {
+      display: inline-block;
+      padding: 1.2rem 2rem;
+      font-size: 1.8rem;
       border-radius: 8px;
-      border: 1px solid var(--glass-border);
-      transition: all 0.3s ease;
+      color: #ffffff;
+      background: #5865f2;
+      text-align: center;
+      width: 100%;
+      max-width: 500px;
+      transition: background 0.3s;
     }
 
-    .streamer-list li:hover {
-      background: var(--button-hover);
-      transform: translateY(-2px);
-      box-shadow: var(--glow);
+    .social-button:hover {
+      background: #4752c4;
     }
 
-    .community-discord-container .join-button {
-      background: var(--button);
-      padding: 16px 40px;
-      font-size: clamp(1.2rem, 2.5vw, 1.3rem);
-      box-shadow: var(--discord-glow);
-      animation: buttonPulse 2s ease-in-out infinite;
+    .social-button.discord {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
     }
 
-    .community-discord-container .join-button:hover {
-      background: var(--button-hover);
-      transform: translateY(-3px);
-      box-shadow: var(--discord-glow), 0 0 20px rgba(88, 101, 242, 0.8);
+    .community-container {
+      margin-top: 2rem;
+      padding: 2rem;
+      background: #36393f;
+      border-radius: 8px;
+      width: 100%;
+      max-width: 800px;
     }
 
-    @keyframes buttonPulse {
-      0%, 100% { box-shadow: var(--discord-glow); }
-      50% { box-shadow: 0 0 20px rgba(88, 101, 242, 1), 0 0 30px rgba(88, 101, 242, 0.6); }
+    body.light-mode .community-container {
+      background: #ebedef;
     }
 
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
+    .community-container h2 {
+      margin-bottom: 1.5rem;
+      font-size: 2rem;
     }
 
-    @keyframes pulse {
-      0%, 100% { transform: scale(1); }
-      50% { transform: scale(1.02); }
+    .community-discord-button {
+      display: inline-block;
+      padding: 1.2rem 2rem;
+      font-size: 1.8rem;
+      border-radius: 8px;
+      background: #5865f2;
+      color: #ffffff;
+      text-align: center;
+      width: 100%;
+      max-width: 500px;
+      transition: background 0.3s;
     }
 
-    @media (max-width: 768px) {
-      body { padding: 20px; font-size: 16px; }
-      .container { gap: 24px; }
-      .intro { padding: 20px; }
-      .intro h1 { font-size: clamp(2.2rem, 5vw, 2.6rem); }
-      .intro p { font-size: clamp(1rem, 2vw, 1.2rem); }
-      .streamer-select { max-width: 500px; }
-      .dropdown__face { padding: 1.1rem 1.6rem; font-size: clamp(1rem, 2.5vw, 1.2rem); }
-      .dropdown__items { padding: 0.8rem; }
-      .dropdown__items li { font-size: clamp(0.95rem, 2vw, 1rem); }
-      .profile { padding: 32px; }
-      .profile h2 { font-size: clamp(2rem, 4vw, 2.4rem); }
-      .profile p { font-size: clamp(1rem, 2vw, 1.2rem); }
-      .join-button { padding: 12px 32px; font-size: 1rem; }
-      .social-button { padding: 10px; font-size: 1.3rem; }
-      .community-discord-container { padding: 24px; }
-      .community-discord-container h3 { font-size: clamp(1.6rem, 3.5vw, 2rem); }
-      .community-discord-container p { font-size: clamp(1rem, 2vw, 1.2rem); }
-      .streamer-list li { font-size: clamp(0.95rem, 2vw, 1rem); }
-      .community-discord-container .join-button { padding: 14px 36px; font-size: 1rem; }
+    .community-discord-button:hover {
+      background: #4752c4;
     }
 
     @media (max-width: 480px) {
-      body { padding: 16px; font-size: 14px; }
-      .container { gap: 20px; }
-      .intro { padding: 16px; }
-      .intro h1 { font-size: clamp(1.8rem, 4.5vw, 2.2rem); }
-      .intro p { font-size: clamp(0.95rem, 1.8vw, 1rem); }
-      .streamer-select { max-width: 100%; }
-      .dropdown__face { padding: 0.9rem 1.4rem; font-size: clamp(0.95rem, 2vw, 1rem); }
-      .dropdown__items { padding: 0.7rem; }
-      .dropdown__items li { font-size: clamp(0.9rem, 1.8vw, 0.95rem); }
-      .profile { padding: 24px; }
-      .profile h2 { font-size: clamp(1.8rem, 3.5vw, 2rem); }
-      .profile p { font-size: clamp(0.95rem, 1.8vw, 1rem); }
-      .join-button { padding: 10px 28px; font-size: 0.95rem; }
-      .social-container { gap: 12px; }
-      .social-button { padding: 8px; font-size: 1.1rem; }
-      .community-discord-container { padding: 20px; }
-      .community-discord-container h3 { font-size: clamp(1.4rem, 3vw, 1.6rem); }
-      .community-discord-container p { font-size: clamp(0.95rem, 1.8vw, 1rem); }
-      .streamer-list li { font-size: clamp(0.9rem, 1.8vw, 0.95rem); }
-      .community-discord-container .join-button { padding: 12px 32px; font-size: 0.95rem; }
+      body {
+        padding: 0.5rem;
+      }
+
+      .theme-toggle-container {
+        margin: 0.5rem 0;
+      }
+
+      select {
+        font-size: 0.9rem;
+      }
+
+      .channel-name {
+        font-size: 1.1rem;
+      }
+
+      .channel-schedule {
+        font-size: 0.85rem;
+      }
+
+      .stream-status-button {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.9rem;
+      }
+
+      .social-button {
+        padding: 0.8rem 1.5rem;
+        font-size: 1.2rem;
+        max-width: 100%;
+      }
+
+      .community-container {
+        padding: 1rem;
+      }
+
+      .community-container h2 {
+        font-size: 1.5rem;
+      }
+
+      .community-discord-button {
+        padding: 0.8rem 1.5rem;
+        font-size: 1.2rem;
+        max-width: 100%;
+      }
     }
   </style>
 </head>
 <body>
-  <div class="container">
+  <main class="main">
+    <div class="theme-toggle-container">
+      <button class="theme-toggle" id="theme-toggle">Switch to Light Mode</button>
+    </div>
     <div class="intro">
-      <h1>joindiscord.me</h1>
-      <p>Explore vibrant Discord communities filled with fun, variety streams, and epic vibes! Select a streamer or visit joindiscord.me/@username to join their Discord!</p>
+      <h2>joindiscord.me Live 24/7🚨</h2>
+      <h3>drop menu👇</h3>
     </div>
+
     <div class="streamer-select">
-      <div class="dropdown" role="combobox" aria-expanded="false">
-        <div class="dropdown__face" tabindex="0">
-          <div class="dropdown__text" id="dropdown-text">Select Streamer</div>
-          <div class="dropdown__arrow"></div>
+      <select id="streamer-dropdown">
+        <option value="LIVE">LIVE NOW!</option>
+        <option value="xwlasxd">xwlasxd</option>
+        <option value="HeavySamLifts">HeavySamLifts</option>
+        <option value="ShadyPeterLive">ShadyPeterLive</option>
+        <option value="ramkrishanghoil">ramkrishanghoil</option>
+        <option value="zxckjsdv">zxckjsdv</option>
+        <option value="brbcompiling">brbcompiling</option>
+        <option value="TrevorMarksman">TrevorMarksman</option>
+        <option value="ValentineCoolio">ValentineCoolio</option>
+        <option value="LegacyMartian">LegacyMartian</option>
+        <option value="MovieByMacaffe">MovieByMacaffe</option>
+        <option value="BizaroPeter">BizaroPeter</option>
+        <option value="GynaWENS">GynaWENS</option>
+        <option value="xvbrznem">xvbrznem</option>
+      </select>
+    </div>
+
+    <template id="streamer-template">
+      <div class="streamer-content" id="">
+        <div class="channel-info">
+          <h2 class="channel-name"><a href=""></a></h2>
+          <div class="channel-schedule"></div>
         </div>
-        <ul class="dropdown__items" id="streamer-dropdown">
-          <!-- Streamer options will be populated by JavaScript -->
-        </ul>
+        <div class="stream-container">
+          <a class="stream-status-button"></a>
+          <div class="stream-timer"></div>
+        </div>
+        <div class="social-container">
+          <div class="social-grid"></div>
+        </div>
       </div>
+    </template>
+
+    <div class="community-container">
+      <h2>Join Our Community!</h2>
+      <a class="community-discord-button" href="https://discord.gg/7KTNz38m">Join ogvk.org Discord</a>
     </div>
-    <div class="profile" id="profile">
-      <h2></h2>
-      <p></p>
-      <a class="join-button" href="#"><i class="fab fa-discord"></i> Join Discord</a>
-      <div class="social-container"></div>
-    </div>
-    <div class="community-discord-container">
-      <h3>Join Our Epic Discord Community</h3>
-      <p>OGVK, the Twitch Live org, and GGQP, the YouTube Live org, have united in this vibrant Discord community, bringing together streamers and fans for epic fun and variety streams!</p>
-      <ul class="streamer-list">
-        <li>xwlasxd</li>
-        <li>HeavySamLifts</li>
-        <li>ShadyPeterLive</li>
-        <li>ramkrishanghoil</li>
-        <li>zxckjsdv</li>
-        <li>brbcompiling</li>
-        <li>TrevorMarksman</li>
-        <li>ValentineCoolio</li>
-        <li>LegacyMartian</li>
-        <li>MovieByMacaffe</li>
-        <li>BizaroPeter</li>
-        <li>GynaWENS</li>
-        <li>xvbrznem</li>
-      </ul>
-      <a class="join-button" href="https://discord.gg/ymwPhfz2"><i class="fab fa-discord"></i> Join Community Discord</a>
-    </div>
-  </div>
+  </main>
+
   <script>
     const streamers = [
       {
-        id: 'xwlasxd',
-        name: 'xwlasxd',
-        discord: 'https://discord.gg/abrtMaCsyu',
-        vods: 'https://twitch.tv/xwlasxd/videos',
+        id: 'xwlasxd', name: 'xwlasxd', shortName: 'xwlasxd', url: 'https://twitch.tv/xwlasxd', discord: 'https://joindiscord.me/abrtMaCsyu',
         social: {
-          x: 'https://x.com/xwlasxd',
-          reddit: 'https://reddit.com/r/xwlasxd',
-          telegram: 'https://t.me/xwlasxd'
+          discord: { webUrl: 'https://joindiscord.me/abrtMaCsyu', icon: 'fab fa-discord' }
         },
-        description: 'Join xwlasxd for high-energy variety streams, chaotic fun, and a tight-knit community!'
+        startHour: 0, endHour: 3, streamingDays: [0, 1, 3, 5],
+        followers: 200000, subscribers: 20000
       },
       {
-        id: 'HeavySamLifts',
-        name: 'HeavySamLifts',
-        discord: 'https://discord.gg/36U3wCXXfe',
-        vods: 'https://twitch.tv/HeavySamLifts/videos',
+        id: 'HeavySamLifts', name: 'HeavySamLifts', shortName: 'HeavySam', url: 'https://twitch.tv/HeavySamLifts', discord: 'https://joindiscord.me/36U3wCXXfe',
         social: {
-          x: 'https://x.com/HeavySamLifts',
-          reddit: 'https://reddit.com/r/HeavySamLifts',
-          telegram: 'https://t.me/HeavySamLifts'
+          discord: { webUrl: 'https://joindiscord.me/36U3wCXXfe', icon: 'fab fa-discord' }
         },
-        description: 'HeavySamLifts brings fitness, gaming, and epic vibes to the stream with a supportive community!'
+        startHour: 3, endHour: 6, streamingDays: [0, 1, 3, 5],
+        followers: 200000, subscribers: 20000
       },
       {
-        id: 'ShadyPeterLive',
-        name: 'ShadyPeterLive',
-        discord: 'https://discord.gg/QkTWZrT6',
-        vods: 'https://twitch.tv/ShadyPeterLive/videos',
+        id: 'ShadyPeterLive', name: 'ShadyPeterLive', shortName: 'ShadyPeter', url: 'https://twitch.tv/ShadyPeterLive', discord: 'https://joindiscord.me/QkTWZrT6',
         social: {
-          x: 'https://x.com/ShadyPeterLive',
-          reddit: 'https://reddit.com/r/ShadyPeterLive',
-          telegram: 'https://t.me/ShadyPeterLive'
+          discord: { webUrl: 'https://joindiscord.me/QkTWZrT6', icon: 'fab fa-discord' }
         },
-        description: 'ShadyPeterLive delivers wild gaming sessions and a fun, engaging community atmosphere!'
+        startHour: 6, endHour: 9, streamingDays: [0, 1, 3, 5],
+        followers: 200000, subscribers: 20000
       },
       {
-        id: 'ramkrishanghoil',
-        name: 'ramkrishanghoil',
-        discord: 'https://discord.gg/vTd4bxJX',
-        vods: 'https://twitch.tv/ramkrishanghoil/videos',
+        id: 'ramkrishanghoil', name: 'ramkrishanghoil', shortName: 'rkg', url: 'https://twitch.tv/ramkrishanghoil', discord: 'https://joindiscord.me/vTd4bxJX',
         social: {
-          x: 'https://x.com/ramkrishanghoil',
-          reddit: 'https://reddit.com/r/ramkrishanghoil',
-          telegram: 'https://t.me/ramkrishanghoil'
+          discord: { webUrl: 'https://joindiscord.me/vTd4bxJX', icon: 'fab fa-discord' }
         },
-        description: 'Join ramkrishanghoil for chill streams, variety content, and a welcoming community!'
+        startHour: 9, endHour: 12, streamingDays: [0, 1, 3, 5],
+        followers: 200000, subscribers: 20000
       },
       {
-        id: 'zxckjsdv',
-        name: 'zxckjsdv',
-        discord: 'https://discord.gg/mTT2SBmq',
-        vods: 'https://twitch.tv/zxckjsdv/videos',
+        id: 'zxckjsdv', name: 'zxckjsdv', shortName: 'zxckjsdv', url: 'https://twitch.tv/zxckjsdv', discord: 'https://joindiscord.me/mTT2SBmq',
         social: {
-          x: 'https://x.com/zxckjsdv',
-          reddit: 'https://reddit.com/r/zxckjsdv',
-          telegram: 'https://t.me/zxckjsdv'
+          discord: { webUrl: 'https://joindiscord.me/mTT2SBmq', icon: 'fab fa-discord' }
         },
-        description: 'zxckjsdv offers quirky streams, unique content, and a community that’s always down for fun!'
+        startHour: 12, endHour: 15, streamingDays: [0, 1, 3, 5],
+        followers: 200000, subscribers: 20000
       },
       {
-        id: 'brbcompiling',
-        name: 'brbcompiling',
-        discord: 'https://discord.gg/gUdRv6AU',
-        vods: 'https://twitch.tv/brbcompiling/videos',
+        id: 'brbcompiling', name: 'brbcompiling', shortName: 'brb', url: 'https://twitch.tv/brbcompiling', discord: 'https://joindiscord.me/gUdRv6AU',
         social: {
-          x: 'https://x.com/brbcompiling',
-          reddit: 'https://reddit.com/r/brbcompiling',
-          telegram: 'https://t.me/brbcompiling'
+          discord: { webUrl: 'https://joindiscord.me/gUdRv6AU', icon: 'fab fa-discord' }
         },
-        description: 'brbcompiling mixes coding, gaming, and chaos in streams with a vibrant community!'
+        startHour: 15, endHour: 18, streamingDays: [0, 1, 3, 5],
+        followers: 200000, subscribers: 20000
       },
       {
-        id: 'TrevorMarksman',
-        name: 'TrevorMarksman',
-        discord: 'https://discord.gg/ZSKWZK2U',
-        vods: 'https://twitch.tv/TrevorMarksman/videos',
+        id: 'TrevorMarksman', name: 'TrevorMarksman', shortName: 'Trevor', url: 'https://twitch.tv/TrevorMarksman', discord: 'https://joindiscord.me/ZSKWZK2U',
         social: {
-          x: 'https://x.com/TrevorMarksman',
-          reddit: 'https://reddit.com/r/TrevorMarksman',
-          telegram: 'https://t.me/TrevorMarksman'
+          discord: { webUrl: 'https://joindiscord.me/ZSKWZK2U', icon: 'fab fa-discord' }
         },
-        description: 'TrevorMarksman brings sharp aim and sharper wit to streams with a lively community!'
+        startHour: 0, endHour: 3, streamingDays: [2, 4, 6],
+        followers: 200000, subscribers: 20000
       },
       {
-        id: 'ValentineCoolio',
-        name: 'ValentineCoolio',
-        discord: 'https://discord.gg/apgxTaBj',
-        vods: 'https://twitch.tv/ValentineCoolio/videos',
+        id: 'ValentineCoolio', name: 'ValentineCoolio', shortName: 'Valentine', url: 'https://twitch.tv/ValentineCoolio', discord: 'https://joindiscord.me/apgxTaBj',
         social: {
-          x: 'https://x.com/ValentineCoolio',
-          reddit: 'https://reddit.com/r/ValentineCoolio',
-          telegram: 'https://t.me/ValentineCoolio'
+          discord: { webUrl: 'https://joindiscord.me/apgxTaBj', icon: 'fab fa-discord' }
         },
-        description: 'ValentineCoolio streams with charm, variety, and a community that’s all about good vibes!'
+        startHour: 3, endHour: 6, streamingDays: [2, 4, 6],
+        followers: 200000, subscribers: 20000
       },
       {
-        id: 'LegacyMartian',
-        name: 'LegacyMartian',
-        discord: 'https://discord.gg/4MxYRbyZ',
-        vods: 'https://twitch.tv/LegacyMartian/videos',
+        id: 'LegacyMartian', name: 'LegacyMartian', shortName: 'Martian', url: 'https://twitch.tv/LegacyMartian', discord: 'https://joindiscord.me/4MxYRbyZ',
         social: {
-          x: 'https://x.com/LegacyMartian',
-          reddit: 'https://reddit.com/r/LegacyMartian',
-          telegram: 'https://t.me/LegacyMartian'
+          discord: { webUrl: 'https://joindiscord.me/4MxYRbyZ', icon: 'fab fa-discord' }
         },
-        description: 'LegacyMartian takes you to new worlds with epic streams and a stellar community!'
+        startHour: 6, endHour: 9, streamingDays: [2, 4, 6],
+        followers: 200000, subscribers: 20000
       },
       {
-        id: 'MovieByMacaffe',
-        name: 'MovieByMacaffe',
-        discord: 'https://discord.gg/mDddbJ8J',
-        vods: 'https://twitch.tv/MovieByMacaffe/videos',
+        id: 'MovieByMacaffe', name: 'MovieByMacaffe', shortName: 'Macaffe', url: 'https://twitch.tv/MovieByMacaffe', discord: 'https://joindiscord.me/mDddbJ8J',
         social: {
-          x: 'https://x.com/MovieByMacaffe',
-          reddit: 'https://reddit.com/r/MovieByMacaffe',
-          telegram: 'https://t.me/MovieByMacaffe'
+          discord: { webUrl: 'https://joindiscord.me/mDddbJ8J', icon: 'fab fa-discord' }
         },
-        description: 'MovieByMacaffe streams cinematic gaming and cozy vibes with a passionate community!'
+        startHour: 9, endHour: 12, streamingDays: [2, 4, 6],
+        followers: 200000, subscribers: 20000
       },
       {
-        id: 'BizaroPeter',
-        name: 'BizaroPeter',
-        discord: 'https://discord.gg/tPWpx28U',
-        vods: 'https://twitch.tv/BizaroPeter/videos',
+        id: 'BizaroPeter', name: 'BizaroPeter', shortName: 'Bizaro', url: 'https://twitch.tv/BizaroPeter', discord: 'https://joindiscord.me/tPWpx28U',
         social: {
-          x: 'https://x.com/BizaroPeter',
-          reddit: 'https://reddit.com/r/BizaroPeter',
-          telegram: 'https://t.me/BizaroPeter'
+          discord: { webUrl: 'https://joindiscord.me/tPWpx28U', icon: 'fab fa-discord' }
         },
-        description: 'Join BizaroPeter for epic gaming sessions, variety streams, and a welcoming community full of vibrant energy!'
+        startHour: 12, endHour: 15, streamingDays: [2, 4, 6],
+        followers: 200000, subscribers: 20000
       },
       {
-        id: 'GynaWENS',
-        name: 'GynaWENS',
-        discord: 'https://discord.gg/cF9aRQ8B',
-        vods: 'https://twitch.tv/GynaWENS/videos',
+        id: 'GynaWENS', name: 'GynaWENS', shortName: 'Gyna', url: 'https://twitch.tv/GynaWENS', discord: 'https://joindiscord.me/cF9aRQ8B',
         social: {
-          x: 'https://x.com/GynaWENS',
-          reddit: 'https://reddit.com/r/GynaWENS',
-          telegram: 'https://t.me/GynaWENS'
+          discord: { webUrl: 'https://joindiscord.me/cF9aRQ8B', icon: 'fab fa-discord' }
         },
-        description: 'GynaWENS streams with humor, heart, and a community that’s always ready for fun!'
+        startHour: 15, endHour: 18, streamingDays: [2, 4, 6],
+        followers: 200000, subscribers: 20000
       },
       {
-        id: 'xvbrznem',
-        name: 'xvbrznem',
-        discord: 'https://discord.gg/vV623V4F',
-        vods: 'https://twitch.tv/xvbrznem/videos',
+        id: 'xvbrznem', name: 'xvbrznem', shortName: 'xbrznem', url: 'https://twitch.tv/xvbrznem', discord: 'https://joindiscord.me/vV623V4F',
         social: {
-          x: 'https://x.com/xvbrznem',
-          reddit: 'https://reddit.com/r/xvbrznem',
-          telegram: 'https://t.me/xvbrznem'
+          discord: { webUrl: 'https://joindiscord.me/vV623V4F', icon: 'fab fa-discord' }
         },
-        description: 'xvbrznem delivers non-stop action, variety streams, and a community that thrives on excitement!'
+        startHour: 18, endHour: 24, streamingDays: [0, 1, 2, 3, 4, 5, 6],
+        followers: 200000, subscribers: 20000
       }
     ];
 
     document.addEventListener('DOMContentLoaded', () => {
-      const dropdownFace = document.querySelector('.dropdown__face');
-      const dropdownItems = document.querySelector('.dropdown__items');
-      const dropdownText = document.getElementById('dropdown-text');
-      const profile = document.getElementById('profile');
-      const profileTitle = profile.querySelector('h2');
-      const profileDescription = profile.querySelector('p');
-      const joinButton = profile.querySelector('.join-button');
-      const socialContainer = profile.querySelector('.social-container');
-      const dropdown = document.querySelector('.dropdown');
+      const dropdown = document.getElementById('streamer-dropdown');
+      const main = document.querySelector('.main');
+      const template = document.getElementById('streamer-template');
+      const themeToggle = document.getElementById('theme-toggle');
+      let isLiveNowSelected = false;
 
-      let selectedStreamerId = null;
+      // Theme toggle functionality
+      const savedTheme = localStorage.getItem('theme') || 'dark';
+      document.body.classList.toggle('light-mode', savedTheme === 'light');
+      themeToggle.textContent = savedTheme === 'light' ? 'Switch to Dark Mode' : 'Switch to Light Mode';
 
-      function updateProfile(streamer) {
-        selectedStreamerId = streamer.id;
-        dropdownText.textContent = streamer.name;
-        profileTitle.textContent = streamer.name;
-        profileDescription.textContent = streamer.description;
-        joinButton.href = streamer.discord;
-        joinButton.innerHTML = `<i class="fab fa-discord"></i> Join ${streamer.name} Discord`;
-        socialContainer.innerHTML = `
-          <a href="${streamer.social.x}" class="social-button x" aria-label="Follow ${streamer.name} on X"><i class="fab fa-x-twitter"></i></a>
-          <a href="${streamer.social.reddit}" class="social-button reddit" aria-label="Follow ${streamer.name} on Reddit"><i class="fab fa-reddit"></i></a>
-          <a href="${streamer.social.telegram}" class="social-button telegram" aria-label="Follow ${streamer.name} on Telegram"><i class="fab fa-telegram"></i></a>
-          <a href="${streamer.vods}" class="social-button twitch" aria-label="Watch ${streamer.name} VODs"><i class="fab fa-twitch"></i></a>
-        `;
-        profile.classList.add('active');
-        try {
-          window.history.pushState(null, null, `/@${encodeURIComponent(streamer.id)}`);
-        } catch (e) {
-          console.warn('Unable to update URL:', e.message);
-        }
+      themeToggle.addEventListener('click', () => {
+        document.body.classList.toggle('light-mode');
+        const newTheme = document.body.classList.contains('light-mode') ? 'light' : 'dark';
+        localStorage.setItem('theme', newTheme);
+        themeToggle.textContent = newTheme === 'light' ? 'Switch to Dark Mode' : 'Switch to Light Mode';
+      });
+
+      function getNzTime(date) {
+        return new Date(date.toLocaleString("en-US", { timeZone: "Pacific/Auckland" }));
       }
 
-      function clearProfile() {
-        profile.classList.remove('active');
-        dropdownText.textContent = 'Select Streamer';
-        profileTitle.textContent = '';
-        profileDescription.textContent = '';
-        joinButton.href = '#';
-        joinButton.innerHTML = `<i class="fab fa-discord"></i> Join Discord`;
-        socialContainer.innerHTML = '';
-        selectedStreamerId = null;
-        try {
-          window.history.pushState(null, null, '/');
-        } catch (e) {
-          console.warn('Unable to update URL:', e.message);
-        }
+      function isNzdt() {
+        const date = new Date();
+        const jan = new Date(date.getFullYear(), 0, 1);
+        const jul = new Date(date.getFullYear(), 6, 1);
+        const stdOffset = Math.max(jan.getTimezoneOffset(), jul.getTimezoneOffset());
+        return date.getTimezoneOffset() < stdOffset;
       }
 
-      function populateDropdown() {
-        dropdownItems.innerHTML = '';
-        streamers.forEach(streamer => {
-          const li = document.createElement('li');
-          li.dataset.streamerId = streamer.id;
-          li.textContent = streamer.name;
-          li.tabIndex = 0;
-          dropdownItems.appendChild(li);
+      function isStreamingDay(streamer) {
+        const nzTime = getNzTime(new Date());
+        return streamer.streamingDays.includes(nzTime.getDay());
+      }
+
+      function getCurrentStreamer() {
+        const nzTime = getNzTime(new Date());
+        const currentHour = nzTime.getHours();
+        return streamers.find(s => isStreamingDay(s) && currentHour >= s.startHour && currentHour < s.endHour) || null;
+      }
+
+      function getNextStreamer(streamer) {
+        const nzTime = getNzTime(new Date());
+        const currentHour = nzTime.getHours();
+        const currentDay = nzTime.getDay();
+        let nextStreamer = streamers.find(s => 
+          isStreamingDay(s) && s.startHour > currentHour && s.startHour > (streamer?.startHour || -1)
+        );
+        if (!nextStreamer) {
+          const nextDay = (currentDay + 1) % 7;
+          nextStreamer = streamers.find(s => s.streamingDays.includes(nextDay)) || streamers[0];
+        }
+        return nextStreamer;
+      }
+
+      function formatTime(hour) {
+        const period = hour >= 12 ? 'PM' : 'AM';
+        const adjustedHour = hour % 12 || 12;
+        return `${adjustedHour}:00 ${period}`;
+      }
+
+      function getNextStreamTime(streamer) {
+        const nzTime = getNzTime(new Date());
+        const currentHour = nzTime.getHours();
+        const currentDay = nzTime.getDay();
+        let nextStreamTime = new Date(nzTime);
+
+        if (streamer.streamingDays.length === 7) {
+          // Daily streamer
+          if (currentHour >= streamer.startHour) {
+            nextStreamTime.setDate(nzTime.getDate() + 1);
+          }
+          nextStreamTime.setHours(streamer.startHour, 0, 0, 0);
+        } else {
+          // Non-daily streamer
+          if (isStreamingDay(streamer) && currentHour < streamer.startHour) {
+            nextStreamTime.setHours(streamer.startHour, 0, 0, 0);
+          } else {
+            let nextDay = currentDay;
+            let daysUntilNext = 1;
+            while (!streamer.streamingDays.includes((nextDay + daysUntilNext) % 7)) daysUntilNext++;
+            nextStreamTime.setDate(nzTime.getDate() + daysUntilNext);
+            nextStreamTime.setHours(streamer.startHour, 0, 0, 0);
+          }
+        }
+        return nextStreamTime;
+      }
+
+      function updateStreamerContent(content, streamer, isLive) {
+        const nzTime = getNzTime(new Date());
+        const currentHour = nzTime.getHours();
+        const timeZone = isNzdt() ? 'NZDT' : 'NZST';
+
+        const nameLink = content.querySelector('.channel-name a');
+        nameLink.href = streamer.url;
+        nameLink.textContent = `@${streamer.name}`;
+
+        const schedule = content.querySelector('.channel-schedule');
+        const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+        const streamingDays = streamer.streamingDays.length === 7 ? 'Daily' : streamer.streamingDays.map(day => days[day]).join(', ');
+        schedule.textContent = `Streams ${streamingDays} from ${formatTime(streamer.startHour)} to ${formatTime(streamer.endHour)} ${timeZone}`;
+
+        const statusButton = content.querySelector('.stream-status-button');
+        statusButton.textContent = isLive ? 'Join Live on Twitch!' : 'Watch VODs';
+        statusButton.className = `stream-status-button ${isLive ? 'live' : 'offline'}`;
+        statusButton.href = isLive ? streamer.url : `${streamer.url}/videos`;
+
+        let countdownText = '';
+        if (isLive) {
+          const endTime = new Date(nzTime);
+          endTime.setHours(streamer.endHour, 0, 0, 0);
+          if (endTime < nzTime) endTime.setDate(endTime.getDate() + 1);
+          const timeLeft = endTime - nzTime;
+          const hours = Math.floor(timeLeft / (1000 * 60 * 60));
+          const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+          countdownText = `Stream ends in ${hours}h ${minutes}m`;
+        } else {
+          const nextStreamTime = getNextStreamTime(streamer);
+          const timeDiff = nextStreamTime - nzTime;
+          const hours = Math.floor(timeDiff / (1000 * 60 * 60));
+          const minutes = Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60));
+          const seconds = Math.floor((timeDiff % (1000 * 60)) / 1000);
+          countdownText = timeDiff <= 0 ? `${streamer.name} should be live soon!` :
+            `Next stream in ${hours}h ${minutes}m ${seconds}s`;
+        }
+
+        content.querySelector('.stream-timer').textContent = countdownText;
+
+        const socialGrid = content.querySelector('.social-grid');
+        socialGrid.innerHTML = '';
+        Object.keys(streamer.social).forEach(platform => {
+          const { webUrl, icon } = streamer.social[platform];
+          const socialButton = document.createElement('a');
+          socialButton.className = `social-button ${platform}`;
+          socialButton.href = webUrl;
+          socialButton.innerHTML = `<i class="${icon}"></i> Join ${streamer.name}'s Discord`;
+          socialGrid.appendChild(socialButton);
         });
       }
 
-      function loadStreamerFromPath() {
+      function selectStreamer(streamerId) {
+        document.querySelectorAll('.streamer-content').forEach(c => c.classList.remove('active'));
+        document.getElementById(streamerId).classList.add('active');
+        dropdown.value = streamerId;
+        try {
+          window.history.replaceState(null, null, `/@${encodeURIComponent(streamerId)}`);
+        } catch (e) {
+          console.warn('Unable to update URL:', e.message);
+        }
+      }
+
+      async function loadStreamerFromPath() {
         const path = window.location.pathname;
         const match = path.match(/^\/@([^/]+)/);
         if (match) {
           const username = decodeURIComponent(match[1]).toLowerCase();
           const selectedStreamer = streamers.find(s => s.id.toLowerCase() === username);
           if (selectedStreamer) {
-            dropdownText.textContent = selectedStreamer.name;
-            updateProfile(selectedStreamer);
+            selectStreamer(selectedStreamer.id);
             return selectedStreamer;
           }
         }
-        clearProfile();
         return null;
       }
 
-      function init() {
-        populateDropdown();
-        loadStreamerFromPath();
+      streamers.forEach(streamer => {
+        const clone = template.content.cloneNode(true);
+        const content = clone.querySelector('.streamer-content');
+        content.id = streamer.id;
+        const isLive = isStreamingDay(streamer) && getNzTime(new Date()).getHours() >= streamer.startHour && getNzTime(new Date()).getHours() < streamer.endHour;
+        updateStreamerContent(content, streamer, isLive);
+        main.insertBefore(clone, document.querySelector('.community-container'));
+      });
+
+      const liveClone = template.content.cloneNode(true);
+      const liveContent = liveClone.querySelector('.streamer-content');
+      liveContent.id = 'LIVE';
+      liveContent.classList.add('active');
+      const currentStreamer = getCurrentStreamer();
+      if (currentStreamer) {
+        updateStreamerContent(liveContent, currentStreamer, true);
+      } else {
+        const nextStreamer = getNextStreamer(null);
+        updateStreamerContent(liveContent, nextStreamer, false);
+      }
+      main.insertBefore(liveClone, document.querySelector('.community-container'));
+
+      dropdown.addEventListener('change', () => {
+        isLiveNowSelected = dropdown.value === 'LIVE';
+        selectStreamer(dropdown.value);
+      });
+
+      async function init() {
+        let selectedStreamer = await loadStreamerFromPath();
+        if (!selectedStreamer) {
+          selectedStreamer = getCurrentStreamer() || streamers[0];
+          isLiveNowSelected = !!getCurrentStreamer();
+          selectStreamer(isLiveNowSelected ? 'LIVE' : selectedStreamer.id);
+        }
       }
 
       init();
 
-      window.addEventListener('popstate', () => {
-        loadStreamerFromPath();
-      });
-
-      dropdownFace.addEventListener('click', () => {
-        const isOpen = dropdownItems.classList.contains('active');
-        dropdownItems.classList.toggle('active');
-        dropdownFace.classList.toggle('active');
-        dropdown.setAttribute('aria-expanded', !isOpen);
-      });
-
-      document.addEventListener('click', (e) => {
-        if (!dropdown.contains(e.target)) {
-          dropdownItems.classList.remove('active');
-          dropdownFace.classList.remove('active');
-          dropdown.setAttribute('aria-expanded', 'false');
+      window.addEventListener('popstate', async () => {
+        const selectedStreamer = await loadStreamerFromPath();
+        if (selectedStreamer) {
+          isLiveNowSelected = false;
+          selectStreamer(selectedStreamer.id);
+        } else {
+          const fallbackStreamer = getCurrentStreamer() || streamers[0];
+          isLiveNowSelected = !!getCurrentStreamer();
+          selectStreamer(isLiveNowSelected ? 'LIVE' : fallbackStreamer.id);
         }
       });
 
-      dropdownItems.addEventListener('click', (e) => {
-        const item = e.target.closest('li');
-        if (item) {
-          e.stopPropagation();
-          const selectedStreamer = streamers.find(s => s.id === item.dataset.streamerId);
-          if (selectedStreamer) {
-            updateProfile(selectedStreamer);
-            dropdownItems.classList.remove('active');
-            dropdownFace.classList.remove('active');
-            dropdown.setAttribute('aria-expanded', 'false');
+      setInterval(() => {
+        const nzTime = getNzTime(new Date());
+        const currentHour = nzTime.getHours();
+        const timeZone = isNzdt() ? 'NZDT' : 'NZST';
+
+        streamers.forEach(streamer => {
+          const content = document.getElementById(streamer.id);
+          if (!content) return;
+
+          const isLive = isStreamingDay(streamer) && currentHour >= streamer.startHour && currentHour < streamer.endHour;
+          const statusButton = content.querySelector('.stream-status-button');
+          statusButton.textContent = isLive ? 'Join Live on Twitch!' : 'Watch VODs';
+          statusButton.className = `stream-status-button ${isLive ? 'live' : 'offline'}`;
+          statusButton.href = isLive ? streamer.url : `${streamer.url}/videos`;
+
+          let countdownText = '';
+          if (isLive) {
+            const endTime = new Date(nzTime);
+            endTime.setHours(streamer.endHour, 0, 0, 0);
+            if (endTime < nzTime) endTime.setDate(endTime.getDate() + 1);
+            const timeLeft = endTime - nzTime;
+            const hours = Math.floor(timeLeft / (1000 * 60 * 60));
+            const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+            countdownText = `Stream ends in ${hours}h ${minutes}m`;
+          } else {
+            const nextStreamTime = getNextStreamTime(streamer);
+            const timeDiff = nextStreamTime - nzTime;
+            const hours = Math.floor(timeDiff / (1000 * 60 * 60));
+            const minutes = Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((timeDiff % (1000 * 60)) / 1000);
+            countdownText = timeDiff <= 0 ? `${streamer.name} should be live soon!` :
+              `Next stream in ${hours}h ${minutes}m ${seconds}s`;
+          }
+
+          content.querySelector('.stream-timer').textContent = countdownText;
+
+          const schedule = content.querySelector('.channel-schedule');
+          const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+          const streamingDays = streamer.streamingDays.length === 7 ? 'Daily' : streamer.streamingDays.map(day => days[day]).join(', ');
+          schedule.textContent = `Streams ${streamingDays} from ${formatTime(streamer.startHour)} to ${formatTime(streamer.endHour)} ${timeZone}`;
+        });
+
+        const liveContent = document.getElementById('LIVE');
+        if (liveContent) {
+          const currentStreamer = getCurrentStreamer();
+          if (currentStreamer) {
+            updateStreamerContent(liveContent, currentStreamer, true);
+          } else {
+            const nextStreamer = getNextStreamer(null);
+            updateStreamerContent(liveContent, nextStreamer, false);
+          }
+          if (isLiveNowSelected) {
+            selectStreamer('LIVE');
           }
         }
-      });
-
-      dropdownItems.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter' || e.key === ' ') {
-          e.preventDefault();
-          const item = e.target.closest('li');
-          if (item) {
-            const selectedStreamer = streamers.find(s => s.id === item.dataset.streamerId);
-            if (selectedStreamer) {
-              updateProfile(selectedStreamer);
-              dropdownItems.classList.remove('active');
-              dropdownFace.classList.remove('active');
-              dropdown.setAttribute('aria-expanded', 'false');
-            }
-          }
-        }
-      });
+      }, 1000);
     });
   </script>
 </body>
